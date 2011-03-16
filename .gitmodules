@@ -1,0 +1,3 @@
+[submodule "Dependencies/AMStuff"]
+	path = Dependencies/AMStuff
+	url = git@github.com:amrox/AMStuff.git

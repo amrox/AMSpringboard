@@ -1,0 +1,347 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* AMSpringboardViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AMSpringboardViewAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		B337CD87130FB03000423A68 /* AMSpringboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B337CD86130FB03000423A68 /* AMSpringboardView.m */; };
+		B337CD8C130FB03E00423A68 /* AMSpringboardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B337CD8B130FB03E00423A68 /* AMSpringboardViewCell.m */; };
+		B35A4A85132E7E67003817DA /* AMExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B35A4A61132E7E67003817DA /* AMExtensions.m */; };
+		B35A4A86132E7E67003817DA /* AMGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = B35A4A63132E7E67003817DA /* AMGeometry.m */; };
+		B35A4A87132E7E67003817DA /* AMUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B35A4A66132E7E67003817DA /* AMUtility.m */; };
+		B35A4A88132E7E67003817DA /* UIColor+AMMoreColors.m in Sources */ = {isa = PBXBuildFile; fileRef = B35A4A68132E7E67003817DA /* UIColor+AMMoreColors.m */; };
+		B3621002131D712D0003D4EA /* AMSpringboardItemSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */; };
+		B3763D3B132413A800DBACDC /* NSIndexPath+AMSpringboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboardView.m */; };
+		B3763D3F1324174D00DBACDC /* TestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763D3E1324174D00DBACDC /* TestCell.m */; };
+		B3A8B572131E2ED8002AF07D /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A8B570131E2ED6002AF07D /* RootViewController.m */; };
+		B3A8B573131E2ED8002AF07D /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3A8B571131E2ED7002AF07D /* RootViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* AMSpringboardViewAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSpringboardViewAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* AMSpringboardViewAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSpringboardViewAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* AMSpringboardView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMSpringboardView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* AMSpringboardView_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSpringboardView_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* AMSpringboardView-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AMSpringboardView-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		B337CD85130FB03000423A68 /* AMSpringboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSpringboardView.h; sourceTree = "<group>"; };
+		B337CD86130FB03000423A68 /* AMSpringboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSpringboardView.m; sourceTree = "<group>"; };
+		B337CD8A130FB03E00423A68 /* AMSpringboardViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSpringboardViewCell.h; sourceTree = "<group>"; };
+		B337CD8B130FB03E00423A68 /* AMSpringboardViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSpringboardViewCell.m; sourceTree = "<group>"; };
+		B35A4A60132E7E67003817DA /* AMExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMExtensions.h; sourceTree = "<group>"; };
+		B35A4A61132E7E67003817DA /* AMExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMExtensions.m; sourceTree = "<group>"; };
+		B35A4A62132E7E67003817DA /* AMGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGeometry.h; sourceTree = "<group>"; };
+		B35A4A63132E7E67003817DA /* AMGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGeometry.m; sourceTree = "<group>"; };
+		B35A4A64132E7E67003817DA /* AMLogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMLogMacros.h; sourceTree = "<group>"; };
+		B35A4A65132E7E67003817DA /* AMUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMUtility.h; sourceTree = "<group>"; };
+		B35A4A66132E7E67003817DA /* AMUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtility.m; sourceTree = "<group>"; };
+		B35A4A67132E7E67003817DA /* UIColor+AMMoreColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AMMoreColors.h"; sourceTree = "<group>"; };
+		B35A4A68132E7E67003817DA /* UIColor+AMMoreColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AMMoreColors.m"; sourceTree = "<group>"; };
+		B3621000131D712D0003D4EA /* AMSpringboardItemSpecifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSpringboardItemSpecifier.h; sourceTree = "<group>"; };
+		B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSpringboardItemSpecifier.m; sourceTree = "<group>"; };
+		B3763D39132413A800DBACDC /* NSIndexPath+AMSpringboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+AMSpringboardView.h"; sourceTree = "<group>"; };
+		B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+AMSpringboardView.m"; sourceTree = "<group>"; };
+		B3763D3D1324174D00DBACDC /* TestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCell.h; sourceTree = "<group>"; };
+		B3763D3E1324174D00DBACDC /* TestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCell.m; sourceTree = "<group>"; };
+		B3A8B56F131E2ED6002AF07D /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		B3A8B570131E2ED6002AF07D /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		B3A8B571131E2ED7002AF07D /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B35A4A23132E7E67003817DA /* AMStuff */,
+				B337CD82130FB01000423A68 /* AMSpringboardView */,
+				B3763D3C1324171F00DBACDC /* AMSpringboardViewDemo */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* AMSpringboardView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* AMSpringboardView_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* AMSpringboardView-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B337CD82130FB01000423A68 /* AMSpringboardView */ = {
+			isa = PBXGroup;
+			children = (
+				B337CD85130FB03000423A68 /* AMSpringboardView.h */,
+				B337CD86130FB03000423A68 /* AMSpringboardView.m */,
+				B337CD8A130FB03E00423A68 /* AMSpringboardViewCell.h */,
+				B337CD8B130FB03E00423A68 /* AMSpringboardViewCell.m */,
+				B3621000131D712D0003D4EA /* AMSpringboardItemSpecifier.h */,
+				B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */,
+				B3763D39132413A800DBACDC /* NSIndexPath+AMSpringboardView.h */,
+				B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboardView.m */,
+			);
+			path = AMSpringboardView;
+			sourceTree = "<group>";
+		};
+		B35A4A23132E7E67003817DA /* AMStuff */ = {
+			isa = PBXGroup;
+			children = (
+				B35A4A5F132E7E67003817DA /* Base */,
+			);
+			path = AMStuff;
+			sourceTree = "<group>";
+		};
+		B35A4A5F132E7E67003817DA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B35A4A60132E7E67003817DA /* AMExtensions.h */,
+				B35A4A61132E7E67003817DA /* AMExtensions.m */,
+				B35A4A62132E7E67003817DA /* AMGeometry.h */,
+				B35A4A63132E7E67003817DA /* AMGeometry.m */,
+				B35A4A64132E7E67003817DA /* AMLogMacros.h */,
+				B35A4A65132E7E67003817DA /* AMUtility.h */,
+				B35A4A66132E7E67003817DA /* AMUtility.m */,
+				B35A4A67132E7E67003817DA /* UIColor+AMMoreColors.h */,
+				B35A4A68132E7E67003817DA /* UIColor+AMMoreColors.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B3763D3C1324171F00DBACDC /* AMSpringboardViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				1D3623240D0F684500981E51 /* AMSpringboardViewAppDelegate.h */,
+				1D3623250D0F684500981E51 /* AMSpringboardViewAppDelegate.m */,
+				B3A8B56F131E2ED6002AF07D /* RootViewController.h */,
+				B3A8B570131E2ED6002AF07D /* RootViewController.m */,
+				B3A8B571131E2ED7002AF07D /* RootViewController.xib */,
+				B3763D3D1324174D00DBACDC /* TestCell.h */,
+				B3763D3E1324174D00DBACDC /* TestCell.m */,
+			);
+			name = AMSpringboardViewDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* AMSpringboardView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "AMSpringboardView" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AMSpringboardView;
+			productName = AMSpringboardView;
+			productReference = 1D6058910D05DD3D006BFB54 /* AMSpringboardView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "AMSpringboardView" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* AMSpringboardView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				B3A8B573131E2ED8002AF07D /* RootViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* AMSpringboardViewAppDelegate.m in Sources */,
+				B337CD87130FB03000423A68 /* AMSpringboardView.m in Sources */,
+				B337CD8C130FB03E00423A68 /* AMSpringboardViewCell.m in Sources */,
+				B3621002131D712D0003D4EA /* AMSpringboardItemSpecifier.m in Sources */,
+				B3A8B572131E2ED8002AF07D /* RootViewController.m in Sources */,
+				B3763D3B132413A800DBACDC /* NSIndexPath+AMSpringboardView.m in Sources */,
+				B3763D3F1324174D00DBACDC /* TestCell.m in Sources */,
+				B35A4A85132E7E67003817DA /* AMExtensions.m in Sources */,
+				B35A4A86132E7E67003817DA /* AMGeometry.m in Sources */,
+				B35A4A87132E7E67003817DA /* AMUtility.m in Sources */,
+				B35A4A88132E7E67003817DA /* UIColor+AMMoreColors.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = AMSpringboardView_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				INFOPLIST_FILE = "AMSpringboardView-Info.plist";
+				PRODUCT_NAME = AMSpringboardView;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = AMSpringboardView_Prefix.pch;
+				INFOPLIST_FILE = "AMSpringboardView-Info.plist";
+				PRODUCT_NAME = AMSpringboardView;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "AMSpringboardView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "AMSpringboardView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
