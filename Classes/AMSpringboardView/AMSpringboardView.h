@@ -39,13 +39,11 @@
 
 @property (nonatomic, assign) NSInteger currentPage;
 
-//- (NSRange) visibleColumnRange;
-
-
-//@property (nonatomic, assign) CGFloat rowSpacing;    // defaults to 12
-//@property (nonatomic, assign) CGFloat columnSpacing; // defaults to 12
+- (NSIndexPath*) positionForPoint:(CGPoint)point;
 
 @end
+
+
 
 
 #pragma mark -
@@ -59,11 +57,15 @@
 @end
 
 
+
+
 #pragma mark -
 @protocol AMSpringboardViewDelegate <NSObject>
 
 @required
 - (AMSpringboardViewCell*) springboardView:(AMSpringboardView*)springboardView cellForPositionWithIndexPath:(NSIndexPath*)indexPath;
+
+- (void) springboardView:(AMSpringboardView*)springboardView didSelectCellWithPosition:(NSIndexPath*)position;
 
 @end
 

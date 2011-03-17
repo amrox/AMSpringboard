@@ -102,4 +102,10 @@
     return cell;
 }
 
+
+- (void) springboardView:(AMSpringboardView*)springboardView didSelectCellWithPosition:(NSIndexPath*)position
+{
+    LOG_TRACE();
+}
+
 @end

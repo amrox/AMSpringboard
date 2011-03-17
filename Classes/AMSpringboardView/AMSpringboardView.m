@@ -10,6 +10,7 @@
 
 #import "AMExtensions.h"
 #import "AMGeometry.h"
+#import "NSIndexPath+AMSpringboardView.h"
 
 @interface AMSpringboardView ()
 @property (nonatomic, retain) UIScrollView* scrollView;
@@ -74,9 +75,6 @@
 
 - (void) _init
 {
-//    _rowSpacing = 12;
-//    _columnSpacing = 12;
-    
     _cells = [[NSMutableDictionary alloc] init];
     _unusedCells = [[NSMutableArray alloc] init];
     
@@ -99,14 +97,34 @@
     UIView* contentView = [[UIView alloc] initWithFrame:CGRectZero];
     [_scrollView addSubview:contentView];
     self.contentView = contentView;
-    self.contentView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    //self.contentView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     [contentView release];
     
-    //contentView.backgroundColor = [UIColor clearColor];
-    contentView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-	
+    UITapGestureRecognizer* tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contentTap:)];
+    [contentView addGestureRecognizer:tapGest];
+    [tapGest release];
+
+    
     [self performSelector:@selector(reloadData) withObject:nil afterDelay:0.0];
 }
+
+
+- (void) contentTap:(UITapGestureRecognizer*)tap
+{
+    CGPoint point = [tap locationInView:self.contentView];    
+    NSIndexPath* pos = [self positionForPoint:point];
+
+    LOG_DEBUG( @"tapped (p:%d r:%d c:%d)",
+              [pos springboardPage], [pos springboardRow], [pos springboardColumn] );
+    
+    AMSpringboardViewCell* cell = [self.cells objectForKey:pos];
+    if( cell != nil )
+    {
+        [self.delegate springboardView:self didSelectCellWithPosition:pos];
+    }
+}
+
 
 
 - (id) initWithFrame:(CGRect)frame
@@ -313,16 +331,6 @@
 }
 
 
-- (CGRect) getScrollViewVisibleFrame
-{
-    // TODO: port to a category or utility?
-    return CGRectMake(self.scrollView.contentOffset.x,
-                      self.scrollView.contentOffset.y,
-                      self.scrollView.contentSize.width,
-                      self.scrollView.contentSize.height);
-}
-
-
 - (void) addCellToView:(AMSpringboardViewCell*)cell position:(NSIndexPath*)position
 {
     CGPoint center = [self centerForCellWithPosition:position];
@@ -355,19 +363,18 @@
 }
 
 
-- (NSInteger) pageForOffset:(CGFloat)offset
+- (NSIndexPath*) positionForPoint:(CGPoint)point
 {
     CGSize pageSize = self.scrollView.bounds.size;
-    return floor(offset / pageSize.width);
-}
-
-
-- (NSInteger) columnForOffset:(CGFloat)offset
-{
-    CGSize pageSize = self.scrollView.bounds.size;
-    NSInteger page = [self pageForOffset:offset];
-    return floor((offset - (page * pageSize.width))
-                 / (pageSize.width / [self columnCount]));  
+    
+    NSInteger page =  floor(point.x / pageSize.width);
+    
+    NSInteger col =  floor((point.x - (page * pageSize.width))
+                           / (pageSize.width / [self columnCount]));  
+ 
+    NSInteger row = floor(point.y / (pageSize.height  / [self rowCount]));
+    
+    return [NSIndexPath indexPathForPage:page row:row column:col];
 }
 
 
@@ -375,17 +382,19 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSInteger minPage = [self pageForOffset:self.scrollView.contentOffset.x];
-    NSInteger minCol =  [self columnForOffset:self.scrollView.contentOffset.x];
-    //LOG_DEBUG( @"minPage: %d    minColumn: %d", minPage, minCol );
-    
-    // -- The -1 prevents it from going to the next column/page when the view is "at rest"
-    NSInteger maxPage = [self pageForOffset:self.scrollView.contentOffset.x + [self pageWidth]-1];
-    NSInteger maxCol = [self columnForOffset:self.scrollView.contentOffset.x + [self pageWidth]-1];
-    //LOG_DEBUG( @"maxPage: %d    maxColumn: %d", maxPage, maxCol );
+    NSIndexPath* minPos = [self positionForPoint:self.scrollView.contentOffset];
+    LOG_DEBUG( @"minPage: %d    minColumn: %d",
+              [minPos springboardPage], [minPos springboardColumn] );
+        
+    CGPoint maxPt = self.scrollView.contentOffset;
+    maxPt.x += ([self pageWidth]-1);    // -- The -1 prevents it from going to the next column/page when the view is "at rest"
 
-    [self loadCellsForPage:minPage column:minCol];        
-    [self loadCellsForPage:maxPage column:maxCol];
+    NSIndexPath* maxPos = [self positionForPoint:maxPt];
+    LOG_DEBUG( @"maxPage: %d    maxColumn: %d", 
+              [maxPos springboardPage], [maxPos springboardColumn] );
+
+    [self loadCellsForPage:[minPos springboardPage] column:[minPos springboardColumn]];        
+    [self loadCellsForPage:[maxPos springboardPage] column:[maxPos springboardColumn]];
     
     CGRect visibleFrame;
 	visibleFrame.origin = self.scrollView.contentOffset;
