@@ -11,11 +11,19 @@
 
 @implementation NSIndexPath (AMSpringboardView)
 
-+ (NSIndexPath*) indexPathForPage:(NSUInteger)page row:(NSUInteger)row column:(NSUInteger)column
+
++ (NSIndexPath*) indexPathForSpringboardPage:(NSUInteger)page column:(NSUInteger)column row:(NSUInteger)row;
 {
-    NSUInteger idx[3] = {page, row, column};
+    NSUInteger idx[3] = {page, column, row};
     return [NSIndexPath indexPathWithIndexes:idx length:3];
 }
+
+
++ (NSIndexPath*) indexPathForSpringboardPage:(NSUInteger)page column:(NSUInteger)column
+{
+    return [self indexPathForSpringboardPage:page column:column row:kAMSpringboardViewAllRows];
+}
+
 
 - (NSUInteger) springboardPage
 {
@@ -23,16 +31,18 @@
 }
 
 
-- (NSUInteger) springboardRow
+- (NSUInteger) springboardColumn
 {
     return [self indexAtPosition:1];
 }
 
 
-- (NSUInteger) springboardColumn
+- (NSUInteger) springboardRow
 {
     return [self indexAtPosition:2];
 }
+
+
 
 
 @end

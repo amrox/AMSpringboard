@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#define kAMSpringboardViewAllRows NSUIntegerMax
 
 @interface NSIndexPath (AMSpringboardView)
 
-+ (NSIndexPath*) indexPathForPage:(NSUInteger)page row:(NSUInteger)row column:(NSUInteger)column;
++ (NSIndexPath*) indexPathForSpringboardPage:(NSUInteger)page column:(NSUInteger)column row:(NSUInteger)row;
+
++ (NSIndexPath*) indexPathForSpringboardPage:(NSUInteger)page column:(NSUInteger)column;
 
 - (NSUInteger) springboardPage;
-- (NSUInteger) springboardRow;
 - (NSUInteger) springboardColumn;
+- (NSUInteger) springboardRow;
 
 @end

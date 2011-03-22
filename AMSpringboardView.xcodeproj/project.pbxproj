@@ -15,10 +15,7 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		B337CD87130FB03000423A68 /* AMSpringboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B337CD86130FB03000423A68 /* AMSpringboardView.m */; };
 		B337CD8C130FB03E00423A68 /* AMSpringboardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B337CD8B130FB03E00423A68 /* AMSpringboardViewCell.m */; };
-		B35A4A85132E7E67003817DA /* AMExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B35A4A61132E7E67003817DA /* AMExtensions.m */; };
 		B35A4A86132E7E67003817DA /* AMGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = B35A4A63132E7E67003817DA /* AMGeometry.m */; };
-		B35A4A87132E7E67003817DA /* AMUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B35A4A66132E7E67003817DA /* AMUtility.m */; };
-		B35A4A88132E7E67003817DA /* UIColor+AMMoreColors.m in Sources */ = {isa = PBXBuildFile; fileRef = B35A4A68132E7E67003817DA /* UIColor+AMMoreColors.m */; };
 		B3621002131D712D0003D4EA /* AMSpringboardItemSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */; };
 		B3763D3B132413A800DBACDC /* NSIndexPath+AMSpringboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboardView.m */; };
 		B3763D3F1324174D00DBACDC /* TestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763D3E1324174D00DBACDC /* TestCell.m */; };
@@ -41,15 +38,9 @@
 		B337CD86130FB03000423A68 /* AMSpringboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSpringboardView.m; sourceTree = "<group>"; };
 		B337CD8A130FB03E00423A68 /* AMSpringboardViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSpringboardViewCell.h; sourceTree = "<group>"; };
 		B337CD8B130FB03E00423A68 /* AMSpringboardViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSpringboardViewCell.m; sourceTree = "<group>"; };
-		B35A4A60132E7E67003817DA /* AMExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMExtensions.h; sourceTree = "<group>"; };
-		B35A4A61132E7E67003817DA /* AMExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMExtensions.m; sourceTree = "<group>"; };
 		B35A4A62132E7E67003817DA /* AMGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGeometry.h; sourceTree = "<group>"; };
 		B35A4A63132E7E67003817DA /* AMGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGeometry.m; sourceTree = "<group>"; };
 		B35A4A64132E7E67003817DA /* AMLogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMLogMacros.h; sourceTree = "<group>"; };
-		B35A4A65132E7E67003817DA /* AMUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMUtility.h; sourceTree = "<group>"; };
-		B35A4A66132E7E67003817DA /* AMUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtility.m; sourceTree = "<group>"; };
-		B35A4A67132E7E67003817DA /* UIColor+AMMoreColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AMMoreColors.h"; sourceTree = "<group>"; };
-		B35A4A68132E7E67003817DA /* UIColor+AMMoreColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AMMoreColors.m"; sourceTree = "<group>"; };
 		B3621000131D712D0003D4EA /* AMSpringboardItemSpecifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSpringboardItemSpecifier.h; sourceTree = "<group>"; };
 		B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSpringboardItemSpecifier.m; sourceTree = "<group>"; };
 		B3763D39132413A800DBACDC /* NSIndexPath+AMSpringboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+AMSpringboardView.h"; sourceTree = "<group>"; };
@@ -159,15 +150,9 @@
 		B35A4A5F132E7E67003817DA /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				B35A4A60132E7E67003817DA /* AMExtensions.h */,
-				B35A4A61132E7E67003817DA /* AMExtensions.m */,
+				B35A4A64132E7E67003817DA /* AMLogMacros.h */,
 				B35A4A62132E7E67003817DA /* AMGeometry.h */,
 				B35A4A63132E7E67003817DA /* AMGeometry.m */,
-				B35A4A64132E7E67003817DA /* AMLogMacros.h */,
-				B35A4A65132E7E67003817DA /* AMUtility.h */,
-				B35A4A66132E7E67003817DA /* AMUtility.m */,
-				B35A4A67132E7E67003817DA /* UIColor+AMMoreColors.h */,
-				B35A4A68132E7E67003817DA /* UIColor+AMMoreColors.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -255,10 +240,7 @@
 				B3A8B572131E2ED8002AF07D /* RootViewController.m in Sources */,
 				B3763D3B132413A800DBACDC /* NSIndexPath+AMSpringboardView.m in Sources */,
 				B3763D3F1324174D00DBACDC /* TestCell.m in Sources */,
-				B35A4A85132E7E67003817DA /* AMExtensions.m in Sources */,
 				B35A4A86132E7E67003817DA /* AMGeometry.m in Sources */,
-				B35A4A87132E7E67003817DA /* AMUtility.m in Sources */,
-				B35A4A88132E7E67003817DA /* UIColor+AMMoreColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

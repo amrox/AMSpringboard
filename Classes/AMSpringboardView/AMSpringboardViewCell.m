@@ -8,6 +8,7 @@
 
 #import "AMSpringboardViewCell.h"
 
+#import <QuartzCore/QuartzCore.h>
 
 #define DEFAULT_WIDTH 80
 #define DEFAULT_HEIGHT 80
@@ -68,6 +69,8 @@
         self.textLabel.textAlignment = UITextAlignmentCenter;
         [self addSubview:self.textLabel];
 	}
+    
+    self.layer.cornerRadius = 8;
 }
 
 
@@ -94,5 +97,8 @@
 
 // default implementation does nothing
 - (void) prepareForReuse {}
+
+
+
 
 @end

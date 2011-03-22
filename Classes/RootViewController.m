@@ -84,6 +84,8 @@
 
 - (AMSpringboardViewCell*) springboardView:(AMSpringboardView*)springboardView cellForPositionWithIndexPath:(NSIndexPath*)indexPath
 {
+    //LOG_DEBUG( @"%@", indexPath );
+    
     if( [indexPath springboardRow] == 2 && [indexPath springboardColumn] == 2 )
         return nil;
     
@@ -96,8 +98,12 @@
         cell.backgroundColor = [UIColor redColor];
     }
     
-    cell.textLabel.text = @"Beep";
+    cell.textLabel.text = [NSString stringWithFormat:@"(%d, %d, %d)",
+                           [indexPath springboardPage],
+                           [indexPath springboardColumn],
+                           [indexPath springboardRow]];
     cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
     
     return cell;
 }
