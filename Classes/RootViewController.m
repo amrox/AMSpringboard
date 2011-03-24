@@ -95,7 +95,7 @@
     if( cell == nil )
     {
         cell = [[[AMSpringboardViewCell alloc] initWithStyle:AMSpringboardViewCellStyleDefault reuseIdentifier:identifier] autorelease];
-        cell.backgroundColor = [UIColor redColor];
+        //cell.backgroundColor = [UIColor redColor];
     }
     
     cell.textLabel.text = [NSString stringWithFormat:@"(%d, %d, %d)",
@@ -104,6 +104,8 @@
                            [indexPath springboardRow]];
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.backgroundColor = [UIColor clearColor];
+    
+    cell.image = [UIImage imageNamed:@"beer-icon"];
     
     return cell;
 }

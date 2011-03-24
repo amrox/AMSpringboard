@@ -9,6 +9,10 @@
 #import "AMSpringboardViewCell.h"
 
 #import <QuartzCore/QuartzCore.h>
+//#import <Quartz/Quartz.h>
+
+#import "AMGeometry.h"
+#import "AMAdjustingImageView.h"
 
 #define DEFAULT_WIDTH 80
 #define DEFAULT_HEIGHT 80
@@ -20,7 +24,7 @@
 @interface AMSpringboardViewCell ()
 
 @property (nonatomic,readwrite,copy) NSString* reuseIdentifier;
-@property (nonatomic,readwrite,retain) UIImageView* imageView;
+//@property (nonatomic,readwrite,retain) UIImageView* imageView;
 @property (nonatomic,readwrite,retain) UILabel* textLabel; // default is nil.  label will be created if necessary.
 
 @end
@@ -30,7 +34,8 @@
 @implementation AMSpringboardViewCell
 
 @synthesize reuseIdentifier = _reuseIdentifier;
-@synthesize imageView = _imageView;
+//@synthesize imageView = _imageView;
+@synthesize image = _image;
 @synthesize textLabel = _textLabel;
 
 //- (void) _init
@@ -64,11 +69,19 @@
 {
 	if( style == AMSpringboardViewCellStyleDefault )
 	{
+        self.opaque = NO;
+        
 		[self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-LABEL_HEIGHT,
                                                                     self.bounds.size.width, LABEL_HEIGHT)] release];
         self.textLabel.textAlignment = UITextAlignmentCenter;
         [self addSubview:self.textLabel];
-	}
+
+//        CGRect imageViewFrame = self.bounds;
+//        imageViewFrame.size.height -= LABEL_HEIGHT;
+//        imageViewFrame = AMRectInsetWithAspectRatio(imageViewFrame, 1);
+//        [self.imageView = [[AMAdjustingImageView alloc] initWithFrame:imageViewFrame] release];
+//        [self addSubview:self.imageView];
+    }
     
     self.layer.cornerRadius = 8;
 }
@@ -89,9 +102,44 @@
 - (void) dealloc
 {
     [_reuseIdentifier release];
-	[_imageView release];
+//	[_imageView release];
+    [_image release];
 	[_textLabel release];
 	[super dealloc];
+}
+
+
+- (void) drawRect:(CGRect)rect
+{
+    CGRect imageFrame = self.bounds;
+    imageFrame.size.height -= LABEL_HEIGHT;
+    imageFrame = AMRectInsetWithAspectRatio(imageFrame, 1);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);
+
+    CGContextSetBlendMode(context, kCGBlendModeMultiply);
+    
+    [[UIColor redColor] set];
+    [[UIBezierPath bezierPathWithRect:imageFrame] stroke];
+
+    CGContextSaveGState(context);
+//    CGContextScaleCTM(context, 1.0, -1.0);
+    
+//    CGRectApplyAffineTransform(imageFrame, CGAffineTransformMakeScale(1.0, -1.0));
+  
+
+//    CGContextClipToMask(context, imageFrame, self.image.CGImage);
+//    CGContextClipToRect(context, rect);
+
+    CGContextDrawImage(context, imageFrame, self.image.CGImage);
+    CGContextRestoreGState(context);
+    
+    UIColor* color = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4];
+    CGContextSetFillColor(context, CGColorGetComponents(color.CGColor));      
+    CGContextFillRect (context, rect);
+    
+    CGContextRestoreGState(context);
 }
 
 

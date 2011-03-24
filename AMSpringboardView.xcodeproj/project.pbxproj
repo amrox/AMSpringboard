@@ -19,8 +19,11 @@
 		B3621002131D712D0003D4EA /* AMSpringboardItemSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */; };
 		B3763D3B132413A800DBACDC /* NSIndexPath+AMSpringboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboardView.m */; };
 		B3763D3F1324174D00DBACDC /* TestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763D3E1324174D00DBACDC /* TestCell.m */; };
+		B380330C13399DDA00C61550 /* AMAdjustingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B380330B13399DDA00C61550 /* AMAdjustingImageView.m */; };
 		B3A8B572131E2ED8002AF07D /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A8B570131E2ED6002AF07D /* RootViewController.m */; };
 		B3A8B573131E2ED8002AF07D /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3A8B571131E2ED7002AF07D /* RootViewController.xib */; };
+		B3C12D4113387599008F8C17 /* beer-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B3C12D4013387599008F8C17 /* beer-icon.png */; };
+		B3C12DAF13392332008F8C17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C12DAE13392332008F8C17 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,9 +50,13 @@
 		B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+AMSpringboardView.m"; sourceTree = "<group>"; };
 		B3763D3D1324174D00DBACDC /* TestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCell.h; sourceTree = "<group>"; };
 		B3763D3E1324174D00DBACDC /* TestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCell.m; sourceTree = "<group>"; };
+		B380330A13399DDA00C61550 /* AMAdjustingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAdjustingImageView.h; sourceTree = "<group>"; };
+		B380330B13399DDA00C61550 /* AMAdjustingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAdjustingImageView.m; sourceTree = "<group>"; };
 		B3A8B56F131E2ED6002AF07D /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		B3A8B570131E2ED6002AF07D /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		B3A8B571131E2ED7002AF07D /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		B3C12D4013387599008F8C17 /* beer-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beer-icon.png"; sourceTree = "<group>"; };
+		B3C12DAE13392332008F8C17 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3C12DAF13392332008F8C17 /* QuartzCore.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -108,6 +116,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B3C12D4013387599008F8C17 /* beer-icon.png */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* AMSpringboardView-Info.plist */,
 			);
@@ -117,6 +126,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3C12DAE13392332008F8C17 /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
@@ -135,6 +145,8 @@
 				B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */,
 				B3763D39132413A800DBACDC /* NSIndexPath+AMSpringboardView.h */,
 				B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboardView.m */,
+				B380330A13399DDA00C61550 /* AMAdjustingImageView.h */,
+				B380330B13399DDA00C61550 /* AMAdjustingImageView.m */,
 			);
 			path = AMSpringboardView;
 			sourceTree = "<group>";
@@ -222,6 +234,7 @@
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				B3A8B573131E2ED8002AF07D /* RootViewController.xib in Resources */,
+				B3C12D4113387599008F8C17 /* beer-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +254,7 @@
 				B3763D3B132413A800DBACDC /* NSIndexPath+AMSpringboardView.m in Sources */,
 				B3763D3F1324174D00DBACDC /* TestCell.m in Sources */,
 				B35A4A86132E7E67003817DA /* AMGeometry.m in Sources */,
+				B380330C13399DDA00C61550 /* AMAdjustingImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
