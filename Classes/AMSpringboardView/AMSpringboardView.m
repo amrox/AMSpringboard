@@ -12,6 +12,7 @@
 #import "NSIndexPath+AMSpringboardView.h"
 
 #define kDefaultColumnPadding (2)
+static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
 
 @interface AMSpringboardView ()
 @property (nonatomic, retain) UIScrollView* scrollView;
@@ -23,6 +24,11 @@
 - (NSInteger) pageCount;
 - (NSInteger) rowCount;
 - (NSInteger) columnCount;
+@end
+
+
+@interface AMSprinboardScrollView : UIScrollView
+@property (nonatomic, assign) AMSpringboardView* springboardView;
 @end
 
 
@@ -85,7 +91,9 @@
     _pageControl.backgroundColor = [UIColor clearColor];
 	[self addSubview:_pageControl];
 	
-	_scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
+    AMSprinboardScrollView* springboardScroll = [[AMSprinboardScrollView alloc] initWithFrame:CGRectZero];
+    springboardScroll.springboardView = self;
+	_scrollView = springboardScroll;
 	_scrollView.delegate = self;
 	_scrollView.pagingEnabled = YES;
     _scrollView.bounces = YES;
@@ -102,18 +110,42 @@
     self.contentView.backgroundColor = [UIColor clearColor];
     [contentView release];
     
-    UITapGestureRecognizer* tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contentTap:)];
-    [contentView addGestureRecognizer:tapGest];
+    UIGestureRecognizer* tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contentTap:)];
+    tapGest.delegate = self;
+//    [contentView addGestureRecognizer:tapGest];
     [tapGest release];
-
     
+//    [tapGest addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:&kvo_TapGestureState];
+
     [self performSelector:@selector(reloadData) withObject:nil afterDelay:0.0];
 }
 
-
-- (void) contentTap:(UITapGestureRecognizer*)tap
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    CGPoint point = [tap locationInView:self.contentView];    
+    LOG_TRACE();
+    
+    CGPoint point = [gestureRecognizer locationInView:self.contentView];    
+    NSIndexPath* pos = [self positionForPoint:point];
+    id cell = [self.cells objectForKey:pos];
+    if( cell != nil && cell != [NSNull null] )
+    {
+        [cell setHighlighted:YES];
+    }
+
+    return YES;
+}
+
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    LOG_TRACE();
+    return YES;
+}
+
+
+- (void) contentTap:(UIGestureRecognizer*)gestureRecognizer
+{
+    CGPoint point = [gestureRecognizer locationInView:self.contentView];    
     NSIndexPath* pos = [self positionForPoint:point];
 
     LOG_DEBUG( @"tapped (p:%d r:%d c:%d)",
@@ -123,6 +155,7 @@
     if( cell != nil && cell != [NSNull null] )
     {
         [self.delegate springboardView:self didSelectCellWithPosition:pos];
+        [cell setHighlighted:NO];
     }
 }
 
@@ -445,6 +478,68 @@
     
     // -- recalculate page control    
     self.pageControl.currentPage = self.currentPage;
+}
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if (context == &kvo_TapGestureState) {
+        
+        LOG_TRACE();
+        
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
+@end
+
+
+@implementation AMSprinboardScrollView
+
+@synthesize springboardView = _springboardView;
+
+- (BOOL)touchesShouldBegin:(NSSet *)touches withEvent:(UIEvent *)event inContentView:(UIView *)view
+{
+    LOG_TRACE();
+    return YES;
+}
+
+- (BOOL)touchesShouldCancelInContentView:(UIView *)view
+{
+    LOG_TRACE();
+    return [super touchesShouldCancelInContentView:view];
+}
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    LOG_TRACE();
+//    LOG_DEBUG(@"touches: %@", touches);
+//    LOG_DEBUG(@"event: %@", event);
+    
+    UITouch* touch = [touches anyObject]; // TODO: !!!:
+    CGPoint p = [touch locationInView:self.springboardView.contentView];
+    
+//    LOG_DEBUG(@"p:%@", NSStringFromCGPoint(p));
+    
+    NSIndexPath* position = [self.springboardView positionForPoint:p];
+    AMSpringboardViewCell* cell = [self.springboardView getCellForPosition:position];
+    cell.highlighted = YES;
+}
+
+
+- (void)touchesEnded:(NSSet *)touches withEvents:(UIEvent *)event
+{
+    LOG_TRACE();
+    
+    UITouch* touch = [touches anyObject]; // TODO: !!!:
+    CGPoint p = [touch locationInView:self.springboardView.contentView];
+    
+    //    LOG_DEBUG(@"p:%@", NSStringFromCGPoint(p));
+    
+    NSIndexPath* position = [self.springboardView positionForPoint:p];
+    AMSpringboardViewCell* cell = [self.springboardView getCellForPosition:position];
+    cell.highlighted = NO;
 }
 
 @end

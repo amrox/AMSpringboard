@@ -16,18 +16,18 @@ typedef enum {
 @interface AMSpringboardViewCell : UIView
 {
     NSString*    _reuseIdentifier;
-//	UIImageView* _imageView;
     UIImage*     _image;
 	UILabel*     _textLabel;
+    BOOL         _highlighted;
 }
 
 - (id) initWithStyle:(AMSpringboardViewCellStyle)style reuseIdentifier:(NSString*)identifier;
 
-//@property (nonatomic,readonly,retain) UIImageView* imageView;  // default is nil.  image view will be created if necessary.
-
 @property (nonatomic, retain) UIImage* image;
 
 @property (nonatomic,readonly,retain) UILabel* textLabel; // default is nil.  label will be created if necessary.
+
+@property (nonatomic, assign) BOOL highlighted;
 
 @property (nonatomic,readonly,copy) NSString* reuseIdentifier;
 

@@ -9,7 +9,6 @@
 #import "AMSpringboardViewCell.h"
 
 #import <QuartzCore/QuartzCore.h>
-//#import <Quartz/Quartz.h>
 
 #import "AMGeometry.h"
 #import "AMAdjustingImageView.h"
@@ -20,11 +19,9 @@
 #define LABEL_HEIGHT 21
 
 
-
 @interface AMSpringboardViewCell ()
 
 @property (nonatomic,readwrite,copy) NSString* reuseIdentifier;
-//@property (nonatomic,readwrite,retain) UIImageView* imageView;
 @property (nonatomic,readwrite,retain) UILabel* textLabel; // default is nil.  label will be created if necessary.
 
 @end
@@ -34,35 +31,9 @@
 @implementation AMSpringboardViewCell
 
 @synthesize reuseIdentifier = _reuseIdentifier;
-//@synthesize imageView = _imageView;
 @synthesize image = _image;
 @synthesize textLabel = _textLabel;
-
-//- (void) _init
-//{
-//	
-//}
-//
-//- (id) initWithFrame:(CGRect)frame
-//{
-//	self = [super initWithFrame:frame];
-//	if (self != nil)
-//	{
-//		[self _init];
-//	}
-//	return self;
-//}
-//
-//
-//- (id) initWithCoder:(NSCoder *)aDecoder
-//{
-//	self = [super initWithCoder:aDecoder];
-//	if (self != nil) 
-//	{
-//		[self _init];
-//	}
-//	return self;
-//}
+@synthesize highlighted = _highlighted;
 
 
 - (void) setupViewForStyle:(AMSpringboardViewCellStyle)style
@@ -75,12 +46,6 @@
                                                                     self.bounds.size.width, LABEL_HEIGHT)] release];
         self.textLabel.textAlignment = UITextAlignmentCenter;
         [self addSubview:self.textLabel];
-
-//        CGRect imageViewFrame = self.bounds;
-//        imageViewFrame.size.height -= LABEL_HEIGHT;
-//        imageViewFrame = AMRectInsetWithAspectRatio(imageViewFrame, 1);
-//        [self.imageView = [[AMAdjustingImageView alloc] initWithFrame:imageViewFrame] release];
-//        [self addSubview:self.imageView];
     }
     
     self.layer.cornerRadius = 8;
@@ -102,7 +67,6 @@
 - (void) dealloc
 {
     [_reuseIdentifier release];
-//	[_imageView release];
     [_image release];
 	[_textLabel release];
 	[super dealloc];
@@ -111,41 +75,46 @@
 
 - (void) drawRect:(CGRect)rect
 {
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);
+    
     CGRect imageFrame = self.bounds;
     imageFrame.size.height -= LABEL_HEIGHT;
     imageFrame = AMRectInsetWithAspectRatio(imageFrame, 1);
     
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSaveGState(context);
-
     CGContextSetBlendMode(context, kCGBlendModeMultiply);
     
-    [[UIColor redColor] set];
-    [[UIBezierPath bezierPathWithRect:imageFrame] stroke];
-
-    CGContextSaveGState(context);
-//    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextTranslateCTM(context, 0.0, -imageFrame.size.height);
     
-//    CGRectApplyAffineTransform(imageFrame, CGAffineTransformMakeScale(1.0, -1.0));
-  
-
-//    CGContextClipToMask(context, imageFrame, self.image.CGImage);
-//    CGContextClipToRect(context, rect);
-
+    CGContextClipToRect(context, rect);
+    CGContextClipToMask(context, imageFrame, self.image.CGImage);
+    
     CGContextDrawImage(context, imageFrame, self.image.CGImage);
-    CGContextRestoreGState(context);
     
-    UIColor* color = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4];
-    CGContextSetFillColor(context, CGColorGetComponents(color.CGColor));      
-    CGContextFillRect (context, rect);
+    if( self.highlighted )
+    {
+        UIColor* color = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4];
+        CGContextSetFillColor(context, CGColorGetComponents(color.CGColor));      
+        CGContextFillRect (context, rect);
+    }
     
     CGContextRestoreGState(context);
 }
 
 
+- (void) setHighlighted:(BOOL)highlighted
+{
+    if( highlighted != _highlighted )
+    {
+        _highlighted = highlighted;
+        [self setNeedsDisplay];
+    }
+}
+
+
 // default implementation does nothing
 - (void) prepareForReuse {}
-
 
 
 

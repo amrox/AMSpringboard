@@ -107,6 +107,11 @@
     
     cell.image = [UIImage imageNamed:@"beer-icon"];
     
+    if( [indexPath springboardColumn] == 1 )
+        cell.highlighted = YES;
+    else
+        cell.highlighted = NO;
+    
     return cell;
 }
 
