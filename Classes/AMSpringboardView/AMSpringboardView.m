@@ -27,7 +27,7 @@ static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
 @end
 
 
-@interface AMSprinboardScrollView : UIScrollView
+@interface AMSpringboardScrollView : UIScrollView
 @property (nonatomic, assign) AMSpringboardView* springboardView;
 @end
 
@@ -91,7 +91,7 @@ static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
     _pageControl.backgroundColor = [UIColor clearColor];
 	[self addSubview:_pageControl];
 	
-    AMSprinboardScrollView* springboardScroll = [[AMSprinboardScrollView alloc] initWithFrame:CGRectZero];
+    AMSpringboardScrollView* springboardScroll = [[AMSpringboardScrollView alloc] initWithFrame:CGRectZero];
     springboardScroll.springboardView = self;
 	_scrollView = springboardScroll;
 	_scrollView.delegate = self;
@@ -491,10 +491,13 @@ static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
     }
 }
 
+
+
+
 @end
 
 
-@implementation AMSprinboardScrollView
+@implementation AMSpringboardScrollView
 
 @synthesize springboardView = _springboardView;
 
@@ -504,42 +507,33 @@ static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
     return YES;
 }
 
-- (BOOL)touchesShouldCancelInContentView:(UIView *)view
-{
-    LOG_TRACE();
-    return [super touchesShouldCancelInContentView:view];
-}
-
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     LOG_TRACE();
-//    LOG_DEBUG(@"touches: %@", touches);
-//    LOG_DEBUG(@"event: %@", event);
     
     UITouch* touch = [touches anyObject]; // TODO: !!!:
     CGPoint p = [touch locationInView:self.springboardView.contentView];
     
-//    LOG_DEBUG(@"p:%@", NSStringFromCGPoint(p));
-    
     NSIndexPath* position = [self.springboardView positionForPoint:p];
-    AMSpringboardViewCell* cell = [self.springboardView getCellForPosition:position];
-    cell.highlighted = YES;
+    id cell = [self.springboardView getCellForPosition:position];
+    if( cell != nil && cell != [NSNull null] )
+        [cell setHighlighted:YES];
 }
 
 
-- (void)touchesEnded:(NSSet *)touches withEvents:(UIEvent *)event
+- (void) touchesEnded: (NSSet *) touches withEvent: (UIEvent *) event
 {
     LOG_TRACE();
-    
+
     UITouch* touch = [touches anyObject]; // TODO: !!!:
     CGPoint p = [touch locationInView:self.springboardView.contentView];
-    
-    //    LOG_DEBUG(@"p:%@", NSStringFromCGPoint(p));
-    
+
     NSIndexPath* position = [self.springboardView positionForPoint:p];
-    AMSpringboardViewCell* cell = [self.springboardView getCellForPosition:position];
-    cell.highlighted = NO;
+    id cell = [self.springboardView getCellForPosition:position];
+    if( cell != nil && cell != [NSNull null] )
+        [cell setHighlighted:NO];
 }
+
 
 @end

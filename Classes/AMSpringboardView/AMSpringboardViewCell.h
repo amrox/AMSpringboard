@@ -17,6 +17,7 @@ typedef enum {
 {
     NSString*    _reuseIdentifier;
     UIImage*     _image;
+    UIButton*    _button;
 	UILabel*     _textLabel;
     BOOL         _highlighted;
 }
