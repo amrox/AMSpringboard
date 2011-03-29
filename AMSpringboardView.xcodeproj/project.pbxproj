@@ -18,12 +18,13 @@
 		B35A4A86132E7E67003817DA /* AMGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = B35A4A63132E7E67003817DA /* AMGeometry.m */; };
 		B3621002131D712D0003D4EA /* AMSpringboardItemSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */; };
 		B3763D3B132413A800DBACDC /* NSIndexPath+AMSpringboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboardView.m */; };
-		B3763D3F1324174D00DBACDC /* TestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763D3E1324174D00DBACDC /* TestCell.m */; };
-		B380330C13399DDA00C61550 /* AMAdjustingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B380330B13399DDA00C61550 /* AMAdjustingImageView.m */; };
-		B3A8B572131E2ED8002AF07D /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A8B570131E2ED6002AF07D /* RootViewController.m */; };
-		B3A8B573131E2ED8002AF07D /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3A8B571131E2ED7002AF07D /* RootViewController.xib */; };
+		B3A8B572131E2ED8002AF07D /* DataSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A8B570131E2ED6002AF07D /* DataSourceViewController.m */; };
+		B3A8B573131E2ED8002AF07D /* DataSourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3A8B571131E2ED7002AF07D /* DataSourceViewController.xib */; };
 		B3C12D4113387599008F8C17 /* beer-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B3C12D4013387599008F8C17 /* beer-icon.png */; };
 		B3C12DAF13392332008F8C17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C12DAE13392332008F8C17 /* QuartzCore.framework */; };
+		B3E83DB5133D85BE00397B4D /* AMSpringboardDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E83DB4133D85BC00397B4D /* AMSpringboardDataProvider.m */; };
+		B3E83DD51340EDD800397B4D /* DataProviderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E83DD31340EDD500397B4D /* DataProviderViewController.m */; };
+		B3E83DD61340EDD800397B4D /* DataProviderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E83DD41340EDD600397B4D /* DataProviderViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,15 +49,16 @@
 		B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSpringboardItemSpecifier.m; sourceTree = "<group>"; };
 		B3763D39132413A800DBACDC /* NSIndexPath+AMSpringboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+AMSpringboardView.h"; sourceTree = "<group>"; };
 		B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+AMSpringboardView.m"; sourceTree = "<group>"; };
-		B3763D3D1324174D00DBACDC /* TestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCell.h; sourceTree = "<group>"; };
-		B3763D3E1324174D00DBACDC /* TestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCell.m; sourceTree = "<group>"; };
-		B380330A13399DDA00C61550 /* AMAdjustingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAdjustingImageView.h; sourceTree = "<group>"; };
-		B380330B13399DDA00C61550 /* AMAdjustingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAdjustingImageView.m; sourceTree = "<group>"; };
-		B3A8B56F131E2ED6002AF07D /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		B3A8B570131E2ED6002AF07D /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		B3A8B571131E2ED7002AF07D /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		B3A8B56F131E2ED6002AF07D /* DataSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSourceViewController.h; sourceTree = "<group>"; };
+		B3A8B570131E2ED6002AF07D /* DataSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSourceViewController.m; sourceTree = "<group>"; };
+		B3A8B571131E2ED7002AF07D /* DataSourceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataSourceViewController.xib; sourceTree = "<group>"; };
 		B3C12D4013387599008F8C17 /* beer-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beer-icon.png"; sourceTree = "<group>"; };
 		B3C12DAE13392332008F8C17 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B3E83DB3133D85BB00397B4D /* AMSpringboardDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSpringboardDataProvider.h; sourceTree = "<group>"; };
+		B3E83DB4133D85BC00397B4D /* AMSpringboardDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSpringboardDataProvider.m; sourceTree = "<group>"; };
+		B3E83DD21340EDD400397B4D /* DataProviderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProviderViewController.h; sourceTree = "<group>"; };
+		B3E83DD31340EDD500397B4D /* DataProviderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProviderViewController.m; sourceTree = "<group>"; };
+		B3E83DD41340EDD600397B4D /* DataProviderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataProviderViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,12 +143,9 @@
 				B337CD86130FB03000423A68 /* AMSpringboardView.m */,
 				B337CD8A130FB03E00423A68 /* AMSpringboardViewCell.h */,
 				B337CD8B130FB03E00423A68 /* AMSpringboardViewCell.m */,
-				B3621000131D712D0003D4EA /* AMSpringboardItemSpecifier.h */,
-				B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */,
 				B3763D39132413A800DBACDC /* NSIndexPath+AMSpringboardView.h */,
 				B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboardView.m */,
-				B380330A13399DDA00C61550 /* AMAdjustingImageView.h */,
-				B380330B13399DDA00C61550 /* AMAdjustingImageView.m */,
+				B3E83DB9133F159500397B4D /* AMSpringboardController */,
 			);
 			path = AMSpringboardView;
 			sourceTree = "<group>";
@@ -174,13 +173,25 @@
 			children = (
 				1D3623240D0F684500981E51 /* AMSpringboardViewAppDelegate.h */,
 				1D3623250D0F684500981E51 /* AMSpringboardViewAppDelegate.m */,
-				B3A8B56F131E2ED6002AF07D /* RootViewController.h */,
-				B3A8B570131E2ED6002AF07D /* RootViewController.m */,
-				B3A8B571131E2ED7002AF07D /* RootViewController.xib */,
-				B3763D3D1324174D00DBACDC /* TestCell.h */,
-				B3763D3E1324174D00DBACDC /* TestCell.m */,
+				B3A8B56F131E2ED6002AF07D /* DataSourceViewController.h */,
+				B3A8B570131E2ED6002AF07D /* DataSourceViewController.m */,
+				B3A8B571131E2ED7002AF07D /* DataSourceViewController.xib */,
+				B3E83DD21340EDD400397B4D /* DataProviderViewController.h */,
+				B3E83DD31340EDD500397B4D /* DataProviderViewController.m */,
+				B3E83DD41340EDD600397B4D /* DataProviderViewController.xib */,
 			);
 			name = AMSpringboardViewDemo;
+			sourceTree = "<group>";
+		};
+		B3E83DB9133F159500397B4D /* AMSpringboardController */ = {
+			isa = PBXGroup;
+			children = (
+				B3621000131D712D0003D4EA /* AMSpringboardItemSpecifier.h */,
+				B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */,
+				B3E83DB3133D85BB00397B4D /* AMSpringboardDataProvider.h */,
+				B3E83DB4133D85BC00397B4D /* AMSpringboardDataProvider.m */,
+			);
+			name = AMSpringboardController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,8 +244,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				B3A8B573131E2ED8002AF07D /* RootViewController.xib in Resources */,
+				B3A8B573131E2ED8002AF07D /* DataSourceViewController.xib in Resources */,
 				B3C12D4113387599008F8C17 /* beer-icon.png in Resources */,
+				B3E83DD61340EDD800397B4D /* DataProviderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,11 +262,11 @@
 				B337CD87130FB03000423A68 /* AMSpringboardView.m in Sources */,
 				B337CD8C130FB03E00423A68 /* AMSpringboardViewCell.m in Sources */,
 				B3621002131D712D0003D4EA /* AMSpringboardItemSpecifier.m in Sources */,
-				B3A8B572131E2ED8002AF07D /* RootViewController.m in Sources */,
+				B3A8B572131E2ED8002AF07D /* DataSourceViewController.m in Sources */,
 				B3763D3B132413A800DBACDC /* NSIndexPath+AMSpringboardView.m in Sources */,
-				B3763D3F1324174D00DBACDC /* TestCell.m in Sources */,
 				B35A4A86132E7E67003817DA /* AMGeometry.m in Sources */,
-				B380330C13399DDA00C61550 /* AMAdjustingImageView.m in Sources */,
+				B3E83DB5133D85BE00397B4D /* AMSpringboardDataProvider.m in Sources */,
+				B3E83DD51340EDD800397B4D /* DataProviderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

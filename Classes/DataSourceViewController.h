@@ -11,7 +11,7 @@
 #import "AMSpringboardView.h"
 
 
-@interface RootViewController : UIViewController <AMSpringboardViewDataSource, AMSpringboardViewDelegate>
+@interface DataSourceViewController : UIViewController <AMSpringboardViewDataSource, AMSpringboardViewDelegate>
 {
     
 }

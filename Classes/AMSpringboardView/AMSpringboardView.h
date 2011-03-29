@@ -27,6 +27,8 @@
     
     NSMutableDictionary*            _cells;
     NSMutableArray*                 _unusedCells;
+    NSUInteger                      _columnPadding;
+    NSIndexPath*                    _selectedIndexPath;
 }
 
 
@@ -53,6 +55,7 @@
 - (NSInteger) numberOfPagesInSpringboardView:(AMSpringboardView*)springboardView;
 - (NSInteger) numberOfRowsInSpringboardView:(AMSpringboardView*)springboardView;
 - (NSInteger) numberOfColumnsInSpringboardView:(AMSpringboardView*)springboardView;
+- (AMSpringboardViewCell*) springboardView:(AMSpringboardView*)springboardView cellForPositionWithIndexPath:(NSIndexPath*)indexPath;
 
 @end
 
@@ -63,8 +66,6 @@
 @protocol AMSpringboardViewDelegate <NSObject>
 
 @required
-- (AMSpringboardViewCell*) springboardView:(AMSpringboardView*)springboardView cellForPositionWithIndexPath:(NSIndexPath*)indexPath;
-
 - (void) springboardView:(AMSpringboardView*)springboardView didSelectCellWithPosition:(NSIndexPath*)position;
 
 @end

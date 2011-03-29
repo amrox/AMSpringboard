@@ -13,7 +13,7 @@
 @implementation AMSpringboardViewAppDelegate
 
 @synthesize window;
-@synthesize viewController;
+@synthesize tabBarController;
 
 
 #pragma mark -
@@ -22,7 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
     
-    self.window.rootViewController = self.viewController;
+    self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
     return YES;

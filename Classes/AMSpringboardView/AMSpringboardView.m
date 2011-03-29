@@ -11,8 +11,8 @@
 #import "AMGeometry.h"
 #import "NSIndexPath+AMSpringboardView.h"
 
-#define kDefaultColumnPadding (2)
-static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
+#define kDefaultColumnPadding (1)
+#define VALID_SPRINBOARD_CELL(obj) obj != nil && obj != [NSNull null]
 
 @interface AMSpringboardView ()
 @property (nonatomic, retain) UIScrollView* scrollView;
@@ -21,6 +21,7 @@ static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
 @property (nonatomic, retain) NSMutableDictionary* cells;
 @property (nonatomic, retain) NSMutableArray* unusedCells;
 @property (nonatomic, assign) NSUInteger columnPadding;
+@property (nonatomic, retain) NSIndexPath* selectedPosition;
 - (NSInteger) pageCount;
 - (NSInteger) rowCount;
 - (NSInteger) columnCount;
@@ -42,6 +43,7 @@ static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
 @synthesize cells = _cells;
 @synthesize unusedCells = _unusedCells;
 @synthesize columnPadding = _columnPadding;
+@synthesize selectedPosition = _selectedIndexPath;
 
 
 - (void) updatePageControlFrame
@@ -97,6 +99,7 @@ static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
 	_scrollView.delegate = self;
 	_scrollView.pagingEnabled = YES;
     _scrollView.bounces = YES;
+    _scrollView.delaysContentTouches = NO;
     _scrollView.directionalLockEnabled = YES;
 	_scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
@@ -106,57 +109,10 @@ static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
     UIView* contentView = [[UIView alloc] initWithFrame:CGRectZero];
     [_scrollView addSubview:contentView];
     self.contentView = contentView;
-    //self.contentView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.contentView.backgroundColor = [UIColor clearColor];
     [contentView release];
-    
-    UIGestureRecognizer* tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contentTap:)];
-    tapGest.delegate = self;
-//    [contentView addGestureRecognizer:tapGest];
-    [tapGest release];
-    
-//    [tapGest addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:&kvo_TapGestureState];
 
     [self performSelector:@selector(reloadData) withObject:nil afterDelay:0.0];
-}
-
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-{
-    LOG_TRACE();
-    
-    CGPoint point = [gestureRecognizer locationInView:self.contentView];    
-    NSIndexPath* pos = [self positionForPoint:point];
-    id cell = [self.cells objectForKey:pos];
-    if( cell != nil && cell != [NSNull null] )
-    {
-        [cell setHighlighted:YES];
-    }
-
-    return YES;
-}
-
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    LOG_TRACE();
-    return YES;
-}
-
-
-- (void) contentTap:(UIGestureRecognizer*)gestureRecognizer
-{
-    CGPoint point = [gestureRecognizer locationInView:self.contentView];    
-    NSIndexPath* pos = [self positionForPoint:point];
-
-    LOG_DEBUG( @"tapped (p:%d r:%d c:%d)",
-              [pos springboardPage], [pos springboardRow], [pos springboardColumn] );
-    
-    id cell = [self.cells objectForKey:pos];
-    if( cell != nil && cell != [NSNull null] )
-    {
-        [self.delegate springboardView:self didSelectCellWithPosition:pos];
-        [cell setHighlighted:NO];
-    }
 }
 
 
@@ -200,8 +156,6 @@ static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
     {
         [self.unusedCells addObject:cell];
     }
-    
-//    LOG_DEBUG( @"unused: %@", self.unusedCells );
 }
 
 
@@ -245,9 +199,7 @@ static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
     CGFloat zoneWidth = (((CGFloat)pageSize.width) / [self columnCount]);
     CGFloat zoneHeight = (((CGFloat)pageSize.height) / [self rowCount]);
 
-    CGRect rect;
-    rect.origin.x += [position springboardPage] * pageSize.width;
-    
+    CGRect rect = CGRectZero;
     rect.origin.x = [position springboardPage] * pageSize.width;
     rect.origin.x += zoneWidth * [position springboardColumn];
     rect.origin.y =  zoneHeight * [position springboardRow];
@@ -270,7 +222,7 @@ static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
     if( cell == nil )
     {
         //LOG_DEBUG(@"getting: %@", position);
-        cell = [self.delegate springboardView:self cellForPositionWithIndexPath:position];
+        cell = [self.dataSource springboardView:self cellForPositionWithIndexPath:position];
         if( cell != nil )
         {
             [self.cells setObject:cell forKey:position];
@@ -291,8 +243,15 @@ static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
     [self updatePageControlFrame];
     [self updateScrollViewFrame];
 	
-    // remove all existing cells
-    [[self.cells allValues] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    // -- remove all existing cells
+//    [[self.cells allValues] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    for( id cell in [self.cells allValues] )
+    {
+        if( [cell respondsToSelector:@selector(removeFromSuperview)] )
+            [cell removeFromSuperview];
+    }
+    
     [self.cells removeAllObjects];
     [self.unusedCells removeAllObjects];
     
@@ -330,7 +289,6 @@ static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
     {
         [[dequeuedCell retain] autorelease]; // make sure it doesn't get dealloc'd
         [self.unusedCells removeObject:dequeuedCell];
-        //LOG_DEBUG( @"dequeued!" );
     }
     
     return dequeuedCell;
@@ -469,7 +427,7 @@ static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
     for( NSIndexPath* position in positions )
     {
         id cell = [self getCellForPosition:position];
-        if( cell != nil && cell != [NSNull null] )
+        if( VALID_SPRINBOARD_CELL(cell) )
         {
             //LOG_DEBUG( @"adding: %@", position );
             [self addCellToView:cell position:position];
@@ -481,58 +439,79 @@ static const NSString*  kvo_TapGestureState = @"kvo_TapGestureState";
 }
 
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if (context == &kvo_TapGestureState) {
-        
-        LOG_TRACE();
-        
-    } else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+- (void) deselectCellWithPosition:(NSIndexPath*)position
+{
+    id cell = [self getCellForPosition:position];
+    if( VALID_SPRINBOARD_CELL(cell) )
+    {
+        [cell setHighlighted:NO];
+    }
+    self.selectedPosition = nil;
+}
+
+
+- (void) deselectSelectedCell
+{
+    if( self.selectedPosition )
+    {
+        [self deselectCellWithPosition:self.selectedPosition];
     }
 }
 
 
+- (void) selectCellWithPosition:(NSIndexPath*)position
+{
+    if( self.selectedPosition != nil )
+    {
+        [self deselectCellWithPosition:position];
+    }
+    
+    id cell = [self getCellForPosition:position];
+    if( VALID_SPRINBOARD_CELL(cell) )
+    {
+        [cell setHighlighted:YES];
+        self.selectedPosition = position;
+    }
+}
 
+
+- (void) informDelegateOfSelectedCellPosition
+{
+    [self.delegate springboardView:self
+         didSelectCellWithPosition:self.selectedPosition];
+    [self deselectSelectedCell];
+}
 
 @end
 
 
+// -----------------------------------------------------------------------------------
+#pragma -
 @implementation AMSpringboardScrollView
 
-@synthesize springboardView = _springboardView;
 
-- (BOOL)touchesShouldBegin:(NSSet *)touches withEvent:(UIEvent *)event inContentView:(UIView *)view
-{
-    LOG_TRACE();
-    return YES;
-}
+@synthesize springboardView = _springboardView;
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    LOG_TRACE();
-    
-    UITouch* touch = [touches anyObject]; // TODO: !!!:
+    UITouch* touch = [touches anyObject];
     CGPoint p = [touch locationInView:self.springboardView.contentView];
     
     NSIndexPath* position = [self.springboardView positionForPoint:p];
-    id cell = [self.springboardView getCellForPosition:position];
-    if( cell != nil && cell != [NSNull null] )
-        [cell setHighlighted:YES];
+    [self.springboardView selectCellWithPosition:position];
+}
+
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.springboardView deselectSelectedCell];
 }
 
 
 - (void) touchesEnded: (NSSet *) touches withEvent: (UIEvent *) event
 {
-    LOG_TRACE();
-
-    UITouch* touch = [touches anyObject]; // TODO: !!!:
-    CGPoint p = [touch locationInView:self.springboardView.contentView];
-
-    NSIndexPath* position = [self.springboardView positionForPoint:p];
-    id cell = [self.springboardView getCellForPosition:position];
-    if( cell != nil && cell != [NSNull null] )
-        [cell setHighlighted:NO];
+   [self.springboardView informDelegateOfSelectedCellPosition];
 }
 
 

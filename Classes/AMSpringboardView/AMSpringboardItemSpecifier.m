@@ -8,17 +8,31 @@
 
 #import "AMSpringboardItemSpecifier.h"
 
+NSString* const kAMSpringboardBoardItemIdentifier = @"identifier";
+NSString* const kAMSpringboardBoardItemTitle = @"title";
+NSString* const kAMSpringboardBoardItemImageName = @"image";
+
 
 @implementation AMSpringboardItemSpecifier
 
-- (id) init
+- (id) initWithDictionary:(NSDictionary*)dict
 {
 	self = [super init];
 	if (self != nil)
 	{
-		_dict = [[NSMutableDictionary alloc] init];
+        _dict = [dict retain];
 	}
 	return self;
+}
+
+
+- (id) init
+{
+    NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
+    [dict setObject:NSStringFromClass([self class]) forKey:kAMSpringboardBoardItemIdentifier];
+    id s = [self initWithDictionary:dict];
+    [dict release];
+    return s;
 }
 
 
@@ -26,6 +40,12 @@
 {
 	[_dict release];
 	[super dealloc];
+}
+
+
+- (NSDictionary*) dictionaryRepresentation
+{
+    return [[_dict copy] autorelease];;
 }
 
 
@@ -60,6 +80,21 @@
 }
 
 
+@end
 
+
+
+@implementation AMSpringboardItemSpecifier (Convenience)
+
++ (id) itemSpecifierWithTitle:(NSString*)title imageName:(NSString*)imageName
+{
+    AMSpringboardItemSpecifier* item = [[AMSpringboardItemSpecifier alloc] init];
+    if( title != nil )
+        [item setObject:title forKey:kAMSpringboardBoardItemTitle];
+    if( imageName != nil )
+        [item setObject:imageName forKey:kAMSpringboardBoardItemImageName];
+    return [item autorelease];
+}
 
 @end
+

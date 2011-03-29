@@ -6,12 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "RootViewController.h"
-
-#import "TestCell.h"
+#import "DataSourceViewController.h"
 
 
-@implementation RootViewController
+@implementation DataSourceViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -84,8 +82,6 @@
 
 - (AMSpringboardViewCell*) springboardView:(AMSpringboardView*)springboardView cellForPositionWithIndexPath:(NSIndexPath*)indexPath
 {
-    //LOG_DEBUG( @"%@", indexPath );
-    
     if( [indexPath springboardRow] == 2 && [indexPath springboardColumn] == 2 )
         return nil;
     
@@ -106,11 +102,6 @@
     cell.textLabel.backgroundColor = [UIColor clearColor];
     
     cell.image = [UIImage imageNamed:@"beer-icon"];
-    
-    if( [indexPath springboardColumn] == 1 )
-        cell.highlighted = YES;
-    else
-        cell.highlighted = NO;
     
     return cell;
 }

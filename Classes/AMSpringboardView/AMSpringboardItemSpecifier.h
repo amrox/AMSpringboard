@@ -8,13 +8,28 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString* const kAMSpringboardBoardItemIdentifier; // defaults to name of this class (AMSpringboardItemSpecifier)
+extern NSString* const kAMSpringboardBoardItemTitle;
+extern NSString* const kAMSpringboardBoardItemImageName;
+
 
 @interface AMSpringboardItemSpecifier : NSObject <NSCoding>
 {
 	NSMutableDictionary* _dict;
 }
 
+- (id) initWithDictionary:(NSDictionary*)dict;
+- (id) init;
+
+- (NSDictionary*) dictionaryRepresentation;
 - (id) objectForKey:(NSString*)key;
 - (void) setObject:(id)object forKey:(NSString*)key;
+
+@end
+
+
+@interface AMSpringboardItemSpecifier (Convenience)
+
++ (id) itemSpecifierWithTitle:(NSString*)title imageName:(NSString*)imageName;
 
 @end

@@ -11,7 +11,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "AMGeometry.h"
-#import "AMAdjustingImageView.h"
 
 #define DEFAULT_WIDTH 80
 #define DEFAULT_HEIGHT 80
@@ -22,8 +21,7 @@
 @interface AMSpringboardViewCell ()
 
 @property (nonatomic,readwrite,copy) NSString* reuseIdentifier;
-@property (nonatomic,readwrite,retain) UILabel* textLabel; // default is nil.  label will be created if necessary.
-@property (nonatomic, retain) UIButton* button;
+@property (nonatomic,readwrite,retain) UILabel* textLabel;
            
 @end
 
@@ -34,7 +32,6 @@
 @synthesize reuseIdentifier = _reuseIdentifier;
 @synthesize image = _image;
 @synthesize textLabel = _textLabel;
-@synthesize button = _button;
 @synthesize highlighted = _highlighted;
 
 
@@ -46,16 +43,9 @@
         
 		[self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-LABEL_HEIGHT,
                                                                     self.bounds.size.width, LABEL_HEIGHT)] release];
+        self.textLabel.backgroundColor = [UIColor clearColor];
         self.textLabel.textAlignment = UITextAlignmentCenter;
         [self addSubview:self.textLabel];
-        
-//        CGRect buttonFrame = self.bounds;
-//        buttonFrame.size.height -= LABEL_HEIGHT;
-//        buttonFrame = AMRectInsetWithAspectRatio(buttonFrame, 1);
-//        
-//        [self.button = [[UIButton alloc] initWithFrame:buttonFrame] release];
-//        [self.button setImage:self.image forState:UIControlStateNormal];
-//        [self addSubview:self.button];
     }
     
     self.layer.cornerRadius = 8;
@@ -79,7 +69,6 @@
     [_reuseIdentifier release];
     [_image release];
 	[_textLabel release];
-    [_button release];
 	[super dealloc];
 }
 
@@ -131,62 +120,12 @@
         [image retain];
         [_image release];
         _image = image;
-     
-        [self.button setImage:image forState:UIControlStateNormal];
-        
     }
 }
+
 
 // default implementation does nothing
 - (void) prepareForReuse {}
 
-//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-////    LOG_TRACE();
-////    //    LOG_DEBUG(@"touches: %@", touches);
-////    //    LOG_DEBUG(@"event: %@", event);
-////    
-////    UITouch* touch = [touches anyObject]; // TODO: !!!:
-////    CGPoint p = [touch locationInView:self.contentView];
-////    
-////    //    LOG_DEBUG(@"p:%@", NSStringFromCGPoint(p));
-////    
-////    NSIndexPath* position = [self positionForPoint:p];
-////    id cell = [self getCellForPosition:position];
-////    if( cell != nil && cell != [NSNull null] )
-////        [cell setHighlighted:YES];
-//    
-//    [self becomeFirstResponder];
-//    self.highlighted = YES;
-//}
-//
-//
-//- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    LOG_TRACE();
-//    self.highlighted = NO;
-//}
-//
-//
-//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    LOG_TRACE();
-//}
-//
-//- (void)touchesEnded:(NSSet *)touches withEvents:(UIEvent *)event
-//{
-//    LOG_TRACE();
-//    
-////    UITouch* touch = [touches anyObject]; // TODO: !!!:
-////    CGPoint p = [touch locationInView:self.contentView];
-////    
-////    //    LOG_DEBUG(@"p:%@", NSStringFromCGPoint(p));
-////    
-////    NSIndexPath* position = [self positionForPoint:p];
-////    AMSpringboardViewCell* cell = [self getCellForPosition:position];
-////    cell.highlighted = NO;
-//    
-//    self.highlighted = NO;
-//}
 
 @end
