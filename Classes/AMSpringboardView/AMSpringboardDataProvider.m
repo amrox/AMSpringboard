@@ -8,6 +8,10 @@
 
 #import "AMSpringboardDataProvider.h"
 
+@interface AMSpringboardDataProvider ()
+
+@end
+
 
 @implementation AMSpringboardDataProvider
 
@@ -15,6 +19,86 @@
 @synthesize pages = _pages;
 @synthesize columnCount = _columnCount;
 @synthesize rowCount = _rowCount;
+
+
+- (id)init
+{
+    self = [super init];
+    if (self) { }
+    return self;
+}
+
+
++ (id) dataProvider
+{
+    return [[[self alloc] init] autorelease];
+}
+
+
++ (id) dataProviderFromDictionary_v1:(NSDictionary*)dict error:(NSError**)outError
+{
+    AMSpringboardDataProvider* dataProvider = [self dataProvider];
+    
+    dataProvider.columnCount = [[dict objectForKey:@"columnCount"] integerValue];
+    dataProvider.rowCount = [[dict objectForKey:@"rowCount"] integerValue];
+    
+    NSArray* rawPages = [dict objectForKey:@"pages"];
+    
+    NSMutableArray* pages = [[[NSMutableArray alloc] initWithCapacity:[rawPages count]] autorelease];
+    
+    for( int i=0; i<[rawPages count]; i++ )
+    {
+        NSArray* rawPage = [rawPages objectAtIndex:i];
+        NSMutableArray* page = [NSMutableArray arrayWithCapacity:[rawPage count]];
+        [pages addObject:page]; 
+        
+        for( int j=0; j<[rawPage count]; j++ )
+        {
+            NSDictionary* dict = [rawPage objectAtIndex:j];
+            if( [[dict objectForKey:kAMSpringboardBoardItemIdentifier] isEqualToString:kAMSpringboardBoardItemIdentifierNull] )
+            {
+                [page addObject:[AMSpringboardNullItem nullItem]];
+            }
+            else
+            {
+                AMSpringboardItemSpecifier* item = [[AMSpringboardItemSpecifier alloc] initWithDictionary:dict];
+                [page addObject:item];
+                [item release];
+            }
+        }
+    }
+    
+    dataProvider.pages = pages;
+
+    return dataProvider;
+}
+
+
++ (id) dataProviderFromDictionary:(NSDictionary*)dict error:(NSError**)outError
+{
+    NSString* version = [dict objectForKey:@"version"];
+    if( [version isEqualToString:@"1"] )
+    {
+        return [self dataProviderFromDictionary_v1:dict error:outError];
+    }
+    
+    // TODO: set error;
+    return nil;
+}
+
+
++ (id) dataProviderFromPlistWithPath:(NSString*)path error:(NSError**)outError
+{
+    NSData* data = [NSData dataWithContentsOfFile:path options:0 error:outError];
+    if( data == nil )
+        return nil;
+    
+    NSDictionary* plistDict = [NSPropertyListSerialization propertyListWithData:data options:0 format:nil error:outError];
+    if( plistDict == nil )
+        return nil;
+    
+    return [self dataProviderFromDictionary:plistDict error:outError];
+}
 
 
 - (void)dealloc
@@ -44,8 +128,8 @@
     if( index >= [items count] )
         return nil;
     
-    id item = [items objectAtIndex:index];
-    if(item == [NSNull null])
+    AMSpringboardItemSpecifier* item = [items objectAtIndex:index];
+    if( item == [AMSpringboardNullItem nullItem] )
         return nil;
     
     return item;

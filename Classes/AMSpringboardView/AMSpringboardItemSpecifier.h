@@ -12,6 +12,8 @@ extern NSString* const kAMSpringboardBoardItemIdentifier; // defaults to name of
 extern NSString* const kAMSpringboardBoardItemTitle;
 extern NSString* const kAMSpringboardBoardItemImageName;
 
+extern NSString* const kAMSpringboardBoardItemIdentifierNull;
+
 
 @interface AMSpringboardItemSpecifier : NSObject <NSCoding>
 {
@@ -28,8 +30,17 @@ extern NSString* const kAMSpringboardBoardItemImageName;
 @end
 
 
+
 @interface AMSpringboardItemSpecifier (Convenience)
 
 + (id) itemSpecifierWithTitle:(NSString*)title imageName:(NSString*)imageName;
+
+@end
+
+
+
+@interface AMSpringboardNullItem : AMSpringboardItemSpecifier
+
++ (AMSpringboardItemSpecifier*) nullItem;
 
 @end

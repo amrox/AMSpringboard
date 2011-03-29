@@ -18,6 +18,12 @@
     NSInteger          _rowCount;
 }
 
+- (id) init;
++ (id) dataProvider;
++ (id) dataProviderFromDictionary:(NSDictionary*)dict error:(NSError**)outError;
++ (id) dataProviderFromPlistWithPath:(NSString*)path error:(NSError**)outError;
+
+
 @property (nonatomic, retain) AMSpringboardView* springboardView;
 @property (nonatomic, retain) NSArray* pages;
 
@@ -25,6 +31,7 @@
 @property (nonatomic, assign) NSInteger rowCount;
 
 @end
+
 
 
 @interface AMSpringboardDataProvider (Subclass)

@@ -477,9 +477,12 @@
 
 - (void) informDelegateOfSelectedCellPosition
 {
-    [self.delegate springboardView:self
-         didSelectCellWithPosition:self.selectedPosition];
-    [self deselectSelectedCell];
+    if( self.selectedPosition != nil )
+    {
+        [self.delegate springboardView:self
+             didSelectCellWithPosition:self.selectedPosition];
+        [self deselectSelectedCell];
+    }
 }
 
 @end

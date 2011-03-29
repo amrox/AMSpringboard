@@ -11,6 +11,7 @@
 NSString* const kAMSpringboardBoardItemIdentifier = @"identifier";
 NSString* const kAMSpringboardBoardItemTitle = @"title";
 NSString* const kAMSpringboardBoardItemImageName = @"image";
+NSString* const kAMSpringboardBoardItemIdentifierNull = @"Null";
 
 
 @implementation AMSpringboardItemSpecifier
@@ -20,7 +21,11 @@ NSString* const kAMSpringboardBoardItemImageName = @"image";
 	self = [super init];
 	if (self != nil)
 	{
-        _dict = [dict retain];
+        _dict = [dict mutableCopy];
+        if( [_dict objectForKey:kAMSpringboardBoardItemIdentifier] == nil )
+        {
+            [_dict setObject:NSStringFromClass([self class]) forKey:kAMSpringboardBoardItemIdentifier];
+        }
 	}
 	return self;
 }
@@ -98,3 +103,28 @@ NSString* const kAMSpringboardBoardItemImageName = @"image";
 
 @end
 
+
+static AMSpringboardNullItem* __sharedNullItem = nil;
+
+@implementation AMSpringboardNullItem
+
++ (AMSpringboardItemSpecifier*) nullItem
+{
+    @synchronized(@"AMSpringboardNullItem_Lock")
+    {
+        if( __sharedNullItem == nil )
+        {
+            __sharedNullItem = [[AMSpringboardNullItem alloc] init];
+            [__sharedNullItem->_dict setObject:kAMSpringboardBoardItemIdentifierNull forKey:kAMSpringboardBoardItemIdentifier];
+        }
+    }
+    return __sharedNullItem;
+}
+
+
+- (void) setObject:(id)object forKey:(NSString*)key;
+{
+    NSAssert(true, @"can't set keys on AMSpringboardNullItem");
+}
+
+@end

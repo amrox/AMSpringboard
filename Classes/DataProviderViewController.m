@@ -11,30 +11,37 @@
 #import "AMSpringboardDataProvider.h"
 #import "AMSpringboardItemSpecifier.h"
 
+@interface DataProviderViewController ()
+@property (nonatomic, retain) AMSpringboardDataProvider* dataProvider;
+@end
+
 
 @implementation DataProviderViewController
 
 @synthesize springboardView = _springboardView;
+@synthesize dataProvider = _dataProvider;
 
 
 - (void) _initDataProvider
 {
-    [_dataProvider release], _dataProvider = nil; // TODO: property
-    _dataProvider = [[AMSpringboardDataProvider alloc] init];
-    
-    _dataProvider.rowCount = 3;
-    _dataProvider.columnCount = 2;
-    
+    // -- manual page array creation
+    /*
+     self.dataProvider = [AMSpringboardDataProvider dataProvider];
+     
+     self.dataProvider.rowCount = 3;
+     self.dataProvider.columnCount = 2;
+
     NSArray* pages = [NSArray arrayWithObjects:
                       [NSArray arrayWithObjects:
                        [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"one" 
                                                                 imageName:@"beer-icon"],
-                       [NSNull null],
+                       
+                       [AMSpringboardNullItem nullItem],
                        
                        [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"two" 
                                                                 imageName:@"beer-icon"],
                        
-                       [NSNull null],
+                       [AMSpringboardNullItem nullItem],
                        
                        [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"three"
                                                                 imageName:@"beer-icon"],
@@ -46,7 +53,7 @@
                       [NSArray arrayWithObjects:
                        [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"one" 
                                                                 imageName:@"beer-icon"],
-                       [NSNull null],
+                       [AMSpringboardNullItem nullItem],
                        
                        [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"two" 
                                                                 imageName:@"beer-icon"],
@@ -54,16 +61,27 @@
                        [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"three"
                                                                 imageName:@"beer-icon"],
                        
-                       [NSNull null],
+                       [AMSpringboardNullItem nullItem],
                        
                        [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"four"
                                                                 imageName:@"beer-icon"],
-                       
                        nil],
                       nil];
     
-    _dataProvider.pages = pages;
-    _dataProvider.springboardView = self.springboardView;
+    self.dataProvider.pages = pages;
+    */
+    
+    // -- Page creation from plist file
+
+    NSError* error = nil;
+    
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"Springboard" ofType:@"plist"];
+
+//    self.dataProvider.pages = [NSArray springboardItemsFromPlistWithPath:path error:&error];
+    
+    self.dataProvider = [AMSpringboardDataProvider dataProviderFromPlistWithPath:path error:&error];
+    
+    self.dataProvider.springboardView = self.springboardView;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -97,7 +115,6 @@
     
     self.springboardView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self _initDataProvider];
-    [self.springboardView reloadData];
 }
 
 - (void)viewDidUnload

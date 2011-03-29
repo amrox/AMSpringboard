@@ -8,8 +8,6 @@
 
 #import "AMSpringboardViewAppDelegate.h"
 
-#import "RootViewController.h"
-
 @implementation AMSpringboardViewAppDelegate
 
 @synthesize window;
