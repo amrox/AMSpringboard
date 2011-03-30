@@ -20,11 +20,7 @@
 		B3A2EC2A1343A3FD00836F69 /* NSIndexPath+AMSpringboard.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboard.m */; };
 		B3A2EC2C1343A3FD00836F69 /* AMSpringboardItemSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */; };
 		B3A2EC2E1343A3FD00836F69 /* AMSpringboardDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E83DB4133D85BC00397B4D /* AMSpringboardDataProvider.m */; };
-		B3A2EC321343AE6800836F69 /* AMSpringboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B337CD86130FB03000423A68 /* AMSpringboardView.m */; };
-		B3A2EC331343AE6800836F69 /* AMSpringboardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B337CD8B130FB03E00423A68 /* AMSpringboardViewCell.m */; };
-		B3A2EC341343AE6800836F69 /* NSIndexPath+AMSpringboard.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboard.m */; };
-		B3A2EC351343AE6800836F69 /* AMSpringboardItemSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */; };
-		B3A2EC361343AE6800836F69 /* AMSpringboardDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E83DB4133D85BC00397B4D /* AMSpringboardDataProvider.m */; };
+		B3A2EC3A1343AEE400836F69 /* libAMSpringboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3A2EC1C1343A3E000836F69 /* libAMSpringboard.a */; };
 		B3A8B572131E2ED8002AF07D /* DataSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A8B570131E2ED6002AF07D /* DataSourceViewController.m */; };
 		B3A8B573131E2ED8002AF07D /* DataSourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3A8B571131E2ED7002AF07D /* DataSourceViewController.xib */; };
 		B3C12D4113387599008F8C17 /* beer-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B3C12D4013387599008F8C17 /* beer-icon.png */; };
@@ -33,6 +29,16 @@
 		B3E83DD51340EDD800397B4D /* DataProviderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E83DD31340EDD500397B4D /* DataProviderViewController.m */; };
 		B3E83DD61340EDD800397B4D /* DataProviderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E83DD41340EDD600397B4D /* DataProviderViewController.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B3A2EC371343AEB400836F69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3A2EC1B1343A3E000836F69;
+			remoteInfo = AMSpringboard;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3A2EC3A1343AEE400836F69 /* libAMSpringboard.a in Frameworks */,
 				B3C12DAF13392332008F8C17 /* QuartzCore.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -264,6 +271,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B3A2EC381343AEB400836F69 /* PBXTargetDependency */,
 			);
 			name = AMSpringboardDemo;
 			productName = AMSpringboardView;
@@ -306,8 +314,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* AMSpringboardDemo */,
 				B3A2EC1B1343A3E000836F69 /* AMSpringboard */,
+				1D6058900D05DD3D006BFB54 /* AMSpringboardDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -332,11 +340,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3A2EC321343AE6800836F69 /* AMSpringboardView.m in Sources */,
-				B3A2EC331343AE6800836F69 /* AMSpringboardViewCell.m in Sources */,
-				B3A2EC341343AE6800836F69 /* NSIndexPath+AMSpringboard.m in Sources */,
-				B3A2EC351343AE6800836F69 /* AMSpringboardItemSpecifier.m in Sources */,
-				B3A2EC361343AE6800836F69 /* AMSpringboardDataProvider.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AMSpringboardDemoAppDelegate.m in Sources */,
 				B3A8B572131E2ED8002AF07D /* DataSourceViewController.m in Sources */,
@@ -359,6 +362,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B3A2EC381343AEB400836F69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3A2EC1B1343A3E000836F69 /* AMSpringboard */;
+			targetProxy = B3A2EC371343AEB400836F69 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -371,6 +382,7 @@
 				GCC_PREFIX_HEADER = AMSpringboardDemo_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				INFOPLIST_FILE = "AMSpringboardDemo-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = AMSpringboardDemo;
 			};
 			name = Debug;
@@ -383,6 +395,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AMSpringboardDemo_Prefix.pch;
 				INFOPLIST_FILE = "AMSpringboardDemo-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = AMSpringboardDemo;
 				VALIDATE_PRODUCT = YES;
 			};
