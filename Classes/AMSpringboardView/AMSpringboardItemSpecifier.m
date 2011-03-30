@@ -14,7 +14,13 @@ NSString* const kAMSpringboardBoardItemImageName = @"image";
 NSString* const kAMSpringboardBoardItemIdentifierNull = @"Null";
 
 
+@interface AMSpringboardItemSpecifier ()
+@property (nonatomic, retain) NSMutableDictionary* dict;
+@end
+
 @implementation AMSpringboardItemSpecifier
+
+@synthesize dict = _dict;
 
 - (id) initWithDictionary:(NSDictionary*)dict
 {
@@ -34,7 +40,8 @@ NSString* const kAMSpringboardBoardItemIdentifierNull = @"Null";
 - (id) init
 {
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
-    [dict setObject:NSStringFromClass([self class]) forKey:kAMSpringboardBoardItemIdentifier];
+    [dict setObject:NSStringFromClass([self class]) 
+             forKey:kAMSpringboardBoardItemIdentifier];
     id s = [self initWithDictionary:dict];
     [dict release];
     return s;
@@ -50,19 +57,19 @@ NSString* const kAMSpringboardBoardItemIdentifierNull = @"Null";
 
 - (NSDictionary*) dictionaryRepresentation
 {
-    return [[_dict copy] autorelease];;
+    return [[self.dict copy] autorelease];;
 }
 
 
 - (id) objectForKey:(NSString*)key
 {
-	return [_dict objectForKey:key];
+	return [self.dict objectForKey:key];
 }
 
 
 - (void) setObject:(id)object forKey:(NSString*)key
 {
-	[_dict setObject:object forKey:key];
+	[self.dict setObject:object forKey:key];
 }
 
 
@@ -81,7 +88,7 @@ NSString* const kAMSpringboardBoardItemIdentifierNull = @"Null";
 
 - (void)encodeWithCoder:(NSCoder *)aCoder;
 {
-    [aCoder encodeObject:_dict forKey:@"dict"];
+    [aCoder encodeObject:self.dict forKey:@"dict"];
 }
 
 
@@ -115,7 +122,7 @@ static AMSpringboardNullItem* __sharedNullItem = nil;
         if( __sharedNullItem == nil )
         {
             __sharedNullItem = [[AMSpringboardNullItem alloc] init];
-            [__sharedNullItem->_dict setObject:kAMSpringboardBoardItemIdentifierNull forKey:kAMSpringboardBoardItemIdentifier];
+            [__sharedNullItem.dict setObject:kAMSpringboardBoardItemIdentifierNull forKey:kAMSpringboardBoardItemIdentifier];
         }
     }
     return __sharedNullItem;
