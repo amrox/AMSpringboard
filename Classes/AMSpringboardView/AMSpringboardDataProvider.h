@@ -33,6 +33,7 @@
 
 
 
+
 @interface AMSpringboardDataProvider (Subclass)
 
 - (AMSpringboardViewCell*) makeCellWithIdentifier:(NSString*)identifier;

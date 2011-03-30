@@ -31,7 +31,6 @@
     NSIndexPath*                    _selectedIndexPath;
 }
 
-
 @property (nonatomic, assign) IBOutlet id<AMSpringboardViewDelegate> delegate;
 @property (nonatomic, assign) IBOutlet id<AMSpringboardViewDataSource> dataSource;
 

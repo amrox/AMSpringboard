@@ -31,11 +31,13 @@ extern NSString* const kAMSpringboardBoardItemIdentifierNull;
 
 
 
+
 @interface AMSpringboardItemSpecifier (Convenience)
 
 + (id) itemSpecifierWithTitle:(NSString*)title imageName:(NSString*)imageName;
 
 @end
+
 
 
 
