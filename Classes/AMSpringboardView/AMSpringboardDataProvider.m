@@ -8,6 +8,8 @@
 
 #import "AMSpringboardDataProvider.h"
 
+#import "AMSpringboard.h"
+
 @interface AMSpringboardDataProvider ()
 
 @end
@@ -82,7 +84,15 @@
         return [self dataProviderFromDictionary_v1:dict error:outError];
     }
     
-    // TODO: set error;
+    if( outError != NULL )
+    {
+        *outError = [NSError errorWithDomain:AMSpringboardErrorDomain
+                                        code:AMSpringboardUnkownPlistFormatError
+                                    userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+                                              @"Unknown Plist format", NSLocalizedDescriptionKey, 
+                                              nil]];
+    }
+    
     return nil;
 }
 
