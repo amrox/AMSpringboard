@@ -3,7 +3,7 @@
 //  AMSpringboardView
 //
 //  Created by Andy Mroczkowski on 3/28/11.
-//  Copyright 2011 MindSnacks. All rights reserved.
+//  Copyright 2011 Andy Mroczkowski. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

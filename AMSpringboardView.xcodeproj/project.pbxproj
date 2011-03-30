@@ -46,7 +46,6 @@
 		B337CD8B130FB03E00423A68 /* AMSpringboardViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSpringboardViewCell.m; sourceTree = "<group>"; };
 		B35A4A62132E7E67003817DA /* AMGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGeometry.h; sourceTree = "<group>"; };
 		B35A4A63132E7E67003817DA /* AMGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGeometry.m; sourceTree = "<group>"; };
-		B35A4A64132E7E67003817DA /* AMLogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMLogMacros.h; sourceTree = "<group>"; };
 		B3621000131D712D0003D4EA /* AMSpringboardItemSpecifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSpringboardItemSpecifier.h; sourceTree = "<group>"; };
 		B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSpringboardItemSpecifier.m; sourceTree = "<group>"; };
 		B3763D39132413A800DBACDC /* NSIndexPath+AMSpringboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+AMSpringboardView.h"; sourceTree = "<group>"; };
@@ -81,7 +80,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B35A4A23132E7E67003817DA /* AMStuff */,
+				B36EEB7E1342581400975D00 /* Dependencies */,
 				B337CD82130FB01000423A68 /* AMSpringboardView */,
 				B3763D3C1324171F00DBACDC /* AMSpringboardViewDemo */,
 			);
@@ -164,11 +163,18 @@
 		B35A4A5F132E7E67003817DA /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				B35A4A64132E7E67003817DA /* AMLogMacros.h */,
 				B35A4A62132E7E67003817DA /* AMGeometry.h */,
 				B35A4A63132E7E67003817DA /* AMGeometry.m */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		B36EEB7E1342581400975D00 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				B35A4A23132E7E67003817DA /* AMStuff */,
+			);
+			name = Dependencies;
 			sourceTree = "<group>";
 		};
 		B3763D3C1324171F00DBACDC /* AMSpringboardViewDemo */ = {

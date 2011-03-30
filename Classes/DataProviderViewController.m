@@ -3,7 +3,7 @@
 //  AMSpringboardView
 //
 //  Created by Andy Mroczkowski on 3/28/11.
-//  Copyright 2011 MindSnacks. All rights reserved.
+//  Copyright 2011 Andy Mroczkowski. All rights reserved.
 //
 
 #import "DataProviderViewController.h"
@@ -77,8 +77,6 @@
     
     NSString* path = [[NSBundle mainBundle] pathForResource:@"Springboard" ofType:@"plist"];
 
-//    self.dataProvider.pages = [NSArray springboardItemsFromPlistWithPath:path error:&error];
-    
     self.dataProvider = [AMSpringboardDataProvider dataProviderFromPlistWithPath:path error:&error];
     
     self.dataProvider.springboardView = self.springboardView;
@@ -135,7 +133,7 @@
 
 - (void) springboardView:(AMSpringboardView*)springboardView didSelectCellWithPosition:(NSIndexPath*)position
 {
-    LOG_TRACE();
+    NSLog(@"selected %@", position);
 }
 
 @end

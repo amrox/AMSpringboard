@@ -3,7 +3,7 @@
 //  AMSpringboardView
 //
 //  Created by Andy Mroczkowski on 2/19/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Andy Mroczkowski. All rights reserved.
 //
 
 #import "AMSpringboardView.h"
@@ -221,7 +221,7 @@
     AMSpringboardViewCell* cell = [self.cells objectForKey:position];
     if( cell == nil )
     {
-        //LOG_DEBUG(@"getting: %@", position);
+        //NSLog(@"getting: %@", position);
         cell = [self.dataSource springboardView:self cellForPositionWithIndexPath:position];
         if( cell != nil )
         {
@@ -297,7 +297,7 @@
 
 - (void) addCellToView:(AMSpringboardViewCell*)cell position:(NSIndexPath*)position
 {
-    //LOG_DEBUG( @"adding: %@", cell );
+    //NSLog( @"adding: %@", cell );
     CGPoint center = [self centerForCellWithPosition:position];
     CGRect frame = AMRectMakeWithCenterAndSize( center, cell.bounds.size );
     cell.frame = frame;
@@ -359,8 +359,8 @@
     NSIndexPath* botRight = [self positionForPoint:
                              CGPointMake(CGRectGetMaxX(rect)-1, CGRectGetMaxY(rect)-1)];
     
-    //LOG_DEBUG(@"top left: %@", topLeft );
-    //LOG_DEBUG(@"bot right: %@", botRight );
+    //NSLog(@"top left: %@", topLeft );
+    //NSLog(@"bot right: %@", botRight );
     
     NSIndexPath* cur = topLeft;
     while(1)
@@ -410,7 +410,7 @@
             CGRect zone = [self zoneRectForCellWithPosition:pos];
             if( !CGRectIntersectsRect(zone, visibleFrame) )
             {
-                //LOG_DEBUG( @"pruning: %@", pos );
+                //NSLog( @"pruning: %@", pos );
                 if( cell != [NSNull null] )
                 {
                     [self addUnusedCell:cell];
@@ -421,15 +421,15 @@
         }
     }
     
-    //LOG_DEBUG(@"visible rect: %@", NSStringFromCGRect(visibleFrame));
+    //NSLog(@"visible rect: %@", NSStringFromCGRect(visibleFrame));
     NSArray* positions = [self positionsIntersectingRect:visibleFrame];
-    //LOG_DEBUG( @"positions: %@\n", positions );
+    //NSLog( @"positions: %@\n", positions );
     for( NSIndexPath* position in positions )
     {
         id cell = [self getCellForPosition:position];
         if( VALID_SPRINBOARD_CELL(cell) )
         {
-            //LOG_DEBUG( @"adding: %@", position );
+            //NSLog( @"adding: %@", position );
             [self addCellToView:cell position:position];
         }
     }

@@ -3,7 +3,7 @@
 //  AMSpringboardView
 //
 //  Created by Andy Mroczkowski on 3/1/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Andy Mroczkowski. All rights reserved.
 //
 
 #import "DataSourceViewController.h"
@@ -109,7 +109,7 @@
 
 - (void) springboardView:(AMSpringboardView*)springboardView didSelectCellWithPosition:(NSIndexPath*)position
 {
-    LOG_TRACE();
+    NSLog(@"selected: %@", position);
 }
 
 @end

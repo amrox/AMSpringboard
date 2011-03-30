@@ -3,7 +3,7 @@
 //  AMSpringboardView
 //
 //  Created by Andy Mroczkowski on 3/25/11.
-//  Copyright 2011 MindSnacks. All rights reserved.
+//  Copyright 2011 Andy Mroczkowski. All rights reserved.
 //
 
 #import "AMSpringboardDataProvider.h"
@@ -123,8 +123,7 @@
 {
     NSArray* items = [self.pages objectAtIndex:[position springboardPage]];
     NSUInteger index = [position springboardColumn]*self.rowCount + [position springboardRow];
-    LOG_DEBUG( @"%@: %d", position, index );
-    
+
     if( index >= [items count] )
         return nil;
     

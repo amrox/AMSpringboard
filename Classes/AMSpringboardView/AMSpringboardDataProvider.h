@@ -3,7 +3,7 @@
 //  AMSpringboardView
 //
 //  Created by Andy Mroczkowski on 3/25/11.
-//  Copyright 2011 MindSnacks. All rights reserved.
+//  Copyright 2011 Andy Mroczkowski. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -22,7 +22,6 @@
 + (id) dataProvider;
 + (id) dataProviderFromDictionary:(NSDictionary*)dict error:(NSError**)outError;
 + (id) dataProviderFromPlistWithPath:(NSString*)path error:(NSError**)outError;
-
 
 @property (nonatomic, retain) AMSpringboardView* springboardView;
 @property (nonatomic, retain) NSArray* pages;
