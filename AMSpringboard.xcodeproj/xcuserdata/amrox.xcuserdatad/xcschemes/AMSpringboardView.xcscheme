@@ -14,9 +14,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-               BuildableName = "AMSpringboardView.app"
-               BlueprintName = "AMSpringboardView"
-               ReferencedContainer = "container:AMSpringboardView.xcodeproj">
+               BuildableName = "AMSpringboardDemo.app"
+               BlueprintName = "AMSpringboardDemo"
+               ReferencedContainer = "container:AMSpringboard.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -41,9 +41,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-            BuildableName = "AMSpringboardView.app"
-            BlueprintName = "AMSpringboardView"
-            ReferencedContainer = "container:AMSpringboardView.xcodeproj">
+            BuildableName = "AMSpringboardDemo.app"
+            BlueprintName = "AMSpringboardDemo"
+            ReferencedContainer = "container:AMSpringboard.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -60,9 +60,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-            BuildableName = "AMSpringboardView.app"
-            BlueprintName = "AMSpringboardView"
-            ReferencedContainer = "container:AMSpringboardView.xcodeproj">
+            BuildableName = "AMSpringboardDemo.app"
+            BlueprintName = "AMSpringboardDemo"
+            ReferencedContainer = "container:AMSpringboard.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

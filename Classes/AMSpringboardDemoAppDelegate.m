@@ -6,9 +6,9 @@
 //  Copyright 2011 Andy Mroczkowski. All rights reserved.
 //
 
-#import "AMSpringboardViewAppDelegate.h"
+#import "AMSpringboardDemoAppDelegate.h"
 
-@implementation AMSpringboardViewAppDelegate
+@implementation AMSpringboardDemoAppDelegate
 
 @synthesize window;
 @synthesize tabBarController;

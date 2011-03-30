@@ -6,10 +6,10 @@
 //  Copyright 2011 Andy Mroczkowski. All rights reserved.
 //
 
-#import "NSIndexPath+AMSpringboardView.h"
+#import "NSIndexPath+AMSpringboard.h"
 
 
-@implementation NSIndexPath (AMSpringboardView)
+@implementation NSIndexPath (AMSpringboard)
 
 
 + (NSIndexPath*) indexPathForSpringboardPage:(NSUInteger)page column:(NSUInteger)column row:(NSUInteger)row;

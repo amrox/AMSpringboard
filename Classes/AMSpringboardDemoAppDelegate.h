@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AMSpringboardViewAppDelegate : NSObject <UIApplicationDelegate> {
+@interface AMSpringboardDemoAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
 }
 

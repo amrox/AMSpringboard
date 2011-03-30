@@ -9,7 +9,7 @@
 #import "AMSpringboardView.h"
 
 #import "AMGeometry.h"
-#import "NSIndexPath+AMSpringboardView.h"
+#import "NSIndexPath+AMSpringboard.h"
 
 #define kDefaultColumnPadding (1)
 #define VALID_SPRINBOARD_CELL(obj) obj != nil && obj != [NSNull null]

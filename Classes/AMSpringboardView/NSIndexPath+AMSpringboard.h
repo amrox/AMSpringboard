@@ -10,7 +10,7 @@
 
 #define kAMSpringboardViewAllRows NSUIntegerMax
 
-@interface NSIndexPath (AMSpringboardView)
+@interface NSIndexPath (AMSpringboard)
 
 + (NSIndexPath*) indexPathForSpringboardPage:(NSUInteger)page column:(NSUInteger)column row:(NSUInteger)row;
 

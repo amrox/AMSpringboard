@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "AMSpringboardViewCell.h"
-#import "NSIndexPath+AMSpringboardView.h"
+#import "NSIndexPath+AMSpringboard.h"
 #import "AMSpringboardItemSpecifier.h"
 
 @protocol AMSpringboardViewDataSource;

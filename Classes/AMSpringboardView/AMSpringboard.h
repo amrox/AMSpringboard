@@ -8,7 +8,7 @@
 
 #import "AMSpringboardView.h"
 #import "AMSpringboardViewCell.h"
-#import "NSIndexPath+AMSpringboardView.h"
+#import "NSIndexPath+AMSpringboard.h"
 
 enum AMSpingboardErrorCode {
     AMSpringboardUnkownPlistFormatError = 1,
