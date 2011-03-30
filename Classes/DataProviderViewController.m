@@ -26,59 +26,54 @@
 {
     // -- manual page array creation
     /*
-     self.dataProvider = [AMSpringboardDataProvider dataProvider];
-     
-     self.dataProvider.rowCount = 3;
-     self.dataProvider.columnCount = 2;
-
-    NSArray* pages = [NSArray arrayWithObjects:
-                      [NSArray arrayWithObjects:
-                       [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"one" 
-                                                                imageName:@"beer-icon"],
-                       
-                       [AMSpringboardNullItem nullItem],
-                       
-                       [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"two" 
-                                                                imageName:@"beer-icon"],
-                       
-                       [AMSpringboardNullItem nullItem],
-                       
-                       [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"three"
-                                                                imageName:@"beer-icon"],
-
-                       [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"four"
-                                                                imageName:@"beer-icon"],
-                       
-                       nil],
-                      [NSArray arrayWithObjects:
-                       [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"one" 
-                                                                imageName:@"beer-icon"],
-                       [AMSpringboardNullItem nullItem],
-                       
-                       [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"two" 
-                                                                imageName:@"beer-icon"],
-                       
-                       [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"three"
-                                                                imageName:@"beer-icon"],
-                       
-                       [AMSpringboardNullItem nullItem],
-                       
-                       [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"four"
-                                                                imageName:@"beer-icon"],
-                       nil],
-                      nil];
-    
+    self.dataProvider = [AMSpringboardDataProvider dataProvider];
+    self.dataProvider.rowCount = 3;
+    self.dataProvider.columnCount = 2;
+    NSMutableArray* pages = [NSMutableArray arrayWithObjects:
+                             [NSMutableArray arrayWithObjects:
+                              [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"one" 
+                                                                       imageName:@"beer-icon"],
+                              
+                              [AMSpringboardNullItem nullItem],
+                              
+                              [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"two" 
+                                                                       imageName:@"beer-icon"],
+                              
+                              [AMSpringboardNullItem nullItem],
+                              
+                              [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"three"
+                                                                       imageName:@"beer-icon"],
+                              
+                              [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"four"
+                                                                       imageName:@"beer-icon"],
+                              
+                              nil],
+                             [NSMutableArray arrayWithObjects:
+                              [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"one" 
+                                                                       imageName:@"beer-icon"],
+                              [AMSpringboardNullItem nullItem],
+                              
+                              [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"two" 
+                                                                       imageName:@"beer-icon"],
+                              
+                              [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"three"
+                                                                       imageName:@"beer-icon"],
+                              
+                              [AMSpringboardNullItem nullItem],
+                              
+                              [AMSpringboardItemSpecifier itemSpecifierWithTitle:@"four"
+                                                                       imageName:@"beer-icon"],
+                              nil],
+                             nil];
     self.dataProvider.pages = pages;
-    */
+     */
     
     // -- Page creation from plist file
-
     NSError* error = nil;
-    
     NSString* path = [[NSBundle mainBundle] pathForResource:@"Springboard" ofType:@"plist"];
-
     self.dataProvider = [AMSpringboardDataProvider dataProviderFromPlistWithPath:path error:&error];
     
+    // -- set view
     self.dataProvider.springboardView = self.springboardView;
 }
 

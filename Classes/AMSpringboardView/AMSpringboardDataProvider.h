@@ -13,7 +13,7 @@
 @interface AMSpringboardDataProvider : NSObject <AMSpringboardViewDataSource>
 {    
     AMSpringboardView* _springboardView;
-    NSArray*           _pages;
+    NSMutableArray*    _pages;
     NSInteger          _columnCount;
     NSInteger          _rowCount;
 }
@@ -24,10 +24,10 @@
 + (id) dataProviderFromPlistWithPath:(NSString*)path error:(NSError**)outError;
 
 @property (nonatomic, retain) AMSpringboardView* springboardView;
-@property (nonatomic, retain) NSArray* pages;
 
-@property (nonatomic, assign) NSInteger columnCount;
-@property (nonatomic, assign) NSInteger rowCount;
+@property (nonatomic, retain) NSMutableArray* pages; // A mutable array of mutable arrays. Must call [springboardView reloadData] after changes.
+@property (nonatomic, assign) NSInteger columnCount; // Must call [springboardView reloadData] after changes.
+@property (nonatomic, assign) NSInteger rowCount;    // Must call [springboardView reloadData] after changes.
 
 @end
 

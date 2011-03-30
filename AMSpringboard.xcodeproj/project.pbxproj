@@ -480,6 +480,7 @@
 				B3A2EC231343A3E000836F69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "AMSpringboard" */ = {
 			isa = XCConfigurationList;
