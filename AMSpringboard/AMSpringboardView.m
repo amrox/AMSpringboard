@@ -99,6 +99,7 @@
 	_scrollView.delegate = self;
 	_scrollView.pagingEnabled = YES;
     _scrollView.bounces = YES;
+    _scrollView.alwaysBounceHorizontal = YES;
     _scrollView.delaysContentTouches = NO;
     _scrollView.directionalLockEnabled = YES;
 	_scrollView.showsHorizontalScrollIndicator = NO;
