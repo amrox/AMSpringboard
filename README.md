@@ -1,8 +1,12 @@
 # AMSpringboard
 
-* Version: 0.1.2
+* Version: 0.1.3
 
 ## Changelog
+
+### 0.1.3
+ * Added alwaysBounceHorizontal to SpringboardView
+ * Updated AMUtility
 
 ### 0.1.2
  * File reorganization
