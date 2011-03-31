@@ -68,8 +68,8 @@
 		B3C12D4013387599008F8C17 /* beer-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beer-icon.png"; sourceTree = "<group>"; };
 		B3C12DAE13392332008F8C17 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B3E5F7A11342D7F70012BDF2 /* AMSpringboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSpringboard.h; path = AMSpringboard/AMSpringboard.h; sourceTree = SOURCE_ROOT; };
-		B3E5F7B41342F4020012BDF2 /* AMGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMGeometry.h; path = "Dependencies/amrox-AMUtility-9332e16/Base/AMGeometry.h"; sourceTree = SOURCE_ROOT; };
-		B3E5F7B51342F4020012BDF2 /* AMGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMGeometry.m; path = "Dependencies/amrox-AMUtility-9332e16/Base/AMGeometry.m"; sourceTree = SOURCE_ROOT; };
+		B3E5F7B41342F4020012BDF2 /* AMGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMGeometry.h; path = Dependencies/AMUtility/Base/AMGeometry.h; sourceTree = SOURCE_ROOT; };
+		B3E5F7B51342F4020012BDF2 /* AMGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMGeometry.m; path = Dependencies/AMUtility/Base/AMGeometry.m; sourceTree = SOURCE_ROOT; };
 		B3E83DB3133D85BB00397B4D /* AMSpringboardDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSpringboardDataProvider.h; path = AMSpringboard/AMSpringboardDataProvider/AMSpringboardDataProvider.h; sourceTree = SOURCE_ROOT; };
 		B3E83DB4133D85BC00397B4D /* AMSpringboardDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSpringboardDataProvider.m; path = AMSpringboard/AMSpringboardDataProvider/AMSpringboardDataProvider.m; sourceTree = SOURCE_ROOT; };
 		B3E83DD21340EDD400397B4D /* DataProviderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProviderViewController.h; sourceTree = "<group>"; };
@@ -442,6 +442,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
@@ -455,6 +456,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;

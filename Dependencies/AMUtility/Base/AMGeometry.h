@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <CoreGraphics/CoreGraphics.h>
 
 #ifdef __cplusplus
 extern "C" {
