@@ -29,7 +29,7 @@
 @property (nonatomic, assign) NSInteger columnCount; // Must call [springboardView reloadData] after changes.
 @property (nonatomic, assign) NSInteger rowCount;    // Must call [springboardView reloadData] after changes.
 
-- (AMSpringboardItemSpecifier*) itemSpecifierForPosition:(NSIndexPath*)position
+- (AMSpringboardItemSpecifier*) itemSpecifierForPosition:(NSIndexPath*)position;
 
 @end
 
