@@ -1,8 +1,11 @@
 # AMSpringboard
 
-* Version: 0.1.3
+* Version: 0.1.4
 
 ## Changelog
+
+### 0.1.4
+ * exposing AMSpringboardDataProvider : itemSpecifierForPosition
 
 ### 0.1.3
  * Added alwaysBounceHorizontal to SpringboardView
