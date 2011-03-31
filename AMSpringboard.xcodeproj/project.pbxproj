@@ -14,12 +14,12 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		B33296F8134195660082A96A /* Springboard.plist in Resources */ = {isa = PBXBuildFile; fileRef = B33296F7134195660082A96A /* Springboard.plist */; };
+		B35C02EB13440F7600A4A5F9 /* AMSpringboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B337CD86130FB03000423A68 /* AMSpringboardView.m */; };
+		B35C02EC13440F7600A4A5F9 /* AMSpringboardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B337CD8B130FB03E00423A68 /* AMSpringboardViewCell.m */; };
+		B35C02ED13440F7600A4A5F9 /* NSIndexPath+AMSpringboard.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboard.m */; };
+		B35C02EE13440F7600A4A5F9 /* AMSpringboardItemSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */; };
+		B35C02EF13440F7600A4A5F9 /* AMSpringboardDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E83DB4133D85BC00397B4D /* AMSpringboardDataProvider.m */; };
 		B3A2EC1D1343A3E000836F69 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		B3A2EC261343A3FD00836F69 /* AMSpringboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B337CD86130FB03000423A68 /* AMSpringboardView.m */; };
-		B3A2EC281343A3FD00836F69 /* AMSpringboardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B337CD8B130FB03E00423A68 /* AMSpringboardViewCell.m */; };
-		B3A2EC2A1343A3FD00836F69 /* NSIndexPath+AMSpringboard.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboard.m */; };
-		B3A2EC2C1343A3FD00836F69 /* AMSpringboardItemSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */; };
-		B3A2EC2E1343A3FD00836F69 /* AMSpringboardDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E83DB4133D85BC00397B4D /* AMSpringboardDataProvider.m */; };
 		B3A2EC3A1343AEE400836F69 /* libAMSpringboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3A2EC1C1343A3E000836F69 /* libAMSpringboard.a */; };
 		B3A8B572131E2ED8002AF07D /* DataSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A8B570131E2ED6002AF07D /* DataSourceViewController.m */; };
 		B3A8B573131E2ED8002AF07D /* DataSourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3A8B571131E2ED7002AF07D /* DataSourceViewController.xib */; };
@@ -52,14 +52,14 @@
 		32CA4F630368D1EE00C91783 /* AMSpringboardDemo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSpringboardDemo_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* AMSpringboardDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AMSpringboardDemo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		B33296F7134195660082A96A /* Springboard.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = Springboard.plist; sourceTree = "<group>"; };
-		B337CD85130FB03000423A68 /* AMSpringboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSpringboardView.h; sourceTree = "<group>"; };
-		B337CD86130FB03000423A68 /* AMSpringboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSpringboardView.m; sourceTree = "<group>"; };
-		B337CD8A130FB03E00423A68 /* AMSpringboardViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSpringboardViewCell.h; sourceTree = "<group>"; };
-		B337CD8B130FB03E00423A68 /* AMSpringboardViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSpringboardViewCell.m; sourceTree = "<group>"; };
-		B3621000131D712D0003D4EA /* AMSpringboardItemSpecifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSpringboardItemSpecifier.h; sourceTree = "<group>"; };
-		B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSpringboardItemSpecifier.m; sourceTree = "<group>"; };
-		B3763D39132413A800DBACDC /* NSIndexPath+AMSpringboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+AMSpringboard.h"; sourceTree = "<group>"; };
-		B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+AMSpringboard.m"; sourceTree = "<group>"; };
+		B337CD85130FB03000423A68 /* AMSpringboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSpringboardView.h; path = AMSpringboard/AMSpringboardView.h; sourceTree = SOURCE_ROOT; };
+		B337CD86130FB03000423A68 /* AMSpringboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSpringboardView.m; path = AMSpringboard/AMSpringboardView.m; sourceTree = SOURCE_ROOT; };
+		B337CD8A130FB03E00423A68 /* AMSpringboardViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSpringboardViewCell.h; path = AMSpringboard/AMSpringboardViewCell.h; sourceTree = SOURCE_ROOT; };
+		B337CD8B130FB03E00423A68 /* AMSpringboardViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSpringboardViewCell.m; path = AMSpringboard/AMSpringboardViewCell.m; sourceTree = SOURCE_ROOT; };
+		B3621000131D712D0003D4EA /* AMSpringboardItemSpecifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSpringboardItemSpecifier.h; path = AMSpringboard/AMSpringboardDataProvider/AMSpringboardItemSpecifier.h; sourceTree = SOURCE_ROOT; };
+		B3621001131D712D0003D4EA /* AMSpringboardItemSpecifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSpringboardItemSpecifier.m; path = AMSpringboard/AMSpringboardDataProvider/AMSpringboardItemSpecifier.m; sourceTree = SOURCE_ROOT; };
+		B3763D39132413A800DBACDC /* NSIndexPath+AMSpringboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSIndexPath+AMSpringboard.h"; path = "AMSpringboard/NSIndexPath+AMSpringboard.h"; sourceTree = SOURCE_ROOT; };
+		B3763D3A132413A800DBACDC /* NSIndexPath+AMSpringboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSIndexPath+AMSpringboard.m"; path = "AMSpringboard/NSIndexPath+AMSpringboard.m"; sourceTree = SOURCE_ROOT; };
 		B3A2EC1C1343A3E000836F69 /* libAMSpringboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAMSpringboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A2EC201343A3E000836F69 /* AMSpringboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AMSpringboard-Prefix.pch"; sourceTree = "<group>"; };
 		B3A8B56F131E2ED6002AF07D /* DataSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSourceViewController.h; sourceTree = "<group>"; };
@@ -67,11 +67,11 @@
 		B3A8B571131E2ED7002AF07D /* DataSourceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataSourceViewController.xib; sourceTree = "<group>"; };
 		B3C12D4013387599008F8C17 /* beer-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beer-icon.png"; sourceTree = "<group>"; };
 		B3C12DAE13392332008F8C17 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		B3E5F7A11342D7F70012BDF2 /* AMSpringboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSpringboard.h; sourceTree = "<group>"; };
+		B3E5F7A11342D7F70012BDF2 /* AMSpringboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSpringboard.h; path = AMSpringboard/AMSpringboard.h; sourceTree = SOURCE_ROOT; };
 		B3E5F7B41342F4020012BDF2 /* AMGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMGeometry.h; path = "Dependencies/amrox-AMUtility-9332e16/Base/AMGeometry.h"; sourceTree = SOURCE_ROOT; };
 		B3E5F7B51342F4020012BDF2 /* AMGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMGeometry.m; path = "Dependencies/amrox-AMUtility-9332e16/Base/AMGeometry.m"; sourceTree = SOURCE_ROOT; };
-		B3E83DB3133D85BB00397B4D /* AMSpringboardDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSpringboardDataProvider.h; sourceTree = "<group>"; };
-		B3E83DB4133D85BC00397B4D /* AMSpringboardDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSpringboardDataProvider.m; sourceTree = "<group>"; };
+		B3E83DB3133D85BB00397B4D /* AMSpringboardDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSpringboardDataProvider.h; path = AMSpringboard/AMSpringboardDataProvider/AMSpringboardDataProvider.h; sourceTree = SOURCE_ROOT; };
+		B3E83DB4133D85BC00397B4D /* AMSpringboardDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSpringboardDataProvider.m; path = AMSpringboard/AMSpringboardDataProvider/AMSpringboardDataProvider.m; sourceTree = SOURCE_ROOT; };
 		B3E83DD21340EDD400397B4D /* DataProviderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProviderViewController.h; sourceTree = "<group>"; };
 		B3E83DD31340EDD500397B4D /* DataProviderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProviderViewController.m; sourceTree = "<group>"; };
 		B3E83DD41340EDD600397B4D /* DataProviderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataProviderViewController.xib; sourceTree = "<group>"; };
@@ -352,11 +352,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3A2EC261343A3FD00836F69 /* AMSpringboardView.m in Sources */,
-				B3A2EC281343A3FD00836F69 /* AMSpringboardViewCell.m in Sources */,
-				B3A2EC2A1343A3FD00836F69 /* NSIndexPath+AMSpringboard.m in Sources */,
-				B3A2EC2C1343A3FD00836F69 /* AMSpringboardItemSpecifier.m in Sources */,
-				B3A2EC2E1343A3FD00836F69 /* AMSpringboardDataProvider.m in Sources */,
+				B35C02EB13440F7600A4A5F9 /* AMSpringboardView.m in Sources */,
+				B35C02EC13440F7600A4A5F9 /* AMSpringboardViewCell.m in Sources */,
+				B35C02ED13440F7600A4A5F9 /* NSIndexPath+AMSpringboard.m in Sources */,
+				B35C02EE13440F7600A4A5F9 /* AMSpringboardItemSpecifier.m in Sources */,
+				B35C02EF13440F7600A4A5F9 /* AMSpringboardDataProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +409,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AMSpringboard/AMSpringboard-Prefix.pch";
+				GCC_PREFIX_HEADER = "AMSpringboard-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
@@ -426,7 +426,7 @@
 				DSTROOT = /tmp/AMSpringboard.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AMSpringboard/AMSpringboard-Prefix.pch";
+				GCC_PREFIX_HEADER = "AMSpringboard-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
