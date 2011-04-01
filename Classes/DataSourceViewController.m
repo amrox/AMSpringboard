@@ -91,7 +91,7 @@
     if( cell == nil )
     {
         cell = [[[AMSpringboardViewCell alloc] initWithStyle:AMSpringboardViewCellStyleDefault reuseIdentifier:identifier] autorelease];
-        //cell.backgroundColor = [UIColor redColor];
+        cell.size = CGSizeMake(100, 100);
     }
     
     cell.textLabel.text = [NSString stringWithFormat:@"(%d, %d, %d)",
