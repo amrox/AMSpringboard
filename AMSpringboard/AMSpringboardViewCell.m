@@ -45,6 +45,7 @@
                                                                     self.bounds.size.width, LABEL_HEIGHT)] release];
         self.textLabel.backgroundColor = [UIColor clearColor];
         self.textLabel.textAlignment = UITextAlignmentCenter;
+        self.textLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
         [self addSubview:self.textLabel];
     }
     
