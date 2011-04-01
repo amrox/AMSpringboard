@@ -103,6 +103,19 @@
 }
 
 
+- (CGSize) size
+{
+    return self.frame.size;
+}
+
+
+- (void) setSize:(CGSize)size
+{
+    CGRect frame = self.frame;
+    frame.size = size;
+    self.frame = frame;
+}
+
 - (void) setHighlighted:(BOOL)highlighted
 {
     if( highlighted != _highlighted )
