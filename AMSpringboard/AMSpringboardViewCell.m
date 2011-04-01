@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "AMGeometry.h"
+#import "UIImage+AMHighlightedImage.h"
 
 #define DEFAULT_WIDTH 80
 #define DEFAULT_HEIGHT 80
@@ -73,32 +74,99 @@
 	[super dealloc];
 }
 
+//- (UIImage*) getHighlightedImage:(UIImage*)image
+//{
+//    CGImageRef cgImage = image.CGImage;
+//    CGSize imageSize = image.size;
+//    
+////    UIGraphicsBeginImageContext(imageSize);
+//    
+////    CGContextRef context = UIGraphicsGetCurrentContext();
+//    
+//    CGContextRef context = CGBitmapContextCreate(NULL,
+//                                                 CGImageGetWidth(cgImage),
+//                                                 CGImageGetHeight(cgImage),
+//                                                 CGImageGetBitsPerComponent(cgImage),
+//                                                 CGImageGetBytesPerRow(cgImage),
+//                                                 CGColorSpaceCreateDeviceRGB(),                  
+//                                                 kCGImageAlphaPremultipliedLast);
+//    
+//    CGRect rect = CGRectMake(0, 0, imageSize.width, imageSize.height);
+//
+////    CGContextSetBlendMode(context, kCGBlendModeMultiply);
+//    
+////    CGContextScaleCTM(context, 1.0, -1.0);
+////    CGContextTranslateCTM(context, 0.0, -rect.size.height);
+//
+//    CGContextClipToMask(context, rect, cgImage);
+//
+//    CGContextDrawImage(context, rect, cgImage);
+//    
+////    UIColor* color = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
+////    CGContextSetFillColor(context, CGColorGetComponents(color.CGColor));      
+//    CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 0.4);  
+////    CGContextFillRect(context, rect);
+//    
+////    [[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4] set];
+//    CGContextFillRect(context, rect);
+//
+//    
+//    CGImageRef cgImageHighlight = CGBitmapContextCreateImage(context);
+//    CGContextRelease(context);
+//
+//    UIImage* highlightImage = [[UIImage alloc] initWithCGImage:cgImageHighlight];
+//    CGImageRelease(cgImageHighlight);
+//    
+//    
+////    UIImage* highlightImage = UIGraphicsGetImageFromCurrentImageContext();
+////    
+////    UIGraphicsEndImageContext();
+//    
+//    return [highlightImage autorelease];
+////    return highlightImage;
+//
+//}
+
 
 - (void) drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSaveGState(context);
     
+    [[UIColor blueColor] set];
+    [[UIBezierPath bezierPathWithRect:self.bounds] stroke];
+        
     CGRect imageFrame = self.bounds;
     imageFrame.size.height -= LABEL_HEIGHT;
     imageFrame = AMRectInsetWithAspectRatio(imageFrame, 1);
     
-    CGContextSetBlendMode(context, kCGBlendModeMultiply);
-    
-    CGContextScaleCTM(context, 1.0, -1.0);
-    CGContextTranslateCTM(context, 0.0, -imageFrame.size.height);
-    
     CGContextClipToRect(context, rect);
-    CGContextClipToMask(context, imageFrame, self.image.CGImage);
     
-    CGContextDrawImage(context, imageFrame, self.image.CGImage);
+    UIImage* shadedImage = [self.image copyShadedImage];
+    [shadedImage drawInRect:imageFrame];
+    [shadedImage release];
     
-    if( self.highlighted )
-    {
-        UIColor* color = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4];
-        CGContextSetFillColor(context, CGColorGetComponents(color.CGColor));      
-        CGContextFillRect (context, rect);
-    }
+//    [image drawInRect:imageFrame];
+//    
+//    [[UIColor redColor] set];
+//    [[UIBezierPath bezierPathWithRect:imageFrame] stroke];
+//    
+//    CGContextSetBlendMode(context, kCGBlendModeMultiply);
+//    
+//    CGContextScaleCTM(context, 1.0, -1.0);
+//    CGContextTranslateCTM(context, 0.0, -imageFrame.size.height);
+//    
+//    CGContextClipToRect(context, rect);
+//    CGContextClipToMask(context, imageFrame, self.image.CGImage);
+//    
+//    CGContextDrawImage(context, imageFrame, self.image.CGImage);
+//    
+//    if( self.highlighted )
+//    {
+//        UIColor* color = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4];
+//        CGContextSetFillColor(context, CGColorGetComponents(color.CGColor));      
+//        CGContextFillRect (context, rect);
+//    }
     
     CGContextRestoreGState(context);
 }
