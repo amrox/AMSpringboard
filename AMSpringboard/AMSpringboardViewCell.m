@@ -95,7 +95,7 @@
     
     if( self.highlighted )
     {
-        UIColor* color = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4];
+        UIColor* color = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:kAMSpringboardViewCellShading];
         CGContextSetFillColor(context, CGColorGetComponents(color.CGColor));      
         CGContextFillRect (context, rect);
     }

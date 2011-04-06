@@ -13,6 +13,8 @@ typedef enum {
 } AMSpringboardViewCellStyle;
 
 
+#define kAMSpringboardViewCellShading (0.4)
+
 @interface AMSpringboardViewCell : UIView
 {
     NSString*    _reuseIdentifier;
