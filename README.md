@@ -1,8 +1,11 @@
 # AMSpringboard
 
-* Version: 0.1.5
+* Version: 0.2
 
 ## Changelog
+
+### 0.2
+ * Restructuring into more portable library
 
 ### 0.1.5
  * minor bug
