@@ -1,0 +1,3 @@
+[submodule "AMFoundation"]
+	path = AMFoundation
+	url = git://github.com/amrox/AMFoundation.git

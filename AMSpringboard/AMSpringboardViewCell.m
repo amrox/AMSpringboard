@@ -9,8 +9,8 @@
 #import "AMSpringboardViewCell.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import <AMFoundation/AMGeometry.h>
 
-#import "AMGeometry.h"
 #import "UIImage+AMHighlightedImage.h"
 
 #define DEFAULT_WIDTH 80

@@ -8,7 +8,8 @@
 
 #import "AMSpringboardView.h"
 
-#import "AMGeometry.h"
+#import <AMFoundation/AMGeometry.h>
+
 #import "NSIndexPath+AMSpringboard.h"
 
 #define kDefaultColumnPadding (1)
