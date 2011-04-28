@@ -133,40 +133,26 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSaveGState(context);
     
-    [[UIColor blueColor] set];
-    [[UIBezierPath bezierPathWithRect:self.bounds] stroke];
-        
     CGRect imageFrame = self.bounds;
     imageFrame.size.height -= LABEL_HEIGHT;
     imageFrame = AMRectInsetWithAspectRatio(imageFrame, 1);
     
+    CGContextSetBlendMode(context, kCGBlendModeMultiply);
+    
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextTranslateCTM(context, 0.0, -imageFrame.size.height);
+    
     CGContextClipToRect(context, rect);
+    CGContextClipToMask(context, imageFrame, self.image.CGImage);
     
-    UIImage* shadedImage = [self.image copyShadedImage];
-    [shadedImage drawInRect:imageFrame];
-    [shadedImage release];
+    CGContextDrawImage(context, imageFrame, self.image.CGImage);
     
-//    [image drawInRect:imageFrame];
-//    
-//    [[UIColor redColor] set];
-//    [[UIBezierPath bezierPathWithRect:imageFrame] stroke];
-//    
-//    CGContextSetBlendMode(context, kCGBlendModeMultiply);
-//    
-//    CGContextScaleCTM(context, 1.0, -1.0);
-//    CGContextTranslateCTM(context, 0.0, -imageFrame.size.height);
-//    
-//    CGContextClipToRect(context, rect);
-//    CGContextClipToMask(context, imageFrame, self.image.CGImage);
-//    
-//    CGContextDrawImage(context, imageFrame, self.image.CGImage);
-//    
-//    if( self.highlighted )
-//    {
-//        UIColor* color = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4];
-//        CGContextSetFillColor(context, CGColorGetComponents(color.CGColor));      
-//        CGContextFillRect (context, rect);
-//    }
+    if( self.highlighted )
+    {
+        UIColor* color = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:kAMSpringboardViewCellShading];
+        CGContextSetFillColor(context, CGColorGetComponents(color.CGColor));      
+        CGContextFillRect (context, rect);
+    }
     
     CGContextRestoreGState(context);
 }
