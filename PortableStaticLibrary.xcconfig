@@ -6,5 +6,5 @@
 //  Copyright 2011 MindSnacks. All rights reserved.
 //
 
-PUBLIC_HEADERS_FOLDER_PATH = include/$TARGET_NAME
+PUBLIC_HEADERS_FOLDER_PATH = include/$(TARGET_NAME)
 INSTALL_PATH               = /../BuildProductsPath/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/

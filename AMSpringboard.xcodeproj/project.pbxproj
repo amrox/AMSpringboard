@@ -15,18 +15,18 @@
 		B3B10097134D6CEB0010374A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3B10095134D6CEB0010374A /* InfoPlist.strings */; };
 		B3B1009A134D6CEB0010374A /* AMSpringboardTests.h in Resources */ = {isa = PBXBuildFile; fileRef = B3B10099134D6CEB0010374A /* AMSpringboardTests.h */; };
 		B3B1009C134D6CEB0010374A /* AMSpringboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B1009B134D6CEB0010374A /* AMSpringboardTests.m */; };
-		B3B100B2134D6D930010374A /* AMSpringboard.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100A5134D6D930010374A /* AMSpringboard.h */; settings = {ATTRIBUTES = (); }; };
-		B3B100B3134D6D930010374A /* AMSpringboardDataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100A6134D6D930010374A /* AMSpringboardDataProvider.h */; settings = {ATTRIBUTES = (); }; };
+		B3B100B2134D6D930010374A /* AMSpringboard.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100A5134D6D930010374A /* AMSpringboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3B100B3134D6D930010374A /* AMSpringboardDataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100A6134D6D930010374A /* AMSpringboardDataProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3B100B4134D6D930010374A /* AMSpringboardDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B100A7134D6D930010374A /* AMSpringboardDataProvider.m */; };
-		B3B100B5134D6D930010374A /* AMSpringboardItemSpecifier.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100A8134D6D930010374A /* AMSpringboardItemSpecifier.h */; settings = {ATTRIBUTES = (); }; };
+		B3B100B5134D6D930010374A /* AMSpringboardItemSpecifier.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100A8134D6D930010374A /* AMSpringboardItemSpecifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3B100B6134D6D930010374A /* AMSpringboardItemSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B100A9134D6D930010374A /* AMSpringboardItemSpecifier.m */; };
-		B3B100B7134D6D930010374A /* AMSpringboardView.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100AA134D6D930010374A /* AMSpringboardView.h */; settings = {ATTRIBUTES = (); }; };
+		B3B100B7134D6D930010374A /* AMSpringboardView.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100AA134D6D930010374A /* AMSpringboardView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3B100B8134D6D930010374A /* AMSpringboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B100AB134D6D930010374A /* AMSpringboardView.m */; };
-		B3B100B9134D6D930010374A /* AMSpringboardViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100AC134D6D930010374A /* AMSpringboardViewCell.h */; settings = {ATTRIBUTES = (); }; };
+		B3B100B9134D6D930010374A /* AMSpringboardViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100AC134D6D930010374A /* AMSpringboardViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3B100BA134D6D930010374A /* AMSpringboardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B100AD134D6D930010374A /* AMSpringboardViewCell.m */; };
-		B3B100BB134D6D930010374A /* NSIndexPath+AMSpringboard.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100AE134D6D930010374A /* NSIndexPath+AMSpringboard.h */; settings = {ATTRIBUTES = (); }; };
+		B3B100BB134D6D930010374A /* NSIndexPath+AMSpringboard.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100AE134D6D930010374A /* NSIndexPath+AMSpringboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3B100BC134D6D930010374A /* NSIndexPath+AMSpringboard.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B100AF134D6D930010374A /* NSIndexPath+AMSpringboard.m */; };
-		B3B100BD134D6D930010374A /* UIImage+AMHighlightedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100B0134D6D930010374A /* UIImage+AMHighlightedImage.h */; settings = {ATTRIBUTES = (); }; };
+		B3B100BD134D6D930010374A /* UIImage+AMHighlightedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100B0134D6D930010374A /* UIImage+AMHighlightedImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3B100BE134D6D930010374A /* UIImage+AMHighlightedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B100B1134D6D930010374A /* UIImage+AMHighlightedImage.m */; };
 /* End PBXBuildFile section */
 
