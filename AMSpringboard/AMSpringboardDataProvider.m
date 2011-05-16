@@ -17,7 +17,6 @@
 
 @implementation AMSpringboardDataProvider
 
-@synthesize springboardView = _springboardView;
 @synthesize pages = _pages;
 @synthesize columnCount = _columnCount;
 @synthesize rowCount = _rowCount;
@@ -113,19 +112,8 @@
 
 - (void)dealloc
 {
-    [_springboardView release];
     [_pages release];
     [super dealloc];
-}
-
-
-- (void) setSpringboardView:(AMSpringboardView *)springboardView
-{
-    [springboardView retain];
-    [_springboardView release];
-    _springboardView = springboardView;
-    
-    _springboardView.dataSource = self;
 }
 
 

@@ -12,7 +12,6 @@
 
 @interface AMSpringboardDataProvider : NSObject <AMSpringboardViewDataSource>
 {    
-    AMSpringboardView* _springboardView;
     NSMutableArray*    _pages;
     NSInteger          _columnCount;
     NSInteger          _rowCount;
@@ -22,8 +21,6 @@
 + (id) dataProvider;
 + (id) dataProviderFromDictionary:(NSDictionary*)dict error:(NSError**)outError;
 + (id) dataProviderFromPlistWithPath:(NSString*)path error:(NSError**)outError;
-
-@property (nonatomic, retain) AMSpringboardView* springboardView;
 
 @property (nonatomic, retain) NSMutableArray* pages; // A mutable array of mutable arrays. Must call [springboardView reloadData] after changes.
 @property (nonatomic, assign) NSInteger columnCount; // Must call [springboardView reloadData] after changes.
