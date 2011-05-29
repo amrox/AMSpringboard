@@ -8,8 +8,7 @@
 
 #import "AMSpringboardView.h"
 
-#import <AMFoundation/AMGeometry.h>
-
+#import "AMGeometry.h"
 #import "NSIndexPath+AMSpringboard.h"
 
 #define kDefaultColumnPadding (1)
@@ -26,6 +25,9 @@
 - (NSInteger) pageCount;
 - (NSInteger) rowCount;
 - (NSInteger) columnCount;
+- (CGRect) activeRect;
+- (NSArray*) positionsIntersectingRect:(CGRect)rect;
+- (void) addCellToView:(AMSpringboardViewCell*)cell position:(NSIndexPath*)position;
 @end
 
 
@@ -73,8 +75,7 @@
 		self.scrollView.frame = scrollViewFrame;
 	}
     
-    [self.contentView setFrame:CGRectMake(self.scrollView.bounds.origin.x,
-                                          self.scrollView.bounds.origin.y,
+    [self.contentView setFrame:CGRectMake(0, 0,
                                           self.scrollView.bounds.size.width * [self pageCount],
                                           self.scrollView.bounds.size.height)];
     
@@ -197,6 +198,9 @@
 
 - (CGRect) zoneRectForCellWithPosition:(NSIndexPath*)position
 {
+    if( !([self columnCount] > 0 && [self rowCount] > 0) )
+        return CGRectZero;
+    
     CGSize pageSize = self.scrollView.bounds.size;
     CGFloat zoneWidth = (((CGFloat)pageSize.width) / [self columnCount]);
     CGFloat zoneHeight = (((CGFloat)pageSize.height) / [self rowCount]);
@@ -208,7 +212,7 @@
     rect.size.width = zoneWidth;
     rect.size.height = zoneHeight;
 
-    return rect;
+    return CGRectIntegral(rect);
 }
 
 
@@ -244,10 +248,7 @@
         
     [self updatePageControlFrame];
     [self updateScrollViewFrame];
-	
-    // -- remove all existing cells
-//    [[self.cells allValues] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    
+	    
     for( id cell in [self.cells allValues] )
     {
         if( [cell respondsToSelector:@selector(removeFromSuperview)] )
@@ -256,19 +257,20 @@
     
     [self.cells removeAllObjects];
     [self.unusedCells removeAllObjects];
-    
-    NSUInteger page = self.currentPage;
-    
-    for( NSUInteger row=0; row<[self rowCount]; row++ )
+
+    // TODO: cloned in scrollViewDidScroll
+    NSArray* positions = [self positionsIntersectingRect:[self activeRect]];
+    for( NSIndexPath* position in positions )
     {
-        for( NSUInteger col=0; col<[self columnCount]; col++ )
+        id cell = [self getCellForPosition:position];
+        if( VALID_SPRINBOARD_CELL(cell) )
         {
-            NSIndexPath* position = [NSIndexPath indexPathForSpringboardPage:page column:col row:row];
-            AMSpringboardViewCell* cell = [self getCellForPosition:position];
-            CGPoint center = [self centerForCellWithPosition:position];
-            CGRect frame = AMRectMakeWithCenterAndSize( center, cell.bounds.size );
-            cell.frame = frame;
-            [self.contentView addSubview:cell];
+            if( [cell superview] == nil )
+            {
+                //NSLog( @"adding: %@", position );
+                [self addCellToView:cell position:position];
+                [cell setNeedsDisplay];
+            }
         }
     }
 }
@@ -302,7 +304,7 @@
     //NSLog( @"adding: %@", cell );
     CGPoint center = [self centerForCellWithPosition:position];
     CGRect frame = AMRectMakeWithCenterAndSize( center, cell.bounds.size );
-    cell.frame = frame;
+    cell.frame = CGRectIntegral(frame);
     [self.contentView addSubview:cell];
 }
 
@@ -335,6 +337,9 @@
 
 - (NSIndexPath*) positionForPoint:(CGPoint)point
 {
+    if( !([self columnCount] > 0 && [self rowCount] > 0) )
+       return nil;
+    
     point = AMPointClampedToRect(point, self.contentView.bounds);
     
     CGSize pageSize = self.scrollView.bounds.size;
@@ -344,7 +349,7 @@
     NSInteger col =  floor((point.x - (page * pageSize.width))
                            / (pageSize.width / [self columnCount]));
     col = MIN([self columnCount]-1, col);
- 
+    
     NSInteger row = floor(point.y / (pageSize.height / [self rowCount]));
     row = MIN([self rowCount]-1, row);
     
@@ -379,7 +384,7 @@
             break;
                 
         NSInteger nextPage = [cur springboardPage];
-        NSInteger nextCol = ([cur springboardColumn]+1) % [self rowCount];
+        NSInteger nextCol = ([cur springboardColumn]+1) % [self columnCount];
         if( nextCol < [cur springboardColumn] ) nextPage++;
         cur = [NSIndexPath indexPathForSpringboardPage:nextPage
                                                 column:nextCol
@@ -393,16 +398,28 @@
 }
 
 
+- (CGRect) activeRect
+{
+    // make sure there is at least 1 column
+    NSInteger columnCount = [self columnCount];
+    if( columnCount <= 0 )
+        return CGRectZero;
+    
+    CGRect rect;    
+    CGFloat widthPad = ([self pageWidth] / columnCount) * self.columnPadding;
+    rect.origin.x = self.scrollView.contentOffset.x - widthPad;
+    rect.origin.y = self.scrollView.contentOffset.y;
+    rect.size.width = self.scrollView.bounds.size.width + (widthPad*2); // double to accomodate the left width
+    rect.size.height = self.scrollView.bounds.size.height;
+    return rect;
+}
+
+
 #pragma UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {    
-    CGRect visibleFrame;    
-    CGFloat widthPad = [self pageWidth] / [self columnCount] * self.columnPadding;
-    visibleFrame.origin.x = self.scrollView.contentOffset.x - widthPad;
-    visibleFrame.origin.y = self.scrollView.contentOffset.y;
-    visibleFrame.size.width = self.scrollView.bounds.size.width + (widthPad*2); // double to accomodate the left width
-    visibleFrame.size.height = self.scrollView.bounds.size.height;
+    CGRect visibleFrame = [self activeRect];
     
     for( NSIndexPath* pos in [[[self.cells allKeys] copy] autorelease] )
     {
@@ -423,6 +440,7 @@
         }
     }
     
+    // TODO: cloned in reloadData
     //NSLog(@"visible rect: %@", NSStringFromCGRect(visibleFrame));
     NSArray* positions = [self positionsIntersectingRect:visibleFrame];
     //NSLog( @"positions: %@\n", positions );
@@ -431,8 +449,12 @@
         id cell = [self getCellForPosition:position];
         if( VALID_SPRINBOARD_CELL(cell) )
         {
-            //NSLog( @"adding: %@", position );
-            [self addCellToView:cell position:position];
+            if( [cell superview] == nil )
+            {
+                //NSLog( @"adding: %@", position );
+                [self addCellToView:cell position:position];
+                [cell setNeedsDisplay];
+            }
         }
     }
     
@@ -487,6 +509,21 @@
     }
 }
 
+
+- (BOOL) isValidPosition:(NSIndexPath*)position
+{
+    if( [position springboardPage] >= [self pageCount] ) // unsigned so don't have to check for negative
+        return NO;
+                                                                         
+    if( [position springboardColumn] >= [self columnCount] ) // unsigned so don't have to check for negative
+        return NO;
+                                                                         
+    if( [position springboardRow] >= [self rowCount] ) // unsigned so don't have to check for negative
+        return NO;
+ 
+    return YES;
+}
+
 @end
 
 
@@ -504,7 +541,11 @@
     CGPoint p = [touch locationInView:self.springboardView.contentView];
     
     NSIndexPath* position = [self.springboardView positionForPoint:p];
-    [self.springboardView selectCellWithPosition:position];
+    
+    if( [self.springboardView isValidPosition:position] )
+    {
+        [self.springboardView selectCellWithPosition:position];
+    }
 }
 
 
