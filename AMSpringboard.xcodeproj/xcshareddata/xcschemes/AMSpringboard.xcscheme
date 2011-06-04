@@ -13,20 +13,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B3204DD2136388600061A1CE"
-               BuildableName = "libAMFoundation_iOS.a"
-               BlueprintName = "AMFoundation_iOS"
-               ReferencedContainer = "container:AMFoundation/AMFoundation.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "B3B1007B134D6CEB0010374A"
                BuildableName = "libAMSpringboard.a"
                BlueprintName = "AMSpringboard"

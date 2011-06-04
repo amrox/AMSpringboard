@@ -8,6 +8,10 @@
 
 #import "NSIndexPath+AMSpringboard.h"
 
+#import "SynthesizingDummyClass.h"
+
+
+SYNTHESIZE_DUMMY_CLASS(NSIndexPath_AMSpringboard)
 
 @implementation NSIndexPath (AMSpringboard)
 
@@ -43,6 +47,5 @@
 }
 
 
-
-
 @end
+

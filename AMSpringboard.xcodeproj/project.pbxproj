@@ -28,6 +28,8 @@
 		B3B100BC134D6D930010374A /* NSIndexPath+AMSpringboard.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B100AF134D6D930010374A /* NSIndexPath+AMSpringboard.m */; };
 		B3B100BD134D6D930010374A /* UIImage+AMHighlightedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100B0134D6D930010374A /* UIImage+AMHighlightedImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3B100BE134D6D930010374A /* UIImage+AMHighlightedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B100B1134D6D930010374A /* UIImage+AMHighlightedImage.m */; };
+		B3D5E6041399BAF800220888 /* libAMFoundation_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D5E6031399BAF800220888 /* libAMFoundation_iOS.a */; };
+		B3D5E60A139AA99D00220888 /* SynthesizingDummyClass.h in Headers */ = {isa = PBXBuildFile; fileRef = B3D5E609139AA99D00220888 /* SynthesizingDummyClass.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		B3B100AF134D6D930010374A /* NSIndexPath+AMSpringboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+AMSpringboard.m"; sourceTree = "<group>"; };
 		B3B100B0134D6D930010374A /* UIImage+AMHighlightedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AMHighlightedImage.h"; sourceTree = "<group>"; };
 		B3B100B1134D6D930010374A /* UIImage+AMHighlightedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AMHighlightedImage.m"; sourceTree = "<group>"; };
+		B3D5E6031399BAF800220888 /* libAMFoundation_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAMFoundation_iOS.a; sourceTree = SOURCE_ROOT; };
+		B3D5E609139AA99D00220888 /* SynthesizingDummyClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizingDummyClass.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3D5E6041399BAF800220888 /* libAMFoundation_iOS.a in Frameworks */,
 				B3B10080134D6CEB0010374A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +119,7 @@
 		B3B1007E134D6CEB0010374A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3D5E6031399BAF800220888 /* libAMFoundation_iOS.a */,
 				B3B1007F134D6CEB0010374A /* Foundation.framework */,
 				B3B1008A134D6CEB0010374A /* UIKit.framework */,
 				B3B1008D134D6CEB0010374A /* CoreGraphics.framework */,
@@ -145,6 +151,7 @@
 		B3B10082134D6CEB0010374A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B3D5E609139AA99D00220888 /* SynthesizingDummyClass.h */,
 				B3B10083134D6CEB0010374A /* AMSpringboard-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -184,6 +191,7 @@
 				B3B100B9134D6D930010374A /* AMSpringboardViewCell.h in Headers */,
 				B3B100BB134D6D930010374A /* NSIndexPath+AMSpringboard.h in Headers */,
 				B3B100BD134D6D930010374A /* UIImage+AMHighlightedImage.h in Headers */,
+				B3D5E60A139AA99D00220888 /* SynthesizingDummyClass.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,9 +369,9 @@
 				DSTROOT = /tmp/AMSpringboard.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMSpringboard/AMSpringboard-Prefix.pch";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = include/$TARGET_NAME;
@@ -378,9 +386,9 @@
 				DSTROOT = /tmp/AMSpringboard.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMSpringboard/AMSpringboard-Prefix.pch";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = include/$TARGET_NAME;

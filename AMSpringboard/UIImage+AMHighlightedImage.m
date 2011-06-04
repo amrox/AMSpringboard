@@ -8,6 +8,8 @@
 
 #import "UIImage+AMHighlightedImage.h"
 
+SYNTHESIZE_DUMMY_CLASS(UIImage_AMShadedImage)
+
 
 @implementation UIImage (AMShadedImage)
 
