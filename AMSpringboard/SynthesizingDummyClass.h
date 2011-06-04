@@ -1,8 +1,6 @@
 
-
-
 #define SYNTHESIZE_DUMMY_CLASS(C) \
-@interface C_Dummy : NSObject \
+@interface Dummy_##C : NSObject \
 @end \
-@implementation C_Dummy : NSObject \
+@implementation Dummy_##C : NSObject \
 @end
