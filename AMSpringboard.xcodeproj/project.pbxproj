@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B34904F3139AD14F00B08319 /* LoadableCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = B34904F2139AD14F00B08319 /* LoadableCategory.h */; };
 		B3B10080134D6CEB0010374A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B1007F134D6CEB0010374A /* Foundation.framework */; };
 		B3B1008B134D6CEB0010374A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B1008A134D6CEB0010374A /* UIKit.framework */; };
 		B3B1008C134D6CEB0010374A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B1007F134D6CEB0010374A /* Foundation.framework */; };
@@ -29,7 +30,6 @@
 		B3B100BD134D6D930010374A /* UIImage+AMHighlightedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100B0134D6D930010374A /* UIImage+AMHighlightedImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3B100BE134D6D930010374A /* UIImage+AMHighlightedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B100B1134D6D930010374A /* UIImage+AMHighlightedImage.m */; };
 		B3D5E6041399BAF800220888 /* libAMFoundation_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D5E6031399BAF800220888 /* libAMFoundation_iOS.a */; };
-		B3D5E60A139AA99D00220888 /* SynthesizingDummyClass.h in Headers */ = {isa = PBXBuildFile; fileRef = B3D5E609139AA99D00220888 /* SynthesizingDummyClass.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		B31F746F137F0BC500250779 /* PortableStaticLibrary.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = PortableStaticLibrary.xcconfig; sourceTree = "<group>"; };
+		B34904F2139AD14F00B08319 /* LoadableCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadableCategory.h; sourceTree = "<group>"; };
 		B3B1007C134D6CEB0010374A /* libAMSpringboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAMSpringboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3B1007F134D6CEB0010374A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B3B10083134D6CEB0010374A /* AMSpringboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AMSpringboard-Prefix.pch"; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		B3B100B0134D6D930010374A /* UIImage+AMHighlightedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AMHighlightedImage.h"; sourceTree = "<group>"; };
 		B3B100B1134D6D930010374A /* UIImage+AMHighlightedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AMHighlightedImage.m"; sourceTree = "<group>"; };
 		B3D5E6031399BAF800220888 /* libAMFoundation_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAMFoundation_iOS.a; sourceTree = SOURCE_ROOT; };
-		B3D5E609139AA99D00220888 /* SynthesizingDummyClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizingDummyClass.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +151,7 @@
 		B3B10082134D6CEB0010374A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B3D5E609139AA99D00220888 /* SynthesizingDummyClass.h */,
+				B34904F2139AD14F00B08319 /* LoadableCategory.h */,
 				B3B10083134D6CEB0010374A /* AMSpringboard-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -191,7 +191,7 @@
 				B3B100B9134D6D930010374A /* AMSpringboardViewCell.h in Headers */,
 				B3B100BB134D6D930010374A /* NSIndexPath+AMSpringboard.h in Headers */,
 				B3B100BD134D6D930010374A /* UIImage+AMHighlightedImage.h in Headers */,
-				B3D5E60A139AA99D00220888 /* SynthesizingDummyClass.h in Headers */,
+				B34904F3139AD14F00B08319 /* LoadableCategory.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

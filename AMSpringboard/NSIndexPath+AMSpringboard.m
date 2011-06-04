@@ -8,10 +8,9 @@
 
 #import "NSIndexPath+AMSpringboard.h"
 
-#import "SynthesizingDummyClass.h"
 
+MAKE_CATEGORIES_LOADABLE(NSIndexPath_AMSpringboard)
 
-SYNTHESIZE_DUMMY_CLASS(NSIndexPath_AMSpringboard)
 
 @implementation NSIndexPath (AMSpringboard)
 
