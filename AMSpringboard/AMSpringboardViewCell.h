@@ -13,8 +13,6 @@ typedef enum {
 } AMSpringboardViewCellStyle;
 
 
-#define kAMSpringboardViewCellShading (0.4)
-
 @interface AMSpringboardViewCell : UIView
 {
     NSString*    _reuseIdentifier;
@@ -25,13 +23,13 @@ typedef enum {
 
 - (id) initWithStyle:(AMSpringboardViewCellStyle)style reuseIdentifier:(NSString*)identifier;
 
-@property (nonatomic,readonly,copy) NSString* reuseIdentifier;
-
 @property (nonatomic, retain) UIImage* image;
+
 @property (nonatomic,readonly,retain) UILabel* textLabel; // default is nil.  label will be created if necessary.
 
-@property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) BOOL highlighted;
+
+@property (nonatomic,readonly,copy) NSString* reuseIdentifier;
 
 - (void) prepareForReuse;
 

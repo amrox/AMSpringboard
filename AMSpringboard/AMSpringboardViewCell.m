@@ -9,12 +9,11 @@
 #import "AMSpringboardViewCell.h"
 
 #import <QuartzCore/QuartzCore.h>
+
 #import <AMFoundation/AMGeometry.h>
 
-#import "UIImage+AMHighlightedImage.h"
-
-#define DEFAULT_WIDTH 80
-#define DEFAULT_HEIGHT 80
+#define DEFAULT_WIDTH 101
+#define DEFAULT_HEIGHT 101
 
 #define LABEL_HEIGHT 21
 
@@ -44,9 +43,10 @@
         
 		[self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-LABEL_HEIGHT,
                                                                     self.bounds.size.width, LABEL_HEIGHT)] release];
+    
+        self.textLabel.clipsToBounds = NO;
         self.textLabel.backgroundColor = [UIColor clearColor];
         self.textLabel.textAlignment = UITextAlignmentCenter;
-        self.textLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
         [self addSubview:self.textLabel];
     }
     
@@ -74,59 +74,6 @@
 	[super dealloc];
 }
 
-//- (UIImage*) getHighlightedImage:(UIImage*)image
-//{
-//    CGImageRef cgImage = image.CGImage;
-//    CGSize imageSize = image.size;
-//    
-////    UIGraphicsBeginImageContext(imageSize);
-//    
-////    CGContextRef context = UIGraphicsGetCurrentContext();
-//    
-//    CGContextRef context = CGBitmapContextCreate(NULL,
-//                                                 CGImageGetWidth(cgImage),
-//                                                 CGImageGetHeight(cgImage),
-//                                                 CGImageGetBitsPerComponent(cgImage),
-//                                                 CGImageGetBytesPerRow(cgImage),
-//                                                 CGColorSpaceCreateDeviceRGB(),                  
-//                                                 kCGImageAlphaPremultipliedLast);
-//    
-//    CGRect rect = CGRectMake(0, 0, imageSize.width, imageSize.height);
-//
-////    CGContextSetBlendMode(context, kCGBlendModeMultiply);
-//    
-////    CGContextScaleCTM(context, 1.0, -1.0);
-////    CGContextTranslateCTM(context, 0.0, -rect.size.height);
-//
-//    CGContextClipToMask(context, rect, cgImage);
-//
-//    CGContextDrawImage(context, rect, cgImage);
-//    
-////    UIColor* color = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
-////    CGContextSetFillColor(context, CGColorGetComponents(color.CGColor));      
-//    CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 0.4);  
-////    CGContextFillRect(context, rect);
-//    
-////    [[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4] set];
-//    CGContextFillRect(context, rect);
-//
-//    
-//    CGImageRef cgImageHighlight = CGBitmapContextCreateImage(context);
-//    CGContextRelease(context);
-//
-//    UIImage* highlightImage = [[UIImage alloc] initWithCGImage:cgImageHighlight];
-//    CGImageRelease(cgImageHighlight);
-//    
-//    
-////    UIImage* highlightImage = UIGraphicsGetImageFromCurrentImageContext();
-////    
-////    UIGraphicsEndImageContext();
-//    
-//    return [highlightImage autorelease];
-////    return highlightImage;
-//
-//}
-
 
 - (void) drawRect:(CGRect)rect
 {
@@ -137,39 +84,29 @@
     imageFrame.size.height -= LABEL_HEIGHT;
     imageFrame = AMRectInsetWithAspectRatio(imageFrame, 1);
     
-    CGContextSetBlendMode(context, kCGBlendModeMultiply);
-    
-    CGContextScaleCTM(context, 1.0, -1.0);
-    CGContextTranslateCTM(context, 0.0, -imageFrame.size.height);
-    
-    CGContextClipToRect(context, rect);
-    CGContextClipToMask(context, imageFrame, self.image.CGImage);
-    
-    CGContextDrawImage(context, imageFrame, self.image.CGImage);
-    
-    if( self.highlighted )
+    if( CGRectIntersectsRect(imageFrame, rect) )
     {
-        UIColor* color = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:kAMSpringboardViewCellShading];
-        CGContextSetFillColor(context, CGColorGetComponents(color.CGColor));      
-        CGContextFillRect (context, rect);
+        CGContextSetBlendMode(context, kCGBlendModeMultiply);
+        
+        CGContextScaleCTM(context, 1.0, -1.0);
+        CGContextTranslateCTM(context, 0.0, -imageFrame.size.height);
+        
+        CGContextClipToRect(context, rect);
+        CGContextClipToMask(context, imageFrame, self.image.CGImage);
+        
+        CGContextDrawImage(context, imageFrame, self.image.CGImage);
+        
+        if( self.highlighted )
+        {
+            UIColor* color = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4];
+            CGContextSetFillColor(context, CGColorGetComponents(color.CGColor));      
+            CGContextFillRect (context, rect);
+        }
     }
     
     CGContextRestoreGState(context);
 }
 
-
-- (CGSize) size
-{
-    return self.frame.size;
-}
-
-
-- (void) setSize:(CGSize)size
-{
-    CGRect frame = self.frame;
-    frame.size = size;
-    self.frame = frame;
-}
 
 - (void) setHighlighted:(BOOL)highlighted
 {
