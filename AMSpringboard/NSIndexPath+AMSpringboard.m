@@ -7,6 +7,7 @@
 //
 
 #import "NSIndexPath+AMSpringboard.h"
+#import "LoadableCategory.h"
 
 
 MAKE_CATEGORIES_LOADABLE(NSIndexPath_AMSpringboard)
