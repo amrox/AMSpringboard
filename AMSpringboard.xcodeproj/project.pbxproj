@@ -29,7 +29,6 @@
 		B3B100BC134D6D930010374A /* NSIndexPath+AMSpringboard.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B100AF134D6D930010374A /* NSIndexPath+AMSpringboard.m */; };
 		B3B100BD134D6D930010374A /* UIImage+AMHighlightedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = B3B100B0134D6D930010374A /* UIImage+AMHighlightedImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3B100BE134D6D930010374A /* UIImage+AMHighlightedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B100B1134D6D930010374A /* UIImage+AMHighlightedImage.m */; };
-		B3D5E6041399BAF800220888 /* libAMFoundation_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D5E6031399BAF800220888 /* libAMFoundation_iOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +76,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3D5E6041399BAF800220888 /* libAMFoundation_iOS.a in Frameworks */,
 				B3B10080134D6CEB0010374A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
