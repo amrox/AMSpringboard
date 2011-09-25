@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B34904F3139AD14F00B08319 /* LoadableCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = B34904F2139AD14F00B08319 /* LoadableCategory.h */; };
+		B3923B8A142EC7F800FE5A38 /* libAMFoundation_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3923B84142EC7E900FE5A38 /* libAMFoundation_iOS.a */; };
 		B3B10080134D6CEB0010374A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B1007F134D6CEB0010374A /* Foundation.framework */; };
 		B3B1008B134D6CEB0010374A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B1008A134D6CEB0010374A /* UIKit.framework */; };
 		B3B1008C134D6CEB0010374A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B1007F134D6CEB0010374A /* Foundation.framework */; };
@@ -32,6 +33,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B3923B83142EC7E900FE5A38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3923B7D142EC7E900FE5A38 /* AMFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B3204DD3136388600061A1CE;
+			remoteInfo = AMFoundation_iOS;
+		};
+		B3923B85142EC7E900FE5A38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3923B7D142EC7E900FE5A38 /* AMFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B3204DE11363888B0061A1CE;
+			remoteInfo = AMFoundation_Mac;
+		};
+		B3923B87142EC7E900FE5A38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3923B7D142EC7E900FE5A38 /* AMFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B3204DB4136388230061A1CE;
+			remoteInfo = AMFoundationTests;
+		};
 		B3B1008F134D6CEB0010374A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B3B10073134D6CEB0010374A /* Project object */;
@@ -44,6 +66,7 @@
 /* Begin PBXFileReference section */
 		B31F746F137F0BC500250779 /* PortableStaticLibrary.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = PortableStaticLibrary.xcconfig; sourceTree = "<group>"; };
 		B34904F2139AD14F00B08319 /* LoadableCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadableCategory.h; sourceTree = "<group>"; };
+		B3923B7D142EC7E900FE5A38 /* AMFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AMFoundation.xcodeproj; path = ../AMFoundation/AMFoundation.xcodeproj; sourceTree = "<group>"; };
 		B3B1007C134D6CEB0010374A /* libAMSpringboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAMSpringboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3B1007F134D6CEB0010374A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B3B10083134D6CEB0010374A /* AMSpringboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AMSpringboard-Prefix.pch"; sourceTree = "<group>"; };
@@ -76,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3923B8A142EC7F800FE5A38 /* libAMFoundation_iOS.a in Frameworks */,
 				B3B10080134D6CEB0010374A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,10 +118,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3923B7E142EC7E900FE5A38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B3923B84142EC7E900FE5A38 /* libAMFoundation_iOS.a */,
+				B3923B86142EC7E900FE5A38 /* libAMFoundation_Mac.a */,
+				B3923B88142EC7E900FE5A38 /* AMFoundationTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B3B10071134D6CEB0010374A = {
 			isa = PBXGroup;
 			children = (
 				B31F746F137F0BC500250779 /* PortableStaticLibrary.xcconfig */,
+				B3923B7D142EC7E900FE5A38 /* AMFoundation.xcodeproj */,
 				B3B10081134D6CEB0010374A /* AMSpringboard */,
 				B3B10092134D6CEB0010374A /* AMSpringboardTests */,
 				B3B1007E134D6CEB0010374A /* Frameworks */,
@@ -250,6 +285,12 @@
 			mainGroup = B3B10071134D6CEB0010374A;
 			productRefGroup = B3B1007D134D6CEB0010374A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B3923B7E142EC7E900FE5A38 /* Products */;
+					ProjectRef = B3923B7D142EC7E900FE5A38 /* AMFoundation.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B3B1007B134D6CEB0010374A /* AMSpringboard */,
@@ -257,6 +298,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B3923B84142EC7E900FE5A38 /* libAMFoundation_iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAMFoundation_iOS.a;
+			remoteRef = B3923B83142EC7E900FE5A38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B3923B86142EC7E900FE5A38 /* libAMFoundation_Mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAMFoundation_Mac.a;
+			remoteRef = B3923B85142EC7E900FE5A38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B3923B88142EC7E900FE5A38 /* AMFoundationTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AMFoundationTests.octest;
+			remoteRef = B3923B87142EC7E900FE5A38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B3B10086134D6CEB0010374A /* Resources */ = {
