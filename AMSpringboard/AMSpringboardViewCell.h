@@ -10,16 +10,11 @@
 
 typedef enum {
 	AMSpringboardViewCellStyleDefault,
+    AMSpringboardViewCellStyleMultiline
 } AMSpringboardViewCellStyle;
 
 
 @interface AMSpringboardViewCell : UIView
-{
-    NSString*    _reuseIdentifier;
-    UIImage*     _image;
-	UILabel*     _textLabel;
-    BOOL         _highlighted;
-}
 
 - (id) initWithStyle:(AMSpringboardViewCellStyle)style reuseIdentifier:(NSString*)identifier;
 
