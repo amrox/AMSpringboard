@@ -72,7 +72,7 @@
 /* Begin PBXFileReference section */
 		B31F746F137F0BC500250779 /* PortableStaticLibrary.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = PortableStaticLibrary.xcconfig; sourceTree = "<group>"; };
 		B34904F2139AD14F00B08319 /* LoadableCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadableCategory.h; sourceTree = "<group>"; };
-		B3923BA6142FD10000FE5A38 /* libAMFoundation_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libAMFoundation_iOS.a; path = "../AMFoundation/build/Release-iphoneos/libAMFoundation_iOS.a"; sourceTree = "<group>"; };
+		B3923BA6142FD10000FE5A38 /* libAMFoundation_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAMFoundation_iOS.a; path = "../AMFoundation/build/Release-iphoneos/libAMFoundation_iOS.a"; sourceTree = "<group>"; };
 		B3923BA9142FD15000FE5A38 /* AMFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AMFoundation.xcodeproj; path = ../AMFoundation/AMFoundation.xcodeproj; sourceTree = "<group>"; };
 		B3B1007C134D6CEB0010374A /* libAMSpringboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAMSpringboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3B1007F134D6CEB0010374A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
