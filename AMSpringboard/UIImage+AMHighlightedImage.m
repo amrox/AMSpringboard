@@ -9,9 +9,6 @@
 #import "UIImage+AMHighlightedImage.h"
 
 
-MAKE_CATEGORIES_LOADABLE(UIImage_AMShadedImage)
-
-
 @implementation UIImage (AMShadedImage)
 
 
