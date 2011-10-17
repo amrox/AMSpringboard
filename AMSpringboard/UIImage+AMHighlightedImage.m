@@ -22,13 +22,15 @@
 {
     CGImageRef cgImage = self.CGImage;
     
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGContextRef context = CGBitmapContextCreate(NULL,
                                                  CGImageGetWidth(cgImage),
                                                  CGImageGetHeight(cgImage),
                                                  CGImageGetBitsPerComponent(cgImage),
                                                  CGImageGetBytesPerRow(cgImage),
-                                                 CGColorSpaceCreateDeviceRGB(),                  
+                                                 colorSpace,                  
                                                  kCGImageAlphaPremultipliedLast);
+    CGColorSpaceRelease(colorSpace);
     
     CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
     
@@ -44,6 +46,7 @@
     
     UIImage* highlightImage = [[UIImage alloc] initWithCGImage:cgImageHighlight];
     CGImageRelease(cgImageHighlight);
+    
 
     return highlightImage;
 }

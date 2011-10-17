@@ -62,8 +62,8 @@
         if( style == AMSpringboardViewCellStyleDefault )
         {
             
-            [self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-LABEL_HEIGHT,
-                                                                        self.bounds.size.width, LABEL_HEIGHT)] release];
+            self.textLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-LABEL_HEIGHT,
+                                                                        self.bounds.size.width, LABEL_HEIGHT)] autorelease];
             
             self.textLabel.clipsToBounds = NO;
             self.textLabel.backgroundColor = [UIColor clearColor];
@@ -75,8 +75,8 @@
         else if (style == AMSpringboardViewCellStyleMultiline)
         {
             
-            [self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-LABEL_HEIGHT,
-                                                                        self.bounds.size.width, 0)] release];
+            self.textLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-LABEL_HEIGHT,
+                                                                        self.bounds.size.width, 0)] autorelease];
             
             self.textLabel.clipsToBounds = NO;
             self.textLabel.numberOfLines = 2;
