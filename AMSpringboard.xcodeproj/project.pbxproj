@@ -43,7 +43,7 @@
 
 /* Begin PBXFileReference section */
 		B31F746F137F0BC500250779 /* PortableStaticLibrary.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = PortableStaticLibrary.xcconfig; sourceTree = "<group>"; };
-		B398B0FF144C0D9A0067879D /* libAMFoundation_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libAMFoundation_iOS.a; path = "../AMFoundation/build/Release-iphoneos/libAMFoundation_iOS.a"; sourceTree = "<group>"; };
+		B398B0FF144C0D9A0067879D /* libAMFoundation_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAMFoundation_iOS.a; path = "../AMFoundation/build/Release-iphoneos/libAMFoundation_iOS.a"; sourceTree = "<group>"; };
 		B3B1007C134D6CEB0010374A /* libAMSpringboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAMSpringboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3B1007F134D6CEB0010374A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B3B10083134D6CEB0010374A /* AMSpringboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AMSpringboard-Prefix.pch"; sourceTree = "<group>"; };
@@ -236,6 +236,7 @@
 		B3B10073134D6CEB0010374A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = MindSnacks;
 			};
 			buildConfigurationList = B3B10076134D6CEB0010374A /* Build configuration list for PBXProject "AMSpringboard" */;
@@ -365,6 +366,7 @@
 				DSTROOT = /tmp/AMSpringboard.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMSpringboard/AMSpringboard-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -382,6 +384,7 @@
 				DSTROOT = /tmp/AMSpringboard.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMSpringboard/AMSpringboard-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -401,6 +404,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMSpringboardTests/AMSpringboardTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "AMSpringboardTests/AMSpringboardTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -421,6 +425,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMSpringboardTests/AMSpringboardTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "AMSpringboardTests/AMSpringboardTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
