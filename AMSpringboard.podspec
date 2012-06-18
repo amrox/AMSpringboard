@@ -5,8 +5,8 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/amrox/AMSpringboard'
   s.author   = { 'Andy Mroczkowski' => 'andy@mrox.net' }
   s.source   = { :git => 'https://github.com/amrox/AMSpringboard.git' }
-  s.license  = { :type => 'MIT', :file => 'LICENSE'}
-  s.platform = :ios, '5.0'
+  s.license  = { :type => 'MIT', :file => 'LICENSE' }
+  s.platform = :ios, '4.0'
   #s.description = 'An optional longer description of AMSpringBoard.'
   s.source_files = 'AMSpringboard'
   s.frameworks = 'Foundation', 'UIKit'
