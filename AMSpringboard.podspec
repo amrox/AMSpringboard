@@ -13,5 +13,6 @@ Pod::Spec.new do |s|
 
   #s.xcconfig = { 'OTHER_LDFLAGS' => '-framework SomeRequiredFramework' }
 
-  s.dependency 'AMFoundation', :git => 'https://github.com/amrox/AMFoundation.git', :commit => '61fd3da0a823b7d8b531447d2776ddd0646a81ea'
+  #s.dependency 'AMFoundation', :git => 'https://github.com/amrox/AMFoundation.git', :commit => '61fd3da0a823b7d8b531447d2776ddd0646a81ea'
+  s.dependency 'AMFoundation'
 end
