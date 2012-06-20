@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   version = "1.3">
+   version = "1.8">
    <BuildAction
-      parallelizeBuildables = "YES"
+      parallelizeBuildables = "NO"
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
@@ -13,7 +13,21 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B3A2EC1B1343A3E000836F69"
+               BlueprintIdentifier = "B3204DD2136388600061A1CE"
+               BuildableName = "libAMFoundation_iOS.a"
+               BlueprintName = "AMFoundation_iOS"
+               ReferencedContainer = "container:../AMFoundation/AMFoundation.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B3B1007B134D6CEB0010374A"
                BuildableName = "libAMSpringboard.a"
                BlueprintName = "AMSpringboard"
                ReferencedContainer = "container:AMSpringboard.xcodeproj">
@@ -27,6 +41,16 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B3B10088134D6CEB0010374A"
+               BuildableName = "AMSpringboardTests.octest"
+               BlueprintName = "AMSpringboardTests"
+               ReferencedContainer = "container:AMSpringboard.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -17,7 +17,6 @@
 
 @implementation AMSpringboardDataProvider
 
-@synthesize springboardView = _springboardView;
 @synthesize pages = _pages;
 @synthesize columnCount = _columnCount;
 @synthesize rowCount = _rowCount;
@@ -113,27 +112,21 @@
 
 - (void)dealloc
 {
-    [_springboardView release];
     [_pages release];
     [super dealloc];
-}
-
-
-- (void) setSpringboardView:(AMSpringboardView *)springboardView
-{
-    [springboardView retain];
-    [_springboardView release];
-    _springboardView = springboardView;
-    
-    _springboardView.dataSource = self;
 }
 
 
 - (AMSpringboardItemSpecifier*) itemSpecifierForPosition:(NSIndexPath*)position
 {
     NSArray* items = [self.pages objectAtIndex:[position springboardPage]];
-    NSUInteger index = [position springboardColumn]*self.rowCount + [position springboardRow];
 
+    // column major
+//    NSUInteger index = [position springboardColumn]*self.rowCount + [position springboardRow];
+    
+    // row major
+    NSUInteger index = [position springboardColumn] + [position springboardRow]*self.columnCount;
+    
     if( index >= [items count] )
         return nil;
     

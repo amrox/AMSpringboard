@@ -15,7 +15,6 @@
 @protocol AMSpringboardViewDataSource;
 @protocol AMSpringboardViewDelegate;
 
-
 @interface AMSpringboardView : UIView <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 {
     id<AMSpringboardViewDelegate>   _delegate;
