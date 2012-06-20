@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		94A796E6E982480AA117C7FF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96321DCBC359494CABFD2D67 /* libPods.a */; };
-		B34904F3139AD14F00B08319 /* LoadableCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = B34904F2139AD14F00B08319 /* LoadableCategory.h */; };
 		B3B10080134D6CEB0010374A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B1007F134D6CEB0010374A /* Foundation.framework */; };
 		B3B1008B134D6CEB0010374A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B1008A134D6CEB0010374A /* UIKit.framework */; };
 		B3B1008C134D6CEB0010374A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B1007F134D6CEB0010374A /* Foundation.framework */; };
@@ -44,7 +43,6 @@
 
 /* Begin PBXFileReference section */
 		96321DCBC359494CABFD2D67 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B34904F2139AD14F00B08319 /* LoadableCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadableCategory.h; sourceTree = "<group>"; };
 		B3B1007C134D6CEB0010374A /* libAMSpringboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAMSpringboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3B1007F134D6CEB0010374A /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B3B10083134D6CEB0010374A /* AMSpringboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AMSpringboard-Prefix.pch"; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 		B3B10082134D6CEB0010374A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B34904F2139AD14F00B08319 /* LoadableCategory.h */,
 				B3B10083134D6CEB0010374A /* AMSpringboard-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -191,7 +188,6 @@
 				B3B100B9134D6D930010374A /* AMSpringboardViewCell.h in Headers */,
 				B3B100BB134D6D930010374A /* NSIndexPath+AMSpringboard.h in Headers */,
 				B3B100BD134D6D930010374A /* UIImage+AMHighlightedImage.h in Headers */,
-				B34904F3139AD14F00B08319 /* LoadableCategory.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
