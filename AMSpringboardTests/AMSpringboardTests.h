@@ -3,7 +3,7 @@
 //  AMSpringboardTests
 //
 //  Created by Andy Mroczkowski on 4/6/11.
-//  Copyright 2011 MindSnacks. All rights reserved.
+//  Copyright 2011 Andy Mroczkowski. All rights reserved.
 //
 
 #import <SenTestingKit/SenTestingKit.h>

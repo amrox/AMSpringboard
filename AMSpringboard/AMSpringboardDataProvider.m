@@ -120,8 +120,13 @@
 - (AMSpringboardItemSpecifier*) itemSpecifierForPosition:(NSIndexPath*)position
 {
     NSArray* items = [self.pages objectAtIndex:[position springboardPage]];
-    NSUInteger index = [position springboardColumn]*self.rowCount + [position springboardRow];
 
+    // column major
+//    NSUInteger index = [position springboardColumn]*self.rowCount + [position springboardRow];
+    
+    // row major
+    NSUInteger index = [position springboardColumn] + [position springboardRow]*self.columnCount;
+    
     if( index >= [items count] )
         return nil;
     

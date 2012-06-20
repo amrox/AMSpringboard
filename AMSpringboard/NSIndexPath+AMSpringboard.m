@@ -9,9 +9,6 @@
 #import "NSIndexPath+AMSpringboard.h"
 
 
-//MAKE_CATEGORIES_LOADABLE(NSIndexPath_AMSpringboard)
-
-
 @implementation NSIndexPath (AMSpringboard)
 
 
