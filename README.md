@@ -1,11 +1,11 @@
 # AMSpringboard
 
-* Version: 0.2
+* Version: 0.1.6
 
 ## Changelog
 
-### 0.2
- * Restructuring into more portable library
+### 0.1.6
+ * Using CocoaPods
 
 ### 0.1.5
  * minor bug
