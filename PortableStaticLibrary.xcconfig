@@ -1,7 +1,0 @@
-
-
-// Derived from: https://gist.github.com/972630
-
-PUBLIC_HEADERS_FOLDER_PATH = include/$(TARGET_NAME)
-INSTALL_PATH               = /../BuildProductsPath/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/
-OTHER_LDFLAGS              = -ObjC
