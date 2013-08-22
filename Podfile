@@ -1,2 +1,3 @@
 platform :ios
-dependency 'AMFoundation'
+pod 'AMFoundation'
+
