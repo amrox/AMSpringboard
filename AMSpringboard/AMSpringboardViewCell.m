@@ -12,8 +12,8 @@
 
 #import <AMFoundation/AMGeometry.h>
 
-#define DEFAULT_WIDTH 85
-#define DEFAULT_HEIGHT 85
+#define DEFAULT_WIDTH 101
+#define DEFAULT_HEIGHT 101
 
 #define LABEL_HEIGHT 21
 
