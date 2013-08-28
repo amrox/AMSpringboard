@@ -16,43 +16,41 @@
 @protocol AMSpringboardViewDelegate;
 
 @interface AMSpringboardView : UIView <UIScrollViewDelegate, UIGestureRecognizerDelegate>
-{
-    id<AMSpringboardViewDelegate>   _delegate;
-	id<AMSpringboardViewDataSource> _dataSource;
-    
-	UIPageControl*                  _pageControl;
-	UIScrollView*                   _scrollView;
-    UIView*                         _contentView;
-    
-    NSMutableDictionary*            _cells;
-    NSMutableArray*                 _unusedCells;
-    NSUInteger                      _columnPadding;
-    NSIndexPath*                    _selectedIndexPath;
-}
 
 @property (nonatomic, assign) IBOutlet id<AMSpringboardViewDelegate> delegate;
 @property (nonatomic, assign) IBOutlet id<AMSpringboardViewDataSource> dataSource;
 
 - (AMSpringboardViewCell*) dequeueReusableCellWithIdentifier:(NSString*)identifier;
 
-- (void) reloadData;
+- (void)reloadData;
+- (void)reloadCellAtPosition:(NSIndexPath *)position;
 
 @property (nonatomic, assign) NSInteger currentPage;
 
-- (NSIndexPath*) positionForPoint:(CGPoint)point;
+- (NSArray *)indexPathsForVisibleRows;
+- (NSArray *)visibleCells;
+- (AMSpringboardViewCell *)cellForPositionWithIndexPath:(NSIndexPath *)indexPath;
+- (NSIndexPath *)indexPathForCell:(AMSpringboardViewCell *)cell; /* Returns an index path representing of a given cell. */
+
+- (NSIndexPath *)positionForPoint:(CGPoint)point;
+
+/**
+ * @default NO
+ * @discussion if YES, it will notify the delegate after
+ * a touch down event, as opposed to touch up.
+ */
+@property (nonatomic, assign) BOOL selectCellsOnTouchDown;
 
 @end
-
-
 
 
 #pragma mark -
 @protocol AMSpringboardViewDataSource <NSObject>
 
 @required
-- (NSInteger) numberOfPagesInSpringboardView:(AMSpringboardView*)springboardView;
-- (NSInteger) numberOfRowsInSpringboardView:(AMSpringboardView*)springboardView;
-- (NSInteger) numberOfColumnsInSpringboardView:(AMSpringboardView*)springboardView;
+- (NSUInteger) numberOfPagesInSpringboardView:(AMSpringboardView*)springboardView;
+- (NSUInteger) numberOfRowsInSpringboardView:(AMSpringboardView*)springboardView;
+- (NSUInteger) numberOfColumnsInSpringboardView:(AMSpringboardView*)springboardView;
 - (AMSpringboardViewCell*) springboardView:(AMSpringboardView*)springboardView cellForPositionWithIndexPath:(NSIndexPath*)indexPath;
 
 @end

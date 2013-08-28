@@ -6,30 +6,21 @@
 //  Copyright 2011 Andy Mroczkowski. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 #import "AMSpringboardView.h"
 
 @interface AMSpringboardDataProvider : NSObject <AMSpringboardViewDataSource>
-{    
-    NSMutableArray*    _pages;
-    NSInteger          _columnCount;
-    NSInteger          _rowCount;
-}
 
-- (id) init;
 + (id) dataProvider;
 + (id) dataProviderFromDictionary:(NSDictionary*)dict error:(NSError**)outError;
 + (id) dataProviderFromPlistWithPath:(NSString*)path error:(NSError**)outError;
 
 @property (nonatomic, retain) NSMutableArray* pages; // A mutable array of mutable arrays. Must call [springboardView reloadData] after changes.
-@property (nonatomic, assign) NSInteger columnCount; // Must call [springboardView reloadData] after changes.
-@property (nonatomic, assign) NSInteger rowCount;    // Must call [springboardView reloadData] after changes.
+@property (nonatomic, assign) NSUInteger columnCount; // Must call [springboardView reloadData] after changes.
+@property (nonatomic, assign) NSUInteger rowCount;    // Must call [springboardView reloadData] after changes.
 
 - (AMSpringboardItemSpecifier*) itemSpecifierForPosition:(NSIndexPath*)position;
 
 @end
-
 
 
 
