@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B3A2EC1B1343A3E000836F69"
-               BuildableName = "libAMSpringboard.a"
-               BlueprintName = "AMSpringboard"
+               BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+               BuildableName = "AMSpringboardDemo.app"
+               BlueprintName = "AMSpringboardDemo"
                ReferencedContainer = "container:AMSpringboard.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -41,6 +41,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+            BuildableName = "AMSpringboardDemo.app"
+            BlueprintName = "AMSpringboardDemo"
+            ReferencedContainer = "container:AMSpringboard.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -52,6 +61,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+            BuildableName = "AMSpringboardDemo.app"
+            BlueprintName = "AMSpringboardDemo"
+            ReferencedContainer = "container:AMSpringboard.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
