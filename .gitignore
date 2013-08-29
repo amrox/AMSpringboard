@@ -1,2 +1,10 @@
+*.mode1v3
+*.pbxuser
+*.perspectivev3
+*.xcuserstate
+*.mergesave
+*.bak
+.~*
+.DS_Store
+xcuserdata
 Pods
-Podfile.lock

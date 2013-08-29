@@ -54,6 +54,11 @@ NSString* const kAMSpringboardBoardItemIdentifierNull = @"Null";
 	[super dealloc];
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@ %p> %@", NSStringFromClass(self.class), self, self.dictionaryRepresentation];
+}
+
 
 - (NSDictionary*) dictionaryRepresentation
 {
@@ -73,7 +78,7 @@ NSString* const kAMSpringboardBoardItemIdentifierNull = @"Null";
 }
 
 
-#pragma NSCoding
+#pragma mark NSCoding
 
 - (id) initWithCoder:(NSCoder *)aDecoder
 {

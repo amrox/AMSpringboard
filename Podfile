@@ -1,2 +1,5 @@
 platform :ios
-dependency 'AMFoundation'
+
+pod 'AMFoundation'
+
+link_with 'AMSpringboardDemo'

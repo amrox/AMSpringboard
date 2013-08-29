@@ -4,6 +4,12 @@
 
 ## Changelog
 
+### 0.2.0
+ * Project reorganization
+ * Including Demo App
+ * Configurable cell highlight delay
+ * Bugfixes
+
 ### 0.1.6
  * Using CocoaPods
 

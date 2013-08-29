@@ -8,27 +8,12 @@
 
 #import "AMSpringboardDataProvider.h"
 
-#import "AMSpringboard.h"
-
-@interface AMSpringboardDataProvider ()
-
-@end
-
+#import "AMSpringboardViewCell.h"
+#import "AMSpringboardItemSpecifier.h"
+#import "NSIndexPath+AMSpringboard.h"
+#import "AMSpringboardErrors.h"
 
 @implementation AMSpringboardDataProvider
-
-@synthesize pages = _pages;
-@synthesize columnCount = _columnCount;
-@synthesize rowCount = _rowCount;
-
-
-- (id)init
-{
-    self = [super init];
-    if (self) { }
-    return self;
-}
-
 
 + (id) dataProvider
 {
@@ -40,29 +25,29 @@
 {
     AMSpringboardDataProvider* dataProvider = [self dataProvider];
     
-    dataProvider.columnCount = [[dict objectForKey:@"columnCount"] integerValue];
-    dataProvider.rowCount = [[dict objectForKey:@"rowCount"] integerValue];
+    dataProvider.columnCount = [[dict objectForKey:@"columnCount"] unsignedIntegerValue];
+    dataProvider.rowCount = [[dict objectForKey:@"rowCount"] unsignedIntegerValue];
     
     NSArray* rawPages = [dict objectForKey:@"pages"];
     
     NSMutableArray* pages = [[[NSMutableArray alloc] initWithCapacity:[rawPages count]] autorelease];
     
-    for( int i=0; i<[rawPages count]; i++ )
+    for( NSUInteger i=0; i<[rawPages count]; i++ )
     {
         NSArray* rawPage = [rawPages objectAtIndex:i];
         NSMutableArray* page = [NSMutableArray arrayWithCapacity:[rawPage count]];
         [pages addObject:page]; 
         
-        for( int j=0; j<[rawPage count]; j++ )
+        for( NSUInteger j=0; j<[rawPage count]; j++ )
         {
-            NSDictionary* dict = [rawPage objectAtIndex:j];
-            if( [[dict objectForKey:kAMSpringboardBoardItemIdentifier] isEqualToString:kAMSpringboardBoardItemIdentifierNull] )
+            NSDictionary* pageDict = [rawPage objectAtIndex:j];
+            if( [[pageDict objectForKey:kAMSpringboardBoardItemIdentifier] isEqualToString:kAMSpringboardBoardItemIdentifierNull] )
             {
                 [page addObject:[AMSpringboardNullItem nullItem]];
             }
             else
             {
-                AMSpringboardItemSpecifier* item = [[AMSpringboardItemSpecifier alloc] initWithDictionary:dict];
+                AMSpringboardItemSpecifier* item = [[AMSpringboardItemSpecifier alloc] initWithDictionary:pageDict];
                 [page addObject:item];
                 [item release];
             }
@@ -120,13 +105,8 @@
 - (AMSpringboardItemSpecifier*) itemSpecifierForPosition:(NSIndexPath*)position
 {
     NSArray* items = [self.pages objectAtIndex:[position springboardPage]];
-
-    // column major
-//    NSUInteger index = [position springboardColumn]*self.rowCount + [position springboardRow];
-    
-    // row major
     NSUInteger index = [position springboardColumn] + [position springboardRow]*self.columnCount;
-    
+
     if( index >= [items count] )
         return nil;
     
@@ -137,24 +117,21 @@
     return item;
 }
 
-
-
-
 #pragma mark AMSpringboardViewDataSource
 
-- (NSInteger) numberOfPagesInSpringboardView:(AMSpringboardView*)springboardView
+- (NSUInteger) numberOfPagesInSpringboardView:(AMSpringboardView*)springboardView
 {
     return [self.pages count];
 }
 
 
-- (NSInteger) numberOfRowsInSpringboardView:(AMSpringboardView*)springboardView
+- (NSUInteger) numberOfRowsInSpringboardView:(AMSpringboardView*)springboardView
 {
     return self.rowCount;
 }
 
 
-- (NSInteger) numberOfColumnsInSpringboardView:(AMSpringboardView*)springboardView
+- (NSUInteger) numberOfColumnsInSpringboardView:(AMSpringboardView*)springboardView
 {
     return self.columnCount;
 }
@@ -178,14 +155,10 @@
     return cell;
 }
 
-
 @end
 
 
-
-
 @implementation AMSpringboardDataProvider (Subclass)
-
 
 - (AMSpringboardViewCell*) makeCellWithIdentifier:(NSString*)identifier
 {
