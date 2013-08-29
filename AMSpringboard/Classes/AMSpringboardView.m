@@ -638,11 +638,6 @@
 #pragma mark -
 @implementation AMSpringboardContentView
 
-- (void)notifyTouch:(UITouch *)touch
-{
-    [self.springboardView informDelegateOfSelectedCellPosition];
-}
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     NSIndexPath* position = [self.springboardView positionForTouch:[touches anyObject]];
