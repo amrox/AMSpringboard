@@ -8,7 +8,6 @@
 
 #import "NSIndexPath+AMSpringboard.h"
 
-
 @implementation NSIndexPath (AMSpringboard)
 
 
