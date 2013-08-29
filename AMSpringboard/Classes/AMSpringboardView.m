@@ -10,22 +10,24 @@
 
 #import <AMFoundation/AMGeometry.h>
 
+#import "AMSpringboardViewCell.h"
+#import "AMSpringboardItemSpecifier.h"
 #import "NSIndexPath+AMSpringboard.h"
 
 #define kDefaultColumnPadding (1)
 #define VALID_SPRINBOARD_CELL(obj) (obj != nil && (id)obj != [NSNull null])
-#define kCellHighlightDelay (0.1)
 
 @class AMSpringboardContentView;
 
 @interface AMSpringboardView ()
-@property (nonatomic, retain) UIScrollView* scrollView;
-@property (nonatomic, retain) UIPageControl* pageControl;
-@property (nonatomic, retain) AMSpringboardContentView* contentView;
-@property (nonatomic, retain) NSMutableDictionary* cells;
-@property (nonatomic, retain) NSMutableArray* unusedCells;
+@property (nonatomic, retain) UIScrollView *scrollView;
+@property (nonatomic, retain) UIPageControl *pageControl;
+@property (nonatomic, retain) AMSpringboardContentView *contentView;
+@property (nonatomic, retain) NSMutableDictionary *cells;
+@property (nonatomic, retain) NSMutableArray *unusedCells;
 @property (nonatomic, assign) NSUInteger columnPadding;
-@property (nonatomic, retain) NSIndexPath* selectedPosition;
+@property (nonatomic, retain) NSIndexPath *selectedPosition;
+@property (nonatomic, retain) NSIndexPath *positionBeingSelectedAfterDelay;
 - (NSUInteger) pageCount;
 - (NSUInteger) rowCount;
 - (NSUInteger) columnCount;
@@ -38,7 +40,6 @@
 
 @interface AMSpringboardContentView : UIView
 @property (nonatomic, assign) AMSpringboardView* springboardView;
-@property (nonatomic, assign) BOOL selectCellsOnTouchDown;
 @end
 
 
@@ -83,6 +84,7 @@
     _cells = [[NSMutableDictionary alloc] init];
     _unusedCells = [[NSMutableArray alloc] init];
     _columnPadding = kDefaultColumnPadding;
+    _cellSelectionDelay = kAMSpringboarViewCellSeletionDelayDefault;
     
 	_pageControl = [[UIPageControl alloc] initWithFrame:CGRectZero];
 	_pageControl.hidesForSinglePage = YES;
@@ -144,6 +146,7 @@
     [_contentView release];
     [_unusedCells release];
     [_cells release];
+    [_positionBeingSelectedAfterDelay release];
 	[super dealloc];
 }
 
@@ -218,9 +221,9 @@
 }
 
 
-- (AMSpringboardViewCell*) cellForPositionWithIndexPath:(NSIndexPath*)indexPath
+- (AMSpringboardViewCell *)cellForPositionWithIndexPath:(NSIndexPath *)indexPath
 {
-    AMSpringboardViewCell* cell = [self.cells objectForKey:indexPath];
+    AMSpringboardViewCell *cell = [self.cells objectForKey:indexPath];
     if( cell == nil )
     {
         cell = [self.dataSource springboardView:self cellForPositionWithIndexPath:indexPath];
@@ -389,7 +392,7 @@
 }
 
 
-- (NSIndexPath*) positionForPoint:(CGPoint)point
+- (NSIndexPath *)positionForPoint:(CGPoint)point
 {
     if( !([self columnCount] > 0 && [self rowCount] > 0) )
         return nil;
@@ -410,6 +413,12 @@
     row = MIN([self rowCount]-1, row);
     
     return [NSIndexPath indexPathForSpringboardPage:page column:col row:row];
+}
+
+- (NSIndexPath *)positionForTouch:(UITouch *)touch
+{
+    CGPoint p = [touch locationInView:self.contentView];
+    return [self positionForPoint:p];
 }
 
 - (NSArray *)indexPathsForVisibleRows
@@ -537,8 +546,7 @@
     self.pageControl.currentPage = self.currentPage;
 }
 
-
-- (void) deselectCellWithPosition:(NSIndexPath*)position
+- (void)deselectCellWithPosition:(NSIndexPath *)position
 {
     id cell = [self cellForPositionWithIndexPath:position];
     if( VALID_SPRINBOARD_CELL(cell) )
@@ -548,35 +556,60 @@
     self.selectedPosition = nil;
 }
 
-
-- (void) deselectSelectedCell
+- (void)deselectSelectedCell
 {
-    if( self.selectedPosition )
+    if (self.selectedPosition)
     {
         [self deselectCellWithPosition:self.selectedPosition];
     }
 }
 
-
-- (void) selectCellWithPosition:(NSIndexPath*)position
+- (void)selectCellWithPosition:(NSIndexPath *)position
 {
-    if( self.selectedPosition != nil )
+    [self cancelExistingDelayedSelectionOfCell];
+
+    if (self.selectedPosition != nil)
     {
         [self deselectCellWithPosition:position];
     }
-    
+
     id cell = [self cellForPositionWithIndexPath:position];
-    if( VALID_SPRINBOARD_CELL(cell) )
+    if (VALID_SPRINBOARD_CELL(cell))
     {
-        [cell setHighlighted:YES];
+        if (!self.shouldSelectCellsOnTouchDown)
+            [cell setHighlighted:YES];
         self.selectedPosition = position;
     }
 }
 
-
-- (void) informDelegateOfSelectedCellPosition
+- (void)selectCellWithPosition:(NSIndexPath *)position afterDelay:(NSTimeInterval)delay
 {
-    if( self.selectedPosition != nil )
+    self.positionBeingSelectedAfterDelay = position;
+    [self performSelector:@selector(selectCellWithPosition:) withObject:position afterDelay:delay];
+}
+
+- (void)delayedSelectionOfCellWithPosition:(NSIndexPath *)position
+{
+    [self selectCellWithPosition:position afterDelay:self.cellSelectionDelay];
+}
+
+- (void)cancelDelayedSelectionOfCellWithPosition:(NSIndexPath *)position
+{
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(selectCellWithPosition:) object:position];
+}
+
+- (void)cancelExistingDelayedSelectionOfCell
+{
+    if (self.positionBeingSelectedAfterDelay != nil)
+    {
+        [self cancelDelayedSelectionOfCellWithPosition:self.positionBeingSelectedAfterDelay];
+        self.positionBeingSelectedAfterDelay = nil;
+    }
+}
+
+- (void)informDelegateOfSelectedCellPosition
+{
+    if (self.selectedPosition != nil)
     {
         [self.delegate springboardView:self
              didSelectCellWithPosition:self.selectedPosition];
@@ -584,8 +617,7 @@
     }
 }
 
-
-- (BOOL) isValidPosition:(NSIndexPath*)position
+- (BOOL)isValidPosition:(NSIndexPath *)position
 {
     if( [position springboardPage] >= [self pageCount] ) // unsigned so don't have to check for negative
         return NO;
@@ -595,18 +627,8 @@
     
     if( [position springboardRow] >= [self rowCount] ) // unsigned so don't have to check for negative
         return NO;
-    
+
     return YES;
-}
-
-- (void)setSelectCellsOnTouchDown:(BOOL)selectCellsOnTouchDown
-{
-    self.contentView.selectCellsOnTouchDown = selectCellsOnTouchDown;
-}
-
-- (BOOL)selectCellsOnTouchDown
-{
-    return self.contentView.selectCellsOnTouchDown;
 }
 
 @end
@@ -618,28 +640,37 @@
 
 - (void)notifyTouch:(UITouch *)touch
 {
-    CGPoint p = [touch locationInView:self.springboardView.contentView];
-    
-    NSIndexPath* position = [self.springboardView positionForPoint:p];
-    
-    [self.springboardView selectCellWithPosition:position];
     [self.springboardView informDelegateOfSelectedCellPosition];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if (self.selectCellsOnTouchDown)
+    NSIndexPath* position = [self.springboardView positionForTouch:[touches anyObject]];
+
+    if (self.springboardView.shouldSelectCellsOnTouchDown)
     {
-        [self notifyTouch:[touches anyObject]];
+        [self.springboardView selectCellWithPosition:position];
+        [self.springboardView informDelegateOfSelectedCellPosition];
+    }
+    else
+    {
+        [self.springboardView delayedSelectionOfCellWithPosition:position];
     }
 }
 
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.springboardView cancelExistingDelayedSelectionOfCell];
+
+    [self.springboardView deselectSelectedCell];
+}
+
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if (!self.selectCellsOnTouchDown)
-    {
-        [self notifyTouch:[touches anyObject]];
-    }
+    [self.springboardView cancelExistingDelayedSelectionOfCell];
+    
+    [self.springboardView informDelegateOfSelectedCellPosition];
 }
 
 @end

@@ -17,24 +17,31 @@ typedef enum {
 
 @interface AMSpringboardViewCell : UIView
 
-- (id) initWithStyle:(AMSpringboardViewCellStyle)style reuseIdentifier:(NSString*)identifier;
-- (id) initWithStyle:(AMSpringboardViewCellStyle)style reuseIdentifier:(NSString*)identifier size:(CGSize)size;
+- (id) initWithStyle:(AMSpringboardViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+- (id) initWithStyle:(AMSpringboardViewCellStyle)style reuseIdentifier:(NSString *)identifier size:(CGSize)size;
 - (id) initWithStyle:(AMSpringboardViewCellStyle)style
-     reuseIdentifier:(NSString*)identifier
+     reuseIdentifier:(NSString *)reuseIdentifier
                 size:(CGSize)size
             fontName:(NSString *)fontName;
 
-@property (nonatomic, readonly, retain) UIImageView* imageView; // default is nil.  label will be created if necessary.
-@property (nonatomic, retain) UIImage* image;
+@property (nonatomic, readonly, retain) UIImageView *imageView; // default is nil.  label will be created if necessary.
+@property (nonatomic, retain) UIImage *image;
 
-@property (nonatomic,readonly,retain) UILabel* textLabel; // default is nil.  label will be created if necessary.
+@property (nonatomic, readonly, retain) UILabel *textLabel; // default is nil.  label will be created if necessary.
 
 @property (nonatomic, assign) BOOL highlighted;
 
-@property (nonatomic,readonly,copy) NSString* reuseIdentifier;
+@property (nonatomic, readonly, copy) NSString *reuseIdentifier;
 
 @property (nonatomic, readonly, assign) CGFloat labelFontSize;
 
-- (void) prepareForReuse;
+- (void)prepareForReuse;
+
+#pragma mark Subclasses
+
+/**
+ @default YES
+ */
+- (BOOL)shouldShadeImageWhenHighlighted;
 
 @end

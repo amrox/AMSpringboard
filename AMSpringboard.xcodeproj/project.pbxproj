@@ -86,6 +86,7 @@
 		B3A2EC1C1343A3E000836F69 /* libAMSpringboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAMSpringboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A2EC201343A3E000836F69 /* AMSpringboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AMSpringboard-Prefix.pch"; path = "AMSpringboard/AMSpringboard-Prefix.pch"; sourceTree = "<group>"; };
 		B3C12DAE13392332008F8C17 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B3FF333217CEEBCF00513212 /* AMSpringboardErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AMSpringboardErrors.h; path = AMSpringboard/Classes/AMSpringboardErrors.h; sourceTree = SOURCE_ROOT; };
 		FFB4561C32E04024815C1503 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -163,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				B387B93017CE722900128198 /* AMSpringboard.h */,
+				B3FF333217CEEBCF00513212 /* AMSpringboardErrors.h */,
 				B387B93517CE722900128198 /* AMSpringboardView.h */,
 				B387B93617CE722900128198 /* AMSpringboardView.m */,
 				B387B93717CE722900128198 /* AMSpringboardViewCell.h */,

@@ -54,9 +54,9 @@
 @synthesize labelFontSize = _labelFontSize;
 
 
-- (void) setupViewForStyle:(AMSpringboardViewCellStyle)style fontName:(NSString *)fontName
+- (void)setupViewForStyle:(AMSpringboardViewCellStyle)style fontName:(NSString *)fontName
 {
-	if( style == AMSpringboardViewCellStyleDefault || style == AMSpringboardViewCellStyleMultiline)
+	if (style == AMSpringboardViewCellStyleDefault || style == AMSpringboardViewCellStyleMultiline)
     {
         self.opaque = NO;
         
@@ -68,13 +68,13 @@
         self.highlightView.cell = self;
         [self addSubview:self.highlightView];
         
-        if( style == AMSpringboardViewCellStyleDefault )
+        if (style == AMSpringboardViewCellStyleDefault)
         {
             [self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-LABEL_HEIGHT,
                                                                         self.bounds.size.width, LABEL_HEIGHT)] release];
             
             self.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-            self.textLabel.backgroundColor = [UIColor clearColor];
+//            self.textLabel.backgroundColor = [UIColor clearColor];
             self.textLabel.font = fontName ? [UIFont fontWithName:fontName size:self.labelFontSize] :
                                              [UIFont systemFontOfSize:self.labelFontSize];
             self.textLabel.textColor = UICOLOR_RGB_BYTE(91, 73, 120, 255);
@@ -101,19 +101,18 @@
 }
 
 
-- (id) initWithStyle:(AMSpringboardViewCellStyle)style reuseIdentifier:(NSString*)identifier
+- (id)initWithStyle:(AMSpringboardViewCellStyle)style reuseIdentifier:(NSString *)identifier
 {
     return [self initWithStyle:style reuseIdentifier:identifier size:CGSizeMake(DEFAULT_WIDTH, DEFAULT_HEIGHT)];
 }
 
-- (id) initWithStyle:(AMSpringboardViewCellStyle)style reuseIdentifier:(NSString*)identifier size:(CGSize)size
+- (id)initWithStyle:(AMSpringboardViewCellStyle)style reuseIdentifier:(NSString *)identifier size:(CGSize)size
 {
     
     return [self initWithStyle:style
                reuseIdentifier:identifier
                           size:size
                       fontName:nil];
-    
 }
 
 - (id) initWithStyle:(AMSpringboardViewCellStyle)style
@@ -140,20 +139,12 @@
 	[super dealloc];
 }
 
-- (CGRect) imageFrame
-{    
-    CGSize containerSize = self.frame.size;
-    containerSize.height -= LABEL_HEIGHT;
-    
-    CGSize imageSize = containerSize;
-    
-    if (self.imageView.image != nil)
-        imageSize.width = imageSize.height * (self.imageView.image.size.width / self.imageView.image.size.height);
-    
-    imageSize.width = floorf(imageSize.width * 0.7f);
-    imageSize.height = floorf(imageSize.height * 0.7f);
-    
-    return CGRectMake(ceilf(containerSize.width / 2.0f - imageSize.width / 2.0f), ceilf(containerSize.height / 2.0f - imageSize.height / 2.0f), imageSize.width, imageSize.height);
+- (CGRect)imageFrame
+{
+    CGRect imageFrame = self.bounds;
+    imageFrame.size.height -= LABEL_HEIGHT;
+    imageFrame = AMRectInsetWithAspectRatio(imageFrame, 1);
+    return imageFrame;
 }
 
 - (CGFloat)labelFontSize
@@ -208,16 +199,18 @@
 // default implementation does nothing
 - (void) prepareForReuse {}
 
+- (BOOL)shouldShadeImageWhenHighlighted
+{
+    return YES;
+}
 
 @end
 
 
 @implementation AMSpringboardCellHighlightView : UIView
 
-@synthesize cell = _cell;
-
-
-- (id)initWithFrame:(CGRect)frame {
+- (id)initWithFrame:(CGRect)frame
+{
     self = [super initWithFrame:frame];
     if (self)
     {
@@ -228,7 +221,7 @@
 
 - (void) drawRect:(CGRect)rect
 {
-    if( self.cell.highlighted )
+    if ([self.cell shouldShadeImageWhenHighlighted] && self.cell.highlighted)
     {
         CGContextRef context = UIGraphicsGetCurrentContext();
         CGContextSaveGState(context);
@@ -245,7 +238,7 @@
         
         UIColor* color = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4f];
         CGContextSetFillColor(context, CGColorGetComponents(color.CGColor));      
-        CGContextFillRect (context, rect);
+        CGContextFillRect(context, rect);
         
         CGContextRestoreGState(context);
     }

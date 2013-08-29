@@ -8,18 +8,12 @@
 
 #import "AMSpringboardDataProvider.h"
 
-#import "AMSpringboard.h"
-
-@interface AMSpringboardDataProvider ()
-
-@end
-
+#import "AMSpringboardViewCell.h"
+#import "AMSpringboardItemSpecifier.h"
+#import "NSIndexPath+AMSpringboard.h"
+#import "AMSpringboardErrors.h"
 
 @implementation AMSpringboardDataProvider
-
-@synthesize pages = _pages;
-@synthesize columnCount = _columnCount;
-@synthesize rowCount = _rowCount;
 
 + (id) dataProvider
 {
@@ -161,14 +155,10 @@
     return cell;
 }
 
-
 @end
 
 
-
-
 @implementation AMSpringboardDataProvider (Subclass)
-
 
 - (AMSpringboardViewCell*) makeCellWithIdentifier:(NSString*)identifier
 {

@@ -44,6 +44,7 @@
     springboardView.delegate = self;
 	springboardView.dataSource = self;
     springboardView.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
+    springboardView.shouldSelectCellsOnTouchDown = YES;
 }
 
 - (void)viewDidUnload

@@ -6,12 +6,13 @@
 //  Copyright 2011 Andy Mroczkowski. All rights reserved.
 //
 
+#ifndef AMSpringboard_h
+#define AMSpringboard_h
+
 #import "AMSpringboardView.h"
 #import "AMSpringboardViewCell.h"
 #import "NSIndexPath+AMSpringboard.h"
+#import "AMSpringboardItemSpecifier.h"
+#import "AMSpringboardErrors.h"
 
-enum AMSpingboardErrorCode {
-    AMSpringboardUnkownPlistFormatError = 1,
-};
-
-#define AMSpringboardErrorDomain @"com.amerzing.AMSpringboard"
+#endif

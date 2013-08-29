@@ -8,19 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AMSpringboardViewCell.h"
-#import "NSIndexPath+AMSpringboard.h"
-#import "AMSpringboardItemSpecifier.h"
+
+@class AMSpringboardViewCell;
 
 @protocol AMSpringboardViewDataSource;
 @protocol AMSpringboardViewDelegate;
+
+#define kAMSpringboarViewCellSeletionDelayNone    (0.0f)
+#define kAMSpringboarViewCellSeletionDelayDefault (0.1f)
 
 @interface AMSpringboardView : UIView <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, assign) IBOutlet id<AMSpringboardViewDelegate> delegate;
 @property (nonatomic, assign) IBOutlet id<AMSpringboardViewDataSource> dataSource;
 
-- (AMSpringboardViewCell*) dequeueReusableCellWithIdentifier:(NSString*)identifier;
+- (AMSpringboardViewCell *)dequeueReusableCellWithIdentifier:(NSString*)identifier;
 
 - (void)reloadData;
 - (void)reloadCellAtPosition:(NSIndexPath *)position;
@@ -39,7 +41,9 @@
  * @discussion if YES, it will notify the delegate after
  * a touch down event, as opposed to touch up.
  */
-@property (nonatomic, assign) BOOL selectCellsOnTouchDown;
+@property (nonatomic, assign) BOOL shouldSelectCellsOnTouchDown;
+
+@property (nonatomic, assign) NSTimeInterval cellSelectionDelay;
 
 @end
 
@@ -48,14 +52,12 @@
 @protocol AMSpringboardViewDataSource <NSObject>
 
 @required
-- (NSUInteger) numberOfPagesInSpringboardView:(AMSpringboardView*)springboardView;
-- (NSUInteger) numberOfRowsInSpringboardView:(AMSpringboardView*)springboardView;
-- (NSUInteger) numberOfColumnsInSpringboardView:(AMSpringboardView*)springboardView;
-- (AMSpringboardViewCell*) springboardView:(AMSpringboardView*)springboardView cellForPositionWithIndexPath:(NSIndexPath*)indexPath;
+- (NSUInteger)numberOfPagesInSpringboardView:(AMSpringboardView *)springboardView;
+- (NSUInteger)numberOfRowsInSpringboardView:(AMSpringboardView *)springboardView;
+- (NSUInteger)numberOfColumnsInSpringboardView:(AMSpringboardView *)springboardView;
+- (AMSpringboardViewCell *)springboardView:(AMSpringboardView *)springboardView cellForPositionWithIndexPath:(NSIndexPath *)indexPath;
 
 @end
-
-
 
 
 #pragma mark -
