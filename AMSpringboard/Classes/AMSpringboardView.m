@@ -84,7 +84,7 @@
     _cells = [[NSMutableDictionary alloc] init];
     _unusedCells = [[NSMutableArray alloc] init];
     _columnPadding = kDefaultColumnPadding;
-    _cellSelectionDelay = kAMSpringboarViewCellSeletionDelayDefault;
+    _cellSelectionDelay = kAMSpringboarViewCellSelectionDelayDefault;
     
 	_pageControl = [[UIPageControl alloc] initWithFrame:CGRectZero];
 	_pageControl.hidesForSinglePage = YES;

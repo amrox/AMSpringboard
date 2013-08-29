@@ -14,8 +14,8 @@
 @protocol AMSpringboardViewDataSource;
 @protocol AMSpringboardViewDelegate;
 
-#define kAMSpringboarViewCellSeletionDelayNone    (0.0f)
-#define kAMSpringboarViewCellSeletionDelayDefault (0.1f)
+#define kAMSpringboarViewCellSelectionDelayNone    (0.0f)
+#define kAMSpringboarViewCellSelectionDelayDefault (0.1f)
 
 @interface AMSpringboardView : UIView <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
