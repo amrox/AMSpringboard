@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '6.0'
   s.source_files = 'AMSpringboard/Classes/**/*.{h,m}'
   s.frameworks   = 'Foundation', 'UIKit'
-  s.dependency 'AMFoundation'
+  s.dependency 'AMFoundation', '~> 0.1.4'
 end
