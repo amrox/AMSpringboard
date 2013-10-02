@@ -10,6 +10,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		3E53B01611464695A912685C /* libPods-AMSpringboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2765D6E10F2F47649EFAA236 /* libPods-AMSpringboard.a */; };
 		B387B93D17CE722900128198 /* AMSpringboard.h in Headers */ = {isa = PBXBuildFile; fileRef = B387B93017CE722900128198 /* AMSpringboard.h */; };
 		B387B93E17CE722900128198 /* AMSpringboardDataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = B387B93117CE722900128198 /* AMSpringboardDataProvider.h */; };
 		B387B93F17CE722900128198 /* AMSpringboardDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B387B93217CE722900128198 /* AMSpringboardDataProvider.m */; };
@@ -36,7 +37,6 @@
 		B3A2EC1D1343A3E000836F69 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		B3A2EC3A1343AEE400836F69 /* libAMSpringboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3A2EC1C1343A3E000836F69 /* libAMSpringboard.a */; };
 		B3C12DAF13392332008F8C17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C12DAE13392332008F8C17 /* QuartzCore.framework */; };
-		B8FC5341A9B6462698D1DABF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB4561C32E04024815C1503 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +53,9 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* AMSpringboardDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMSpringboardDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2765D6E10F2F47649EFAA236 /* libPods-AMSpringboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMSpringboard.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		94E86D69DBE44A67A2EEE455 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		9329431D7AD34D8E90CB90C2 /* Pods-AMSpringboard.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMSpringboard.xcconfig"; path = "Pods/Pods-AMSpringboard.xcconfig"; sourceTree = "<group>"; };
 		B387B93017CE722900128198 /* AMSpringboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSpringboard.h; path = AMSpringboard/Classes/AMSpringboard.h; sourceTree = SOURCE_ROOT; };
 		B387B93117CE722900128198 /* AMSpringboardDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSpringboardDataProvider.h; path = AMSpringboard/Classes/AMSpringboardDataProvider.h; sourceTree = SOURCE_ROOT; };
 		B387B93217CE722900128198 /* AMSpringboardDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSpringboardDataProvider.m; path = AMSpringboard/Classes/AMSpringboardDataProvider.m; sourceTree = SOURCE_ROOT; };
@@ -87,6 +88,7 @@
 		B3A2EC201343A3E000836F69 /* AMSpringboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AMSpringboard-Prefix.pch"; path = "AMSpringboard/AMSpringboard-Prefix.pch"; sourceTree = "<group>"; };
 		B3C12DAE13392332008F8C17 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B3FF333217CEEBCF00513212 /* AMSpringboardErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AMSpringboardErrors.h; path = AMSpringboard/Classes/AMSpringboardErrors.h; sourceTree = SOURCE_ROOT; };
+		C0C679CE371E4C0680426AF8 /* libPods-AMSpringboard-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMSpringboard-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB4561C32E04024815C1503 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -100,7 +102,7 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
-				B8FC5341A9B6462698D1DABF /* libPods.a in Frameworks */,
+				3E53B01611464695A912685C /* libPods-AMSpringboard.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +132,7 @@
 				B387B94A17CE72A700128198 /* AMSpringboardDemo */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				94E86D69DBE44A67A2EEE455 /* Pods.xcconfig */,
+				9329431D7AD34D8E90CB90C2 /* Pods-AMSpringboard.xcconfig */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -156,6 +158,8 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				FFB4561C32E04024815C1503 /* libPods.a */,
+				2765D6E10F2F47649EFAA236 /* libPods-AMSpringboard.a */,
+				C0C679CE371E4C0680426AF8 /* libPods-AMSpringboard-Demo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -352,7 +356,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-AMSpringboard-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4D046C6DEC174B93A149F29D /* Check Pods Manifest.lock */ = {
@@ -382,7 +386,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-AMSpringboard-Demo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E79B4ED1DB6141CE93ACB586 /* Check Pods Manifest.lock */ = {
@@ -440,7 +444,7 @@
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94E86D69DBE44A67A2EEE455 /* Pods.xcconfig */;
+			baseConfigurationReference = 9329431D7AD34D8E90CB90C2 /* Pods-AMSpringboard.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
@@ -457,7 +461,7 @@
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94E86D69DBE44A67A2EEE455 /* Pods.xcconfig */;
+			baseConfigurationReference = 9329431D7AD34D8E90CB90C2 /* Pods-AMSpringboard.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
@@ -472,7 +476,7 @@
 		};
 		B3A2EC221343A3E000836F69 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94E86D69DBE44A67A2EEE455 /* Pods.xcconfig */;
+			baseConfigurationReference = 9329431D7AD34D8E90CB90C2 /* Pods-AMSpringboard.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/AMSpringboard.dst;
@@ -482,7 +486,7 @@
 				GCC_PREFIX_HEADER = "AMSpringboard/AMSpringboard-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -490,14 +494,14 @@
 		};
 		B3A2EC231343A3E000836F69 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94E86D69DBE44A67A2EEE455 /* Pods.xcconfig */;
+			baseConfigurationReference = 9329431D7AD34D8E90CB90C2 /* Pods-AMSpringboard.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/AMSpringboard.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMSpringboard/AMSpringboard-Prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -511,7 +515,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -524,7 +528,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};
