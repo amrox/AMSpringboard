@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'AMSpringboard'
-  s.version      = '0.2.0'
+  s.version      = '0.2.1'
   s.summary      = 'A simple Springboard view, following the Data Source / Delegate pattern.'
   s.homepage     = 'https://github.com/amrox/AMSpringboard'
   s.author       = { 'Andy Mroczkowski' => 'andy@mrox.net' }
