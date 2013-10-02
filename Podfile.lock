@@ -1,10 +1,15 @@
 PODS:
-  - AMFoundation (0.1.3)
+  - AMFoundation (0.2.0)
 
 DEPENDENCIES:
-  - AMFoundation
+  - AMFoundation (from `https://github.com/amrox/AMFoundation.git`)
+  - AMFoundation (~> 0.2.0)
+
+EXTERNAL SOURCES:
+  AMFoundation:
+    :git: https://github.com/amrox/AMFoundation.git
 
 SPEC CHECKSUMS:
-  AMFoundation: b0ad92f6b41a71948da7e80529e181ba76f2a2fd
+  AMFoundation: 5b33a1460255ba6f9cd25877c3c27fec51669eae
 
-COCOAPODS: 0.23.0
+COCOAPODS: 0.25.0

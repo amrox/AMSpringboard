@@ -1,8 +1,11 @@
 # AMSpringboard
 
-* Version: 0.2.0
+* Version: 0.2.1
 
 ## Changelog
+
+### 0.2.1
+ * Modernizations
 
 ### 0.2.0
  * Project reorganization
